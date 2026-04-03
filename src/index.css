@@ -9,8 +9,8 @@
 
 .rolling-text .letter {
   display: inline-flex;
-  flex-direction: column;
-  height: 30px;
+   flex-direction: column;
+  justify-content: center;
   transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
 }
 

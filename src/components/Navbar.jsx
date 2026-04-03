@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const navItems = ["HOME", "ABOUT", "SERVICES", "WORKS", "BLOG", "CONTACT"];
 
@@ -20,7 +20,7 @@ function RollingText({ text, active, previous, darkMode }) {
     <span
       className={`rolling-text ${play ? "play" : ""} ${
         darkMode ? "text-white" : "text-[#111111]"
-      }`}
+      } text-14px font-medium `}
     >
       {letters.map((letter, index) => (
         <span key={`${text}-${index}`} className="letter inline-block">
@@ -36,6 +36,18 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const [active, setActive] = useState("HOME");
   const [previous, setPrevious] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (item) => {
     if (item === active) return;
@@ -48,7 +60,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   };
 
   return (
-    <header className="w-full transition-all duration-500">
+    <header className="sticky top-0 z-50 w-full transition-all duration-500">
       <div className="mx-auto flex max-w-480 items-center justify-between px-5 py-4 md:px-10 lg:px-20">
         {/* Logo */}
         <div className="shrink-0">
@@ -63,10 +75,14 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
         {/* Desktop Nav */}
         <nav
-          className={`hidden items-center justify-center rounded-[20px] px-8 py-3 lg:flex transition-all duration-500 ${
+          className={`hidden items-center justify-center rounded-[20px] px-8 py-2 lg:flex backdrop-blur-xl transition-all duration-500 ${
             darkMode
-              ? "bg-[rgba(20,20,22,0.92)] backdrop-blur-[6rem]"
-              : "bg-[#e9e9e9] backdrop-blur-[6rem]"
+              ? scrolled
+                ? "bg-[rgba(20,20,22,0.6)] backdrop-blur-xl"
+                : "bg-[rgba(20,20,22,0.92)] backdrop-blur-[6rem]"
+              : scrolled
+                ? "bg-[rgba(255,255,255,0.6)] backdrop-blur-xl"
+                : "bg-[#e9e9e9] backdrop-blur-[6rem]"
           }`}
         >
           <ul className="flex items-center gap-10 xl:gap-14">
@@ -128,8 +144,10 @@ export default function Navbar({ darkMode, setDarkMode }) {
         }`}
       >
         <div
-          className={`mx-5 rounded-[20px] px-6 py-5 md:mx-10 ${
-            darkMode ? "bg-[#141416]" : "bg-[#f1f1f1]"
+          className={`mx-5 rounded-[20px] px-6 py-5 md:mx-10 transition-all duration-500 ${
+            darkMode
+              ? "bg-[rgba(20,20,24,0.8)] backdrop-blur-xl"
+              : "bg-[rgba(255,255,255,0.7)] backdrop-blur-xl"
           }`}
         >
           <ul className="flex flex-col gap-5">
