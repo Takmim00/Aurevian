@@ -101,3 +101,91 @@
   transform: translate(-50%, -50%) scale(6);
   opacity: 0.1;
 }
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.water-image-3d {
+  position: absolute;
+  inset: -5%;
+  background-image: url("/hero-wave.png");
+  background-size: cover;
+  background-position: center;
+  filter: url(#waterDistortion);
+  transform: scale(1.08);
+  animation: slowFloat 20s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.water-overlay-3d {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
+    radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.3));
+}
+
+/* slow camera drift */
+@keyframes slowFloat {
+  0% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.12) translate3d(-20px, 10px, 0);
+  }
+  100% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+}
+
+.hero-grid {
+  background-color: #08090d;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.hero-vignette {
+  background:
+    radial-gradient(circle at center, transparent 0%, rgba(8, 9, 13, 0.08) 45%, rgba(8, 9, 13, 0.82) 100%),
+    linear-gradient(180deg, rgba(8, 9, 13, 0.45) 0%, rgba(8, 9, 13, 0.15) 34%, rgba(8, 9, 13, 0.62) 100%);
+}
+
+.hero-radial {
+  background: radial-gradient(circle, rgba(76, 194, 255, 0.12) 0%, rgba(76, 194, 255, 0.03) 45%, transparent 72%);
+}
+
+.rotating-ring {
+  animation: spinRing 20s linear infinite;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.08));
+}
+
+.hero-logo-shell {
+  animation: floatLogo 5.5s ease-in-out infinite;
+}
+
+@keyframes spinRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatLogo {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

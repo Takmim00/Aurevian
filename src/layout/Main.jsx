@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import Cursor from "../components/Cursor";
+import Navbar from "../components/Navbar";
 
 const Main = () => {
   const [darkMode, setDarkMode] = useState(true);
