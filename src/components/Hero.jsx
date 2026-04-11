@@ -25,7 +25,7 @@ export default function Hero() {
 
       {/* Content */}
       <section className="relative z-10 overflow-hidden px-5 pb-16 pt-8 md:px-10 md:pb-24 lg:px-20 lg:pt-10">
-        <div className="relative mx-auto flex max-w-[1600px] flex-col justify-between">
+        <div className="relative mx-auto flex max-w-400 flex-col justify-between">
           <div className="pt-6 md:pt-10 lg:pt-14">
             <h1 className="text-4xl font-medium text-white sm:text-[72px]">
               Engineering intelligent
