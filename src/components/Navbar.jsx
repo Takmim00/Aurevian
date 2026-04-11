@@ -50,8 +50,20 @@ export default function Navbar() {
 
   const handleNavClick = (item) => {
     if (item === active) return;
+
     setPrevious(active);
     setActive(item);
+
+    // 👇 scroll part
+    const sectionId = item.toLowerCase(); // SERVICES → services
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
 
     setTimeout(() => {
       setPrevious("");

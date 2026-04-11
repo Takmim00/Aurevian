@@ -9,7 +9,7 @@ const serviceItems = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden pt-28 lg:pt-32">
+    <section id="home" className="relative min-h-screen overflow-hidden pt-28 lg:pt-32">
       {/* Background Video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"

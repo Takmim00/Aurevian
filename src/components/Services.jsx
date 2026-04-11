@@ -32,7 +32,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-black px-4 py-16 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14">
+    <section id="services" className="bg-black px-4 py-16 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14">
       <div className="mx-auto max-w-400">
         <div className="mb-10 md:mb-14">
           {/* Top: Our Services */}
