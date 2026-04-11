@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import Water3D from "./Water3D";
 
 const serviceItems = [
   "AI Product Engineering",
@@ -10,12 +9,25 @@ const serviceItems = [
 
 export default function Hero() {
   return (
-    <section className="relative  overflow-hidden">
-      <Water3D />
-      <section className="z-10 relative overflow-hidden px-5 pb-16 pt-8 md:px-10 md:pb-24 lg:px-20 lg:pt-10">
-        <div className="relative mx-auto flex  max-w-400 flex-col justify-between  ">
-          <div className=" pt-6 md:pt-10 lg:pt-14">
-            <h1 className=" text-4xl font-medium  text-white sm:text-[72px]  ">
+    <section className="relative min-h-screen overflow-hidden pt-28 lg:pt-32">
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/heroBG.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Optional dark overlay for text readability */}
+      <div className="absolute inset-0 bg-black/45 " />
+
+      {/* Content */}
+      <section className="relative z-10 overflow-hidden px-5 pb-16 pt-8 md:px-10 md:pb-24 lg:px-20 lg:pt-10">
+        <div className="relative mx-auto flex max-w-[1600px] flex-col justify-between">
+          <div className="pt-6 md:pt-10 lg:pt-14">
+            <h1 className="text-4xl font-medium text-white sm:text-[72px]">
               Engineering intelligent
               <br /> products for the next era.
             </h1>
@@ -70,7 +82,7 @@ export default function Hero() {
             </div>
 
             <div className="max-w-140 justify-self-end lg:pb-5">
-              <p className="max-w-135 text-shadow-md leading-[1.7] text-white/78  md:leading-[1.58]">
+              <p className="text-shadow-md max-w-135 leading-[1.7] text-white/78 md:leading-[1.58]">
                 We build AI-first software products that turn ambitious ideas
                 into scalable digital experiences — from intelligent web
                 platforms and SaaS systems to automation workflows built for
