@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/45 " />
 
       {/* Content */}
-      <section className="relative z-10 overflow-hidden px-5 pb-16 pt-8 md:px-10 md:pb-24 lg:px-20 lg:pt-10">
+      <section className="relative z-10 overflow-hidden  pb-16 pt-8  md:pb-24  lg:pt-10 px-4 py-16 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14">
         <div className="relative mx-auto flex max-w-400 flex-col justify-between">
           <div className="pt-6 md:pt-10 lg:pt-14">
             <h1 className="text-4xl font-medium text-white sm:text-[72px]">
