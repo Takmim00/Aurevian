@@ -106,6 +106,34 @@
   transform: translate(-50%, -50%) scale(6);
   opacity: 0.1;
 }
+/* only for project cards */
+/* project button style */
+.cursor-project {
+  width: auto;
+  height: auto;
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: white;
+  color: black;
+
+  mix-blend-mode: normal;
+  opacity: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%) scale(1); /* override scale(6) */
+}
+
+/* text */
+.cursor-project::after {
+  content: attr(data-text);
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
 
 html {
   scroll-behavior: smooth;

@@ -55,7 +55,7 @@ export default function Navbar() {
     setActive(item);
 
     // 👇 scroll part
-    const sectionId = item.toLowerCase(); // SERVICES → services
+    const sectionId = item.toLowerCase(); 
     const section = document.getElementById(sectionId);
 
     if (section) {
