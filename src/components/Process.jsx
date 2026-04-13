@@ -1,0 +1,250 @@
+import { Code2, Lightbulb, Pencil, Rocket } from "lucide-react";
+
+const steps = [
+  {
+    id: "/01",
+    title: "Discover",
+    description:
+      "Create visual identities that align with your voice and make lasting impressions.",
+    icon: Lightbulb,
+  },
+  {
+    id: "/02",
+    title: "Design",
+    description:
+      "Shape powerful experiences with purpose-driven creativity and thoughtful execution.",
+    icon: Pencil,
+  },
+  {
+    id: "/03",
+    title: "Develop",
+    description:
+      "Build scalable solutions that bring your vision to life with precision and performance.",
+    icon: Code2,
+  },
+  {
+    id: "/04",
+    title: "Launch & Grow",
+    description:
+      "Introduce your brand with impact through strategic rollouts that captivate and convert.",
+    icon: Rocket,
+  },
+];
+
+export default function Process() {
+  return (
+    <section className="relative overflow-hidden bg-black px-6 py-20 text-white md:px-10 lg:px-12">
+      <div className="relative mx-auto max-w-400">
+        {/* Header */}
+        <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div>
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[12px] text-white/75 backdrop-blur-sm">
+              <span className="mr-2 text-white/60">≈</span>
+              Our Process
+            </div>
+
+            <h2 className="leading-[0.95] tracking-[-0.03em]">
+              <span
+                className="block text-[42px] font-normal italic text-white md:text-[58px]"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+              >
+                The Journey to a
+              </span>
+              <span className="block text-[38px] font-semibold not-italic text-white md:text-[54px]">
+                Successful Product
+              </span>
+            </h2>
+          </div>
+
+          <p className="max-w-[320px] pt-4 text-left text-[13px] leading-[1.7] text-white/50 md:pt-8 md:text-right">
+            We keep things lean and collaborative — so ideas go from concept to
+            launch without the chaos.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative mx-auto hidden max-w-310 md:block">
+          {/* SVG line */}
+          <svg
+            className="pointer-events-none absolute left-0 top-0 z-0 h-280 w-full"
+            viewBox="0 0 1240 1120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            {/* soft glow path */}
+            <path
+              d="
+                M 610 160
+                H 930
+                Q 980 160 980 210
+                V 300
+                Q 980 350 930 350
+                H 690
+                Q 620 350 620 420
+                V 510
+                Q 620 560 570 560
+                H 250
+                Q 180 560 180 630
+                V 720
+                Q 180 770 250 770
+                H 550
+                Q 620 770 620 840
+                V 930
+                Q 620 980 690 980
+                H 1010
+              "
+              stroke="#3B82F6"
+              strokeOpacity="0.12"
+              strokeWidth="10"
+              strokeLinecap="round"
+              className="blur-md"
+            />
+
+            {/* main dashed path */}
+            <path
+              d="
+  M 560 132
+  H 930
+  Q 1000 132 1000 202
+  V 300
+  Q 1000 350 930 350
+  H 690
+  Q 620 350 620 420
+  V 510
+  Q 620 560 570 560
+  H 250
+  Q 180 560 180 630
+  V 720
+  Q 180 770 250 770
+  H 550
+  Q 620 770 620 840
+  V 930
+  Q 620 980 690 980
+  H 1010
+"
+              stroke="url(#zigzagGradient)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeDasharray="7 10"
+              opacity="0.8"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="120"
+                to="0"
+                dur="7s"
+                repeatCount="indefinite"
+              />
+            </path>
+
+            <defs>
+              <linearGradient
+                id="zigzagGradient"
+                x1="620"
+                y1="160"
+                x2="620"
+                y2="980"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.95" />
+                <stop offset="18%" stopColor="#1D4ED8" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.95" />
+                <stop offset="82%" stopColor="#1D4ED8" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.95" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Cards grid */}
+          <div className="relative z-10 grid grid-cols-2 gap-x-45 gap-y-23">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isLeft = index % 2 === 0;
+
+              return (
+                <div
+                  key={step.id}
+                  className={
+                    isLeft ? "justify-self-start" : "justify-self-end pt-44"
+                  }
+                >
+                  <div className="group relative h-88.75 w-140 overflow-hidden rounded-[30px] border border-white/10 bg-[#030303] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] transition-all duration-500 hover:border-white/20">
+                    {/* top subtle blue tint */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-[#3B82F6]/5 to-transparent" />
+
+                    {/* content */}
+                    <div className="relative z-10 max-w-90">
+                      <p className="text-[14px] font-medium tracking-wide text-[#89A9E8]">
+                        {step.id}
+                      </p>
+
+                      <h3 className="mt-8 text-[48px] font-semibold leading-none text-white">
+                        {step.title}
+                      </h3>
+
+                      <p className="mt-10 text-[18px] leading-[1.6] text-white/50">
+                        {step.description}
+                      </p>
+                    </div>
+
+                    {/* half circle */}
+                    <div className="pointer-events-none absolute -bottom-37.5 left-1/2 h-80 w-[320px] -translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10),rgba(59,130,246,0.05),transparent_70%)]" />
+
+                    {/* center glow */}
+                    <div className="pointer-events-none absolute -bottom-7.5 left-1/2 h-37.5 w-30 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),rgba(59,130,246,0.08),transparent_75%)] blur-2xl" />
+
+                    {/* icon */}
+                    <div className="absolute bottom-13 left-1/2 z-20 -translate-x-1/2">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.14)] transition-transform duration-500 group-hover:scale-110">
+                        <Icon size={20} strokeWidth={2.2} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Mobile version */}
+        <div className="relative space-y-8 md:hidden">
+          {steps.map((step) => {
+            const Icon = step.icon;
+
+            return (
+              <div
+                key={step.id}
+                className="group relative min-h-80 overflow-hidden rounded-[26px] border border-white/10 bg-[#030303] p-6"
+              >
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#3B82F6]/4 to-transparent" />
+
+                <div className="relative z-10 max-w-[85%]">
+                  <p className="text-[13px] font-medium tracking-wide text-[#89A9E8]">
+                    {step.id}
+                  </p>
+
+                  <h3 className="mt-5 text-[38px] font-semibold leading-none text-white">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-6 text-[16px] leading-[1.65] text-white/50">
+                    {step.description}
+                  </p>
+                </div>
+
+                <div className="pointer-events-none absolute -bottom-30 left-1/2 h-62.5 w-62.5 -translate-x-1/2 rounded-full border border-white/10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10),rgba(59,130,246,0.05),transparent_70%)]" />
+
+                <div className="absolute bottom-10 left-1/2 z-20 -translate-x-1/2">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-black">
+                    <Icon size={18} strokeWidth={2.2} />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
