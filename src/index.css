@@ -5,6 +5,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+* {
+  cursor: none;
+}
 .rolling-text {
   display: inline-block;
   overflow: hidden;
