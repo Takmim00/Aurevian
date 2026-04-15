@@ -1,3 +1,6 @@
+"use client";
+import { useRef } from "react";
+import { motion, useMotionValue, useScroll, useMotionValueEvent, useSpring } from "motion/react";
 import { Code2, Lightbulb, Pencil, Rocket } from "lucide-react";
 
 const steps = [
@@ -31,9 +34,55 @@ const steps = [
   },
 ];
 
+const PATH_D = `
+  M 560 132
+  H 930
+  Q 1000 132 1000 202
+  V 300
+  Q 1000 350 930 350
+  H 690
+  Q 620 350 620 420
+  V 510
+  Q 620 560 570 560
+  H 250
+  Q 180 560 180 630
+  V 720
+  Q 180 770 250 770
+  H 550
+  Q 620 770 620 840
+  V 930
+  Q 620 980 690 980
+  H 1010
+`;
+
 export default function Process() {
+  const sectionRef = useRef(null);
+  const pathRef = useRef(null);
+
+  const dotX = useMotionValue(560);
+  const dotY = useMotionValue(132);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.7", "end 0.7"],
+  });
+
+  const springProgress = useSpring(scrollYProgress, { stiffness: 130, damping: 28 });
+
+  useMotionValueEvent(springProgress, "change", (latest) => {
+    if (!pathRef.current) return;
+    const totalLength = pathRef.current.getTotalLength();
+    const clamped = Math.max(0, Math.min(1, latest));
+    const point = pathRef.current.getPointAtLength(clamped * totalLength);
+    dotX.set(point.x);
+    dotY.set(point.y);
+  });
+
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-20 text-white md:px-10 lg:px-12">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-black px-6 py-20 text-white md:px-10 lg:px-12"
+    >
       <div className="relative mx-auto max-w-400">
         {/* Header */}
         <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
@@ -72,6 +121,36 @@ export default function Process() {
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
           >
+            <defs>
+              {/* clip so dot never renders outside the path area */}
+              <clipPath id="svgClip">
+                <rect x="0" y="0" width="1240" height="1120" />
+              </clipPath>
+              <linearGradient
+                id="zigzagGradient"
+                x1="620"
+                y1="160"
+                x2="620"
+                y2="980"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.95" />
+                <stop offset="18%" stopColor="#1D4ED8" stopOpacity="0.95" />
+                <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.95" />
+                <stop offset="82%" stopColor="#1D4ED8" stopOpacity="0.95" />
+                <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.95" />
+              </linearGradient>
+
+              {/* glow filter for the dot */}
+              <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="12" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
             {/* soft glow path */}
             <path
               d="
@@ -101,28 +180,18 @@ export default function Process() {
               className="blur-md"
             />
 
+            {/* invisible path used by getPointAtLength */}
+            <path
+              ref={pathRef}
+              d={PATH_D}
+              fill="none"
+              stroke="transparent"
+              strokeWidth="1"
+            />
+
             {/* main dashed path */}
             <path
-              d="
-  M 560 132
-  H 930
-  Q 1000 132 1000 202
-  V 300
-  Q 1000 350 930 350
-  H 690
-  Q 620 350 620 420
-  V 510
-  Q 620 560 570 560
-  H 250
-  Q 180 560 180 630
-  V 720
-  Q 180 770 250 770
-  H 550
-  Q 620 770 620 840
-  V 930
-  Q 620 980 690 980
-  H 1010
-"
+              d={PATH_D}
               stroke="url(#zigzagGradient)"
               strokeWidth="2"
               strokeLinecap="round"
@@ -138,22 +207,50 @@ export default function Process() {
               />
             </path>
 
-            <defs>
-              <linearGradient
-                id="zigzagGradient"
-                x1="620"
-                y1="160"
-                x2="620"
-                y2="980"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0%" stopColor="#1D4ED8" stopOpacity="0.95" />
-                <stop offset="18%" stopColor="#1D4ED8" stopOpacity="0.95" />
-                <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.95" />
-                <stop offset="82%" stopColor="#1D4ED8" stopOpacity="0.95" />
-                <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.95" />
-              </linearGradient>
-            </defs>
+            {/* dot group — clipped to SVG bounds */}
+            <g clipPath="url(#svgClip)">
+            {/* outer glow ring */}
+            <motion.circle
+              cx={dotX}
+              cy={dotY}
+              r="22"
+              fill="#3B82F6"
+              fillOpacity="0.12"
+              stroke="#3B82F6"
+              strokeOpacity="0.25"
+              strokeWidth="1"
+            />
+
+            {/* middle ring */}
+            <motion.circle
+              cx={dotX}
+              cy={dotY}
+              r="13"
+              fill="#1D4ED8"
+              fillOpacity="0.3"
+              stroke="#60A5FA"
+              strokeOpacity="0.5"
+              strokeWidth="1"
+            />
+
+            {/* core dot */}
+            <motion.circle
+              cx={dotX}
+              cy={dotY}
+              r="7"
+              fill="#3B82F6"
+              filter="url(#dotGlow)"
+            />
+
+            {/* bright center highlight */}
+            <motion.circle
+              cx={dotX}
+              cy={dotY}
+              r="3"
+              fill="white"
+              fillOpacity="0.9"
+            />
+            </g>
           </svg>
 
           {/* Cards grid */}
