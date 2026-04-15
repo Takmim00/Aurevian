@@ -87,7 +87,7 @@ export default function Process() {
         {/* Header */}
         <div className="mb-16 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
-            <div className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[12px] text-white/75 backdrop-blur-sm">
+            <div className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xl text-white/75 backdrop-blur-sm">
               <span className="mr-2 text-white/60">≈</span>
               Our Process
             </div>
