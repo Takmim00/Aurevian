@@ -80,6 +80,7 @@ export default function Process() {
 
   return (
     <section
+    id="process"
       ref={sectionRef}
       className="relative overflow-hidden bg-black px-6 py-20 text-white md:px-10 lg:px-12"
     >

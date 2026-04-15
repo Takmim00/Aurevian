@@ -1,7 +1,7 @@
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const navItems = ["HOME", "SERVICES", "ABOUT", "WORKS", "BLOG", "CONTACT"];
+const navItems = ["HOME", "SERVICES", "ABOUT", "PROCESS", "FAQ", "CONTACT"];
 
 function RollingText({ text, active, previous, darkMode }) {
   const [play, setPlay] = useState(false);
