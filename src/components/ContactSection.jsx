@@ -33,15 +33,15 @@ function InfoCard({ item, index }) {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.55, delay: index * 0.08 }}
       whileHover={{ y: -4 }}
-      className="group flex items-center justify-between rounded-[22px] border border-white/10 bg-white/[0.03] px-5 py-3 backdrop-blur-xl"
+      className="group flex items-center justify-between rounded-[22px] border border-[#1f2f57] bg-[#0b1224]/72 px-5 py-3 backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_10px_30px_rgba(80,120,255,0.05)]"
     >
       <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#29406f] bg-[#0f1a33] text-[#dbe7ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
           <Icon size={18} />
         </div>
         <div>
-          <p className="text-sm text-white/42">{item.label}</p>
-          <p className="mt-1 text-[16px] font-medium tracking-[-0.02em] text-white sm:text-[17px]">
+          <p className="text-sm text-[#8ea4c9]">{item.label}</p>
+          <p className="mt-1 text-[16px] font-medium tracking-[-0.02em] text-[#f4f8ff] sm:text-[17px]">
             {item.value}
           </p>
         </div>
@@ -49,7 +49,7 @@ function InfoCard({ item, index }) {
 
       <ArrowUpRight
         size={18}
-        className="text-white/45 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-white"
+        className="text-[#8ea4c9] transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#dbe7ff]"
       />
     </motion.a>
   );
@@ -59,11 +59,11 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-black px-4 py-16 text-white md:px-8 lg:px-10 xl:px-14"
+      className="relative overflow-hidden bg-[#050816] px-4 py-16 text-white md:px-8 lg:px-10 xl:px-14"
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[18%] top-20 h-64 w-64 rounded-full bg-white/6 blur-[100px]" />
-        <div className="absolute bottom-0 right-[10%] h-72 w-72 rounded-full bg-white/5 blur-[120px]" />
+        <div className="absolute left-[18%] top-20 h-64 w-64 rounded-full bg-[#8fb4ff]/10 blur-[100px]" />
+        <div className="absolute bottom-0 right-[10%] h-72 w-72 rounded-full bg-[#6c96ff]/10 blur-[120px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-400">
@@ -73,19 +73,19 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.6 }}
-            className="rounded-[30px] border border-white/10 bg-[#070707] p-6 sm:p-8 lg:p-10"
+            className="rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_0_1px_rgba(120,160,255,0.03)] sm:p-8 lg:p-10"
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#1b1b1b] px-5 py-2 text-xl text-[#eeeeee] shadow-[inset_1.5px_1.5px_2px_rgba(255,255,255,0.15)]">
-              <span className="opacity-80">⌘</span>
-              <span>Contact Us</span>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)]">
+              <span className="opacity-80 text-[#8fb4ff]">⌘</span>
+              <span className=" text-[#8fb4ff]">Contact Us</span>
             </div>
 
-            <h2 className="max-w-120 text-[40px] leading-none tracking-[-0.05em] text-white sm:text-[52px] md:text-[60px] lg:text-[68px]">
-              <span className="mr-2 font-serif italic">Let’s</span>
-              <span className="font-light text-white/92">Build Something Great</span>
+            <h2 className="max-w-120 text-[40px] leading-none tracking-[-0.05em] text-[#f4f8ff] sm:text-[52px] md:text-[60px] lg:text-[68px]">
+              <span className="mr-2 font-serif italic text-[#dce8ff]">Let’s</span>
+              <span className="font-light text-[#f4f8ff]">Build Something Great</span>
             </h2>
 
-            <p className="mt-5 max-w-115 text-sm leading-[1.75] text-white/52 md:text-[15px]">
+            <p className="mt-5 max-w-115 text-sm leading-[1.75] text-[#9fb0d1] md:text-[15px]">
               Tell us about your idea, product, or redesign goals. We’ll help
               shape a clean, high-impact digital experience that feels modern
               and performs well.
@@ -103,61 +103,73 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.65, delay: 0.08 }}
-            className="rounded-[30px] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-2xl sm:p-7 lg:p-8"
+            className="rounded-[30px] border border-[#1b2848] bg-[#0b1224]/58 p-5 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_10px_40px_rgba(80,120,255,0.06)] sm:p-7 lg:p-8"
           >
-            <div className="rounded-[24px] border border-white/10 bg-black/40 p-5 sm:p-6 lg:p-7">
+            <div className="rounded-[24px] border border-[#1f2f57] bg-[#09111f]/85 p-5 sm:p-6 lg:p-7">
               <form className="grid gap-4 sm:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm text-white/55">First Name</label>
+                  <label className="mb-2 block text-sm text-[#8ea4c9]">
+                    First Name
+                  </label>
                   <input
                     type="text"
                     placeholder="John"
-                    className="h-13 w-full rounded-2xl border border-white/10 bg-white/4 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-white/25 focus:bg-white/6"
+                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm text-white/55">Last Name</label>
+                  <label className="mb-2 block text-sm text-[#8ea4c9]">
+                    Last Name
+                  </label>
                   <input
                     type="text"
                     placeholder="Doe"
-                    className="h-13 w-full rounded-2xl border border-white/10 bg-white/4 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-white/25 focus:bg-white/6"
+                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm text-white/55">Email</label>
+                  <label className="mb-2 block text-sm text-[#8ea4c9]">
+                    Email
+                  </label>
                   <input
                     type="email"
                     placeholder="you@example.com"
-                    className="h-13 w-full rounded-2xl border border-white/10 bg-white/4 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-white/25 focus:bg-white/6"
+                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-sm text-white/55">Budget Range</label>
+                  <label className="mb-2 block text-sm text-[#8ea4c9]">
+                    Budget Range
+                  </label>
                   <input
                     type="text"
                     placeholder="$1k - $5k"
-                    className="h-13 w-full rounded-2xl border border-white/10 bg-white/4 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-white/25 focus:bg-white/6"
+                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-sm text-white/55">Project Type</label>
+                  <label className="mb-2 block text-sm text-[#8ea4c9]">
+                    Project Type
+                  </label>
                   <input
                     type="text"
                     placeholder="Website, SaaS, redesign, AI product..."
-                    className="h-13 w-full rounded-2xl border border-white/10 bg-white/4 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-white/25 focus:bg-white/6"
+                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-sm text-white/55">Tell us about your project</label>
+                  <label className="mb-2 block text-sm text-[#8ea4c9]">
+                    Tell us about your project
+                  </label>
                   <textarea
                     rows="8"
                     placeholder="Share your goals, features, timeline, and anything important about the project..."
-                    className="w-full rounded-[22px] border border-white/10 bg-white/4 px-4 py-4 text-white outline-none transition placeholder:text-white/28 focus:border-white/25 focus:bg-white/6"
+                    className="w-full rounded-[22px] border border-[#22345b] bg-[#0f1a33] px-4 py-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
@@ -166,7 +178,7 @@ export default function ContactSection() {
                     whileHover={{ y: -2, scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     type="submit"
-                    className="group relative inline-flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-white/12 bg-white px-6 text-sm font-medium text-black transition"
+                    className="group relative inline-flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 text-sm font-medium text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition"
                   >
                     <span className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7),transparent_65%)] opacity-60" />
                     <span className="relative z-10">Send Inquiry</span>

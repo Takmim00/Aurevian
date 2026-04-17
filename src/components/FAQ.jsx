@@ -113,7 +113,7 @@ export default function FAQ() {
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)]">
               <span className="opacity-80 text-[#8fb4ff]">⌘</span>
-              <span>FAQ</span>
+              <span className=" text-[#8fb4ff]">FAQ</span>
             </div>
 
             <h2 className="max-w-165 text-[40px] leading-none tracking-[-0.05em] text-[#f4f8ff] sm:text-[52px] md:text-[62px] lg:text-[72px]">

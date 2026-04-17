@@ -49,9 +49,9 @@ export default function Services() {
           {/* Bottom: Left + Right */}
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             {/* Left */}
-            <h2 className="text-[46px] font-normal leading-none tracking-[-0.03em] text-white md:text-[64px] lg:text-[72px]">
-              <span className="mr-2 font-serif italic ">What</span>
-              <span className="font-light ">We Do</span>
+            <h2 className="text-[46px] font-normal leading-none tracking-[-0.03em] text-[#dce8ff] md:text-[64px] lg:text-[72px]">
+              <span className="mr-2 font-serif italic text-[#dce8ff]">What</span>
+              <span className="font-light text-[#f4f8ff]">We Do</span>
             </h2>
 
             {/* Right */}
