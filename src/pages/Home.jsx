@@ -19,7 +19,7 @@ const Home = () => {
       <Testimonial />
       <FAQ/>
       <ContactSection/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 };
