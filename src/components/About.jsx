@@ -44,10 +44,10 @@ function AboutBadge() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.7 }}
       transition={{ duration: 0.6 }}
-      className="mb-15 inline-flex items-center gap-2 rounded-full bg-[#1b1b1b] px-5 py-2 text-xl text-[#eeeeee] shadow-[inset_1.5px_1.5px_2px_rgba(255,255,255,0.15)]"
+      className="mb-15 inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)]"
     >
-      <span className="opacity-80">⌘</span>
-      <span>About Us</span>
+      <span className="opacity-80 text-[#8fb4ff]">⌘</span>
+      <span className=" text-[#8fb4ff]">About Us</span>
     </motion.div>
   );
 }
@@ -61,18 +61,18 @@ function BackgroundWord() {
   });
 
   const scale = useTransform(scrollYProgress, [0, 1], [0.82, 1.08]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [0.08, 0.40]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [0.07, 0.24]);
   const blurValue = useTransform(scrollYProgress, [0, 1], [8, 4]);
   const filter = useTransform(blurValue, (v) => `blur(${v}px)`);
 
   return (
     <div
       ref={bgRef}
-      className="pointer-events-none  absolute left-1/2 top-[40%]  -z-10 -translate-x-1/2 -translate-y-1/2"
+      className="pointer-events-none absolute left-1/2 top-[40%] -z-10 -translate-x-1/2 -translate-y-1/2"
     >
       <motion.h2
         style={{ scale, opacity, filter }}
-        className="select-none whitespace-nowrap font-serif text-[150px] font-semibold italic leading-none tracking-[-0.07em] text-white md:text-[220px] lg:text-[300px] "
+        className="select-none whitespace-nowrap font-serif text-[150px] font-semibold italic leading-none tracking-[-0.07em] text-[#8fb4ff] md:text-[220px] lg:text-[300px]"
       >
         aurevian
       </motion.h2>
@@ -85,14 +85,14 @@ function RevealWord({ children, progress, range, alwaysWhite = false }) {
     progress,
     range,
     alwaysWhite
-      ? ["rgb(238,238,238)", "rgb(238,238,238)"]
-      : ["rgb(128,128,128)", "rgb(238,238,238)"],
+      ? ["rgb(244,248,255)", "rgb(244,248,255)"]
+      : ["rgb(127,146,182)", "rgb(244,248,255)"],
   );
 
   return (
     <span className="relative mr-2 mt-1 inline-block">
       {!alwaysWhite && (
-        <span className="absolute left-0 top-0 text-[#808080]">{children}</span>
+        <span className="absolute left-0 top-0 text-[#7f92b6]">{children}</span>
       )}
       <motion.span style={{ color }} className="relative">
         {children}
@@ -191,11 +191,11 @@ function StatCard({ label, value, suffix, index }) {
       transition={{ duration: 0.6, delay: index * 0.12 }}
       className="text-center"
     >
-      <div className="mb-4 border-b border-white/10 pb-4">
-        <p className="text-sm text-[#808080] md:text-[15px]">{label}</p>
+      <div className="mb-4 border-b border-[#1b2848] pb-4">
+        <p className="text-sm text-[#8ea4c9] md:text-[15px]">{label}</p>
       </div>
 
-      <h3 className="bg-linear-to-b from-white to-[#999999] bg-clip-text text-[52px] font-medium leading-none tracking-[-0.06em] text-transparent md:text-[72px] lg:text-[96px]">
+      <h3 className="bg-linear-to-b from-[#f4f8ff] to-[#7fa7ff] bg-clip-text text-[52px] font-medium leading-none tracking-[-0.06em] text-transparent md:text-[72px] lg:text-[96px]">
         <CountUp to={value} suffix={suffix} />
       </h3>
     </motion.div>
@@ -206,10 +206,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-black px-4 py-20 text-white md:px-8 lg:px-10 xl:px-14"
+      className="relative overflow-hidden bg-[#050816] px-4 py-20 text-white md:px-8 lg:px-10 xl:px-14"
     >
-      <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12)_1px,transparent_1px)] [bg-size-22px_22px]" />
+      <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(143,180,255,0.16)_1px,transparent_1px)] [bg-size-22px_22px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-360">
