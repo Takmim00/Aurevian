@@ -74,7 +74,7 @@ function BackgroundWord() {
         style={{ scale, opacity, filter }}
         className="select-none whitespace-nowrap font-serif text-[150px] font-semibold italic leading-none tracking-[-0.07em] text-[#8fb4ff] md:text-[220px] lg:text-[300px]"
       >
-        aurevian
+        AUREVIAN
       </motion.h2>
     </div>
   );
