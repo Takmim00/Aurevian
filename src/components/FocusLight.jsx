@@ -68,7 +68,7 @@ export function FocusLight() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[1] transition-opacity duration-700"
+      className="pointer-events-none fixed inset-0 z-1 transition-opacity duration-700"
       style={{ opacity: isVisible ? 1 : 0 }}
     >
       <div
