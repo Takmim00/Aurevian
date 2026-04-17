@@ -19,7 +19,7 @@ function RollingText({ text, active, previous, darkMode }) {
   return (
     <span
       className={`rolling-text ${play ? "play" : ""} ${
-        darkMode ? "text-white" : "text-[#111111]"
+        darkMode ? "text-[#eaf2ff]" : "text-[#111111]"
       } text-[14px] font-medium`}
     >
       {letters.map((letter, index) => (
@@ -54,8 +54,7 @@ export default function Navbar() {
     setPrevious(active);
     setActive(item);
 
-    // 👇 scroll part
-    const sectionId = item.toLowerCase(); 
+    const sectionId = item.toLowerCase();
     const section = document.getElementById(sectionId);
 
     if (section) {
@@ -76,7 +75,7 @@ export default function Navbar() {
         {/* Logo */}
         <div className="shrink-0">
           <a href="/" className="inline-block">
-            <h1 className="font-serif text-[34px] font-semibold italic tracking-[-1.5px] text-white md:text-[42px]">
+            <h1 className="font-serif text-[34px] font-semibold italic tracking-[-1.5px] text-[#f4f8ff] md:text-[42px]">
               Aurevian
             </h1>
           </a>
@@ -86,8 +85,8 @@ export default function Navbar() {
         <nav
           className={`hidden lg:flex items-center justify-center rounded-full border px-10 py-2 transition-all duration-500 ${
             scrolled
-              ? "border-white/10 bg-black/45 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-xl"
-              : "border-white/15 bg-black/35 backdrop-blur-md"
+              ? "border-[#22345b] bg-[#0b1224]/72 shadow-[0_8px_30px_rgba(4,10,24,0.34),0_0_0_1px_rgba(120,160,255,0.03)] backdrop-blur-xl"
+              : "border-[#29406f]/80 bg-[#0b1224]/52 backdrop-blur-md"
           }`}
         >
           <ul className="flex items-center gap-12 xl:gap-16">
@@ -117,7 +116,7 @@ export default function Navbar() {
         {/* Right Side */}
         <div className="flex items-center gap-3">
           {/* Desktop CTA */}
-          <button className="hidden lg:inline-flex items-center gap-4 rounded-full bg-white px-8 py-3 text-[17px] font-semibold text-black transition-all duration-300 hover:scale-[1.02]">
+          <button className="hidden lg:inline-flex items-center gap-4 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-8 py-3 text-[17px] font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition-all duration-300 hover:scale-[1.02]">
             <span>Let's Chat!</span>
             <ArrowRight size={22} strokeWidth={2} />
           </button>
@@ -125,7 +124,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white transition-all duration-300 lg:hidden"
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-[#29406f] bg-[#0b1224]/72 text-[#eaf2ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-all duration-300 lg:hidden"
           >
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -138,7 +137,7 @@ export default function Navbar() {
           menuOpen ? "max-h-125 pb-5" : "max-h-0"
         }`}
       >
-        <div className="mx-4 rounded-3xl border border-white/10 bg-black/70 px-6 py-6 backdrop-blur-xl md:mx-8">
+        <div className="mx-4 rounded-3xl border border-[#22345b] bg-[#0b1224]/88 px-6 py-6 backdrop-blur-xl shadow-[0_10px_40px_rgba(4,10,24,0.36),0_0_0_1px_rgba(120,160,255,0.03)] md:mx-8">
           <ul className="flex flex-col gap-5">
             {navItems.map((item) => {
               const isActive = active === item;
@@ -163,8 +162,8 @@ export default function Navbar() {
                     <span
                       className={`absolute left-0 h-0.5 rounded-full transition-all duration-500 ${
                         isActive
-                          ? "-bottom-1 w-full opacity-100 bg-white"
-                          : "-bottom-1 w-0 opacity-0"
+                          ? "-bottom-1 w-full opacity-100 bg-[#8fb4ff]"
+                          : "-bottom-1 w-0 opacity-0 bg-[#8fb4ff]"
                       }`}
                     />
                   </button>
@@ -173,7 +172,7 @@ export default function Navbar() {
             })}
           </ul>
 
-          <button className="mt-6 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black">
+          <button className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 py-3.5 text-sm font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)]">
             <span>Let's Chat!</span>
             <ArrowRight size={18} strokeWidth={2} />
           </button>
