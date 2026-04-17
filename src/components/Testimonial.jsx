@@ -43,40 +43,43 @@ const testimonials = [
 
 function TestimonialCard({ quote, name, role, avatar, className = "" }) {
   return (
-    <div
-      data-aos="zoom-in"
-      className={`text-white ${className}`}
-    >
+    <div data-aos="zoom-in" className={`text-white ${className}`}>
       <div
-        className="relative rounded-[20px] border border-white/5 bg-white/6 p-5 sm:p-6 lg:p-6 backdrop-blur-[22px]"
+        className="relative rounded-[20px] border border-[#22345b]/60 bg-[#0b1224]/60 p-5 backdrop-blur-[22px] sm:p-6"
         style={{
-          boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)",
+          boxShadow:
+            "inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 40px rgba(80,120,255,0.08)",
         }}
       >
-        <p className="max-w-85 text-[15px] leading-normal tracking-[-0.02em] text-[#b9b9b9] sm:text-[16px] lg:text-[18px]">
+        {/* subtle glow edge */}
+        <div className="pointer-events-none absolute inset-0 rounded-[20px] border border-transparent bg-[radial-gradient(circle_at_top,rgba(143,180,255,0.15),transparent_60%)] opacity-40" />
+
+        {/* top highlight line */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,205,255,0.4),transparent)]" />
+
+        <p className="relative z-10 max-w-85 text-[15px] leading-normal tracking-[-0.02em] text-[#c3d3ee] sm:text-[16px] lg:text-[18px]">
           {quote}
         </p>
       </div>
 
       <div className="relative mt-2 flex items-center gap-3 sm:gap-4">
-        <div
-          className="flex h-12 w-12 sm:h-13 sm:w-13 lg:h-14.5 lg:w-14.5 items-center justify-center rounded-full bg-white/20 p-1 backdrop-blur-[22px]"
-          style={{
-            boxShadow: "0 0 0 1px rgba(255,255,255,0.04)",
-          }}
-        >
-          <img
-            src={avatar}
-            alt={name}
-            className="h-full w-full rounded-full object-cover"
-          />
+        {/* avatar ring */}
+        <div className="relative flex h-12 w-12 items-center justify-center rounded-full sm:h-13 sm:w-13 lg:h-14.5 lg:w-14.5">
+          <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,rgba(143,180,255,0.15),rgba(143,180,255,0.7),rgba(143,180,255,0.15))] blur-[6px] opacity-70" />
+          <div className="relative flex h-full w-full items-center justify-center rounded-full border border-[#2a3f6e] bg-[#0f1a33]/90 p-1">
+            <img
+              src={avatar}
+              alt={name}
+              className="h-full w-full rounded-full object-cover"
+            />
+          </div>
         </div>
 
         <div className="flex flex-col">
-          <h3 className="text-[18px] font-semibold leading-none tracking-[-0.03em] text-[#f1f1f1] sm:text-[19px] lg:text-[20px]">
+          <h3 className="text-[18px] font-semibold leading-none tracking-[-0.03em] text-[#f4f8ff] sm:text-[19px] lg:text-[20px]">
             {name}
           </h3>
-          <p className="mt-1 text-[14px] leading-none tracking-[-0.02em] text-[#8c8c8c] sm:text-[15px] lg:text-[18px]">
+          <p className="mt-1 text-[14px] leading-none tracking-[-0.02em] text-[#8ea4c9] sm:text-[15px] lg:text-[18px]">
             {role}
           </p>
         </div>
@@ -97,7 +100,7 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-black py-16 sm:py-20 lg:min-h-screen lg:py-0">
+    <section className="relative w-full overflow-hidden bg-[#050816] py-16 sm:py-20 lg:min-h-screen lg:py-0">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -105,72 +108,38 @@ export default function Testimonial() {
           alt="testimonial background"
           className="h-full w-full object-cover"
         />
+        <div className="absolute inset-0 bg-[#050816]/60" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(143,180,255,0.10),transparent_55%)]" />
       </div>
 
-      {/* Mobile + Tablet Cards */}
+      {/* Cards (mobile/tablet) */}
       <div className="relative z-20 mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 md:grid-cols-2 lg:hidden">
         {testimonials.map((item) => (
-          <TestimonialCard
-            key={item.id}
-            quote={item.quote}
-            name={item.name}
-            role={item.role}
-            avatar={item.avatar}
-          />
+          <TestimonialCard key={item.id} {...item} />
         ))}
       </div>
 
-      {/* Desktop Absolute Cards */}
+      {/* Cards (desktop absolute) */}
       <div className="absolute inset-0 z-20 hidden lg:block">
-        <TestimonialCard
-          quote={testimonials[0].quote}
-          name={testimonials[0].name}
-          role={testimonials[0].role}
-          avatar={testimonials[0].avatar}
-          className="absolute left-[8%] top-[6%] xl:left-[13%] xl:top-[4%]"
-        />
-
-        <TestimonialCard
-          quote={testimonials[1].quote}
-          name={testimonials[1].name}
-          role={testimonials[1].role}
-          avatar={testimonials[1].avatar}
-          className="absolute right-[4%] top-[12%] xl:right-[2%] xl:top-[16%]"
-        />
-
-        <TestimonialCard
-          quote={testimonials[2].quote}
-          name={testimonials[2].name}
-          role={testimonials[2].role}
-          avatar={testimonials[2].avatar}
-          className="absolute left-[2%] top-[48%] xl:left-[1%] xl:top-[47%]"
-        />
-
-        <TestimonialCard
-          quote={testimonials[3].quote}
-          name={testimonials[3].name}
-          role={testimonials[3].role}
-          avatar={testimonials[3].avatar}
-          className="absolute right-[10%] bottom-[6%] xl:right-[12%] xl:bottom-[4%]"
-        />
+        <TestimonialCard {...testimonials[0]} className="absolute left-[8%] top-[6%]" />
+        <TestimonialCard {...testimonials[1]} className="absolute right-[4%] top-[12%]" />
+        <TestimonialCard {...testimonials[2]} className="absolute left-[2%] top-[48%]" />
+        <TestimonialCard {...testimonials[3]} className="absolute right-[10%] bottom-[6%]" />
       </div>
 
       {/* Center Content */}
-      <div className="relative z-10 flex min-h-[50vh] items-center justify-center px-4 pt-14 text-center sm:px-6 lg:min-h-screen lg:pt-0">
+      <div className="relative z-10 flex min-h-[50vh] items-center justify-center px-4 pt-14 text-center lg:min-h-screen lg:pt-0">
         <div className="max-w-225">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xl text-gray-300 backdrop-blur-md sm:mb-6 sm:px-5 sm:py-3 sm:text-sm">
-            <MessageSquareText size={16} />
-            Testimonials
+          <div className="mb-6 inline-flex items-center rounded-full border border-[#22345b] bg-[#0b1224] px-4 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)] backdrop-blur-sm">
+            <MessageSquareText size={16} className="mr-2 text-[#8fb4ff]" />
+           <span className="text-[#8fb4ff]">Testimonials</span> 
           </div>
 
-          <h2 className="leading-[0.95] text-white">
-            <span
-              className="block font-serif text-[36px] italic tracking-[-0.04em] text-white sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px]"
-              style={{ fontWeight: 400 }}
-            >
+          <h2 className="leading-[0.95]">
+            <span className="block font-serif text-[36px] italic tracking-[-0.04em] text-[#f4f8ff] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px]">
               Hear from the Clients
             </span>
-            <span className="block text-[34px] font-semibold tracking-[-0.05em] text-[#e5e5e5] sm:text-[44px] md:text-[52px] lg:text-[58px] xl:text-[64px]">
+            <span className="block text-[34px] font-semibold tracking-[-0.05em] bg-linear-to-r from-[#dbe7ff] to-[#8fb4ff] bg-clip-text text-transparent sm:text-[44px] md:text-[52px] lg:text-[58px] xl:text-[64px]">
               We've Partnered With
             </span>
           </h2>
