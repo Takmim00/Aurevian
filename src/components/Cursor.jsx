@@ -1,24 +1,47 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Cursor() {
-  const cursorRef = useRef(null);
+  const dotRef = useRef(null);
+  const ringRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+
     const moveCursor = (e) => {
-      if (!cursorRef.current) return;
-      cursorRef.current.style.left = e.clientX + "px";
-      cursorRef.current.style.top = e.clientY + "px";
+      if (!dotRef.current || !ringRef.current) return;
+
+      const { clientX, clientY } = e;
+
+      dotRef.current.style.left = clientX + "px";
+      dotRef.current.style.top = clientY + "px";
+
+      ringRef.current.style.left = clientX + "px";
+      ringRef.current.style.top = clientY + "px";
+
+      if (!isVisible) setIsVisible(true);
+    };
+
+    const handleMouseDown = () => {
+      dotRef.current?.classList.add("cursor-click");
+      ringRef.current?.classList.add("cursor-click");
+    };
+
+    const handleMouseUp = () => {
+      dotRef.current?.classList.remove("cursor-click");
+      ringRef.current?.classList.remove("cursor-click");
     };
 
     const handleMouseOver = (e) => {
-      if (!cursorRef.current) return;
+      if (!dotRef.current || !ringRef.current) return;
 
       const projectEl = e.target.closest("[data-cursor]");
-      const normalHoverEl = e.target.closest("button, a");
+      const normalHoverEl = e.target.closest("button, a, .cursor-pointer");
 
       if (projectEl) {
-        cursorRef.current.classList.add("cursor-active", "cursor-project");
-        cursorRef.current.setAttribute(
+        dotRef.current.classList.add("cursor-hover", "cursor-project");
+        ringRef.current.classList.add("cursor-hover", "cursor-project");
+        ringRef.current.setAttribute(
           "data-text",
           projectEl.getAttribute("data-cursor") || "View Now"
         );
@@ -26,38 +49,65 @@ export default function Cursor() {
       }
 
       if (normalHoverEl) {
-        cursorRef.current.classList.add("cursor-active");
+        dotRef.current.classList.add("cursor-hover");
+        ringRef.current.classList.add("cursor-hover");
       }
     };
 
     const handleMouseOut = (e) => {
-      if (!cursorRef.current) return;
+      if (!dotRef.current || !ringRef.current) return;
 
       const toEl = e.relatedTarget;
 
       const stillInsideProject = toEl?.closest?.("[data-cursor]");
-      const stillInsideNormal = toEl?.closest?.("button, a");
+      const stillInsideNormal = toEl?.closest?.("button, a, .cursor-pointer");
 
       if (stillInsideProject) return;
 
-      cursorRef.current.classList.remove("cursor-project");
-      cursorRef.current.removeAttribute("data-text");
+      dotRef.current.classList.remove("cursor-project");
+      ringRef.current.classList.remove("cursor-project");
+      ringRef.current.removeAttribute("data-text");
 
       if (!stillInsideNormal) {
-        cursorRef.current.classList.remove("cursor-active");
+        dotRef.current.classList.remove("cursor-hover");
+        ringRef.current.classList.remove("cursor-hover");
       }
     };
 
     document.addEventListener("mousemove", moveCursor);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
     document.addEventListener("mouseover", handleMouseOver);
     document.addEventListener("mouseout", handleMouseOut);
 
     return () => {
       document.removeEventListener("mousemove", moveCursor);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
     };
-  }, []);
+  }, [isVisible]);
 
-  return <div ref={cursorRef} className="cursor"></div>;
+  if (
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches
+  ) {
+    return null;
+  }
+
+  return (
+    <>
+      <div
+        ref={dotRef}
+        className="cursor-dot"
+        style={{ opacity: isVisible ? 1 : 0 }}
+      />
+      <div
+        ref={ringRef}
+        className="cursor-ring"
+        style={{ opacity: isVisible ? 1 : 0 }}
+      />
+    </>
+  );
 }

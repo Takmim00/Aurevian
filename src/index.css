@@ -90,49 +90,121 @@ body {
 /* =========================
    CUSTOM CURSOR
 ========================= */
-.cursor {
+
+.cursor-dot {
   position: fixed;
-  width: 12px;
-  height: 12px;
-  background: white;
-  border-radius: 50%;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
   pointer-events: none;
   z-index: 99999;
-  mix-blend-mode: difference;
   transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #8fb4ff, #6c96ff);
+  box-shadow: 0 0 14px rgba(143, 180, 255, 0.35);
   transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+    width 0.18s ease,
+    height 0.18s ease,
+    opacity 0.25s ease,
+    transform 0.18s ease,
+    background 0.18s ease;
 }
 
-.cursor-active {
-  transform: translate(-50%, -50%) scale(6);
-  opacity: 0.1;
+.cursor-ring {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(143, 180, 255, 0.45);
+  background: transparent; /* glass removed */
+  box-shadow: 0 0 18px rgba(143, 180, 255, 0.08);
+  backdrop-filter: none; /* glass removed */
+  transition:
+    left 0.15s ease-out,
+    top 0.15s ease-out,
+    width 0.3s ease,
+    height 0.3s ease,
+    opacity 0.25s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.25s ease;
 }
 
-/* only for project cards */
-.cursor-project {
+/* normal hover */
+.cursor-dot.cursor-hover {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #bfd4ff, #8fb4ff);
+}
+
+.cursor-ring.cursor-hover {
+  width: 60px;
+  height: 60px;
+  border-color: rgba(191, 212, 255, 0.65);
+  background: transparent; /* keep clean */
+}
+
+/* click */
+.cursor-dot.cursor-click {
+  width: 6px;
+  height: 6px;
+}
+
+.cursor-ring.cursor-click {
+  width: 30px;
+  height: 30px;
+}
+
+/* project hover text */
+/* project hover এ dot hide */
+.cursor-dot.cursor-project {
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0.4);
+}
+.cursor-ring.cursor-project {
   width: auto;
   height: auto;
   padding: 8px 18px;
   border-radius: 999px;
-  background: white;
-  color: black;
-  mix-blend-mode: normal;
-  opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-color: rgba(191, 212, 255, 0.25);
+  background: linear-gradient(180deg, #e9f2ff 0%, #bfd4ff 100%);
+  color: #08111f;
+  backdrop-filter: none;
+  box-shadow: 0 8px 25px rgba(143, 180, 255, 0.25);
   transform: translate(-50%, -50%) scale(1);
 }
 
-.cursor-project::after {
+.cursor-ring.cursor-project::after {
   content: attr(data-text);
-  font-size: 13px;
-  font-weight: 500;
+  position: static;
+  display: block;
+  color: #08111f;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
+/* optional: default cursor hide on desktop */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  a,
+  button,
+  .cursor-pointer,
+  [data-cursor] {
+    cursor: none;
+  }
+}
 /* =========================
    ROLLING TEXT
 ========================= */
