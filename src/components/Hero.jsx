@@ -43,8 +43,7 @@ export default function Hero() {
           }}
         />
 
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(143,180,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(143,180,255,0.06)_1px,transparent_1px)] bg-size-[60px_60px]" />
+     
       </div>
 
       {/* Dark Overlay */}
