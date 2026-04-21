@@ -120,7 +120,7 @@ export default function Testimonial() {
       </div>
 
       {/* Cards (desktop absolute) */}
-      <div className="absolute inset-0 z-20 hidden lg:block">
+      <div className="absolute inset-0 z-20 hidden lg:block max-w-400 mx-auto">
         <TestimonialCard {...testimonials[0]} className="absolute left-[8%] top-[6%]" />
         <TestimonialCard {...testimonials[1]} className="absolute right-[4%] top-[12%]" />
         <TestimonialCard {...testimonials[2]} className="absolute left-[2%] top-[48%]" />
