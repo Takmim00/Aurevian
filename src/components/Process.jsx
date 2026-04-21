@@ -254,11 +254,11 @@ export default function Process() {
                         {step.id}
                       </p>
 
-                      <h3 className="mt-6 text-[48px] font-semibold leading-none text-[#f4f8ff]">
+                      <h3 className="mt-4 text-4xl font-semibold leading-none text-[#f4f8ff]">
                         {step.title}
                       </h3>
 
-                      <p className="mt-6 mb-2 text-[18px] leading-[1.6] text-[#9fb0d1]">
+                      <p className="mt-4 mb-3 text-[18px] leading-[1.6] text-[#9fb0d1]">
                         {step.description}
                       </p>
                     </div>
