@@ -1,12 +1,12 @@
-import { useRef } from "react";
+import { Code2, Lightbulb, Pencil, Rocket } from "lucide-react";
 import {
   motion,
   useMotionValue,
-  useScroll,
   useMotionValueEvent,
+  useScroll,
   useSpring,
 } from "motion/react";
-import { Code2, Lightbulb, Pencil, Rocket } from "lucide-react";
+import { useRef } from "react";
 
 const steps = [
   {
@@ -142,7 +142,13 @@ export default function Process() {
                 <stop offset="100%" stopColor="#6C96FF" stopOpacity="0.95" />
               </linearGradient>
 
-              <filter id="dotGlow" x="-100%" y="-100%" width="300%" height="300%">
+              <filter
+                id="dotGlow"
+                x="-100%"
+                y="-100%"
+                width="300%"
+                height="300%"
+              >
                 <feGaussianBlur stdDeviation="12" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
@@ -239,9 +245,17 @@ export default function Process() {
               return (
                 <div
                   key={step.id}
-                  className={isLeft ? "justify-self-start" : "justify-self-end pt-44"}
+                  className={
+                    isLeft ? "justify-self-start" : "justify-self-end pt-44"
+                  }
                 >
-                  <div className="group relative overflow-hidden rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_0_1px_rgba(120,160,255,0.03)] transition-all duration-500 hover:border-[#314a78]">
+                  <div className="group relative overflow-hidden rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_0_1px_rgba(120,160,255,0.03),0_0_30px_rgba(108,150,255,0.08)] transition-all duration-500 hover:border-[#314a78] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(120,160,255,0.05),0_0_40px_rgba(108,150,255,0.16),0_0_90px_rgba(143,180,255,0.10)]">
+                    {/* outer glow */}
+                    <div className="pointer-events-none absolute -inset-2 -z-10 rounded-[36px] bg-[#8fb4ff]/8 blur-2xl opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:bg-[#8fb4ff]/12" />
+
+                    {/* border glow ring */}
+                    <div className="pointer-events-none absolute -inset-px rounded-[30px] bg-[linear-gradient(135deg,rgba(143,180,255,0.22),transparent_30%,transparent_70%,rgba(143,180,255,0.16))] opacity-60 blur-md transition-all duration-500 group-hover:opacity-100" />
+
                     {/* top subtle blue tint */}
                     <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-[#8fb4ff]/10 to-transparent" />
 
