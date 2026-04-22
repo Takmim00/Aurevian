@@ -12,7 +12,6 @@ const services = [
     description:
       "Focus on user-first interfaces that are both beautiful, intuitive, and purposes.",
     icon: "/uiux.png",
-    floating: true,
   },
   {
     id: "/03",
