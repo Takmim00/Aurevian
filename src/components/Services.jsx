@@ -10,7 +10,7 @@ const services = [
     id: "/02",
     title: "UI/UX Design",
     description:
-      "Focus on user-first interfaces that are both beautiful, intuitive, and purposes.",
+      "Focus on user-first interfaces that are both beautiful, intuitive, and purposeful.",
     icon: "/uiux.png",
   },
   {
@@ -33,99 +33,215 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="bg-[#050816] px-4 py-16 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14"
+      className="relative overflow-hidden bg-[#050816] px-4 py-20 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14"
     >
-      <div className="mx-auto max-w-400">
-        <div className="mb-10 md:mb-14">
-          {/* Top: Our Services */}
-          <div className="mb-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)]">
-              <span className="opacity-80 text-[#8fb4ff]">⌘</span>
-              <span className=" text-[#8fb4ff]">Our Services</span>
-            </div>
+      {/* ambient bg */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-[12%] top-[8%] h-64 w-64 rounded-full bg-[#8fb4ff]/8 blur-[120px]" />
+        <div className="absolute right-[10%] top-[15%] h-72 w-72 rounded-full bg-[#6c96ff]/8 blur-[140px]" />
+        <div className="absolute bottom-[8%] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-[#8fb4ff]/6 blur-[150px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-400">
+        {/* header */}
+        <div className="mb-14 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-sm uppercase tracking-[0.16em] text-[#8fb4ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)]">
+            <span className="opacity-80">⌘</span>
+            <span>Our Services</span>
           </div>
 
-          {/* Bottom: Left + Right */}
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            {/* Left */}
-            <h2 className="text-[46px] font-normal leading-none tracking-[-0.03em] text-[#dce8ff] md:text-[64px] lg:text-[72px]">
-              <span className="mr-2 font-serif italic text-[#dce8ff]">What</span>
-              <span className="font-light text-[#f4f8ff]">We Do</span>
-            </h2>
+          <h2 className="text-[42px] font-normal leading-[0.95] tracking-[-0.04em] text-[#dce8ff] md:text-[62px] lg:text-[78px]">
+            <span className="font-serif italic">Built to shape</span>{" "}
+            <span className="font-light text-[#f4f8ff]">modern brands</span>
+          </h2>
 
-            {/* Right */}
-            <p className="max-w-90 text-sm leading-[1.55]  md:text-[15px]">
-              We craft digital experiences from idea to launch — blending
-              strategy, design, and engineering to build products that performs.
-            </p>
-          </div>
+          <p className="mx-auto mt-5 max-w-160 text-[14px] leading-[1.8] text-[#8ea4c9] md:text-[15px]">
+            From strategy and aesthetics to engineering and growth, we create
+            digital systems that feel premium, intentional, and built to last.
+          </p>
         </div>
 
-        <div className="grid overflow-hidden rounded-[22px] border border-[#1b2848] bg-[#070d1d] md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service, index) => (
-            <article
-              key={service.title}
-              className={`group relative min-h-61.25 overflow-hidden px-6 pb-9 pt-8 md:min-h-70 md:px-7 xl:min-h-63.75 ${
-                index !== services.length - 1
-                  ? "border-b border-[#17233f] xl:border-b-0 xl:border-r"
-                  : ""
-              } ${index === 1 ? "md:border-r-0 xl:border-r" : ""}`}
-            >
-              {/* hover bg only inside card */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100"
-                style={{
-                  backgroundImage: "url('/card-bg.svg')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                }}
-              />
+        {/* showcase layout */}
+        <div className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[260px_260px]">
+          {/* top left */}
+          <article className="group relative overflow-hidden rounded-[28px] border border-[#182746] bg-[linear-gradient(180deg,rgba(10,18,34,0.96)_0%,rgba(7,13,25,0.98)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_60px_rgba(0,0,0,0.22)] transition-all duration-500 hover:-translate-y-1 hover:border-[#29406f] hover:shadow-[0_22px_70px_rgba(0,0,0,0.28),0_0_45px_rgba(108,150,255,0.10)] lg:col-span-3 lg:row-span-1">
+            <div className="pointer-events-none absolute right-0 top-0 h-28 w-28 rounded-full bg-[#8fb4ff]/10 blur-3xl opacity-70" />
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <div className="mb-4 text-[12px] tracking-[0.15em] text-[#8ea4c9]">
+                  {services[0].id}
+                </div>
+                <h3 className="text-[24px] tracking-[-0.03em] text-[#f4f8ff]">
+                  {services[0].title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-[1.75] text-[#7f92b6]">
+                  {services[0].description}
+                </p>
+              </div>
 
-              {/* gradient overlay */}
-              <div
-                className="pointer-events-none absolute inset-0 opacity-0 transition-all duration-700 group-hover:opacity-100"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(108,150,255,0.18) 0%, rgba(108,150,255,0.05) 28%, rgba(255,255,255,0) 52%)",
-                }}
-              />
-
-              {/* dark overlay for text readability */}
-              <div className="pointer-events-none absolute inset-0 bg-[#050816]/0 transition-all duration-700 group-hover:bg-[#050816]/18" />
-
-              <div className="relative z-10 my-8 mb-10 flex h-23 items-center justify-center">
-                {service.floating && (
-                  <div className="pointer-events-none absolute right-[26%] top-2 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-[#29406f] bg-[#0f1a33]/90 shadow-[0_10px_30px_rgba(76,124,255,0.16)] backdrop-blur-md">
-                    <div className="h-5 w-5 rotate-45 rounded-md border border-[#4968a8] bg-[#152548] shadow-[inset_0_1px_0_rgba(180,205,255,0.16)]" />
-                  </div>
-                )}
-
+              <div className="relative mt-8 flex justify-end">
+                <div className="absolute right-6 top-1/2 h-16 w-16 -translate-y-1/2 rounded-full bg-[#8fb4ff]/10 blur-2xl" />
                 <img
-                  src={service.icon}
-                  alt={service.title}
-                  className="h-30 w-30 object-contain opacity-95 transition-transform duration-700 group-hover:scale-105 md:h-35 md:w-35"
+                  src={services[0].icon}
+                  alt={services[0].title}
+                  className="relative z-10 h-20 w-20 object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
+            </div>
+          </article>
 
-              <div className="relative z-10 mb-3 text-[12px] tracking-[-0.02em] text-[#8ea4c9]">
-                {service.id}
+          {/* center featured */}
+          <article className="group relative overflow-hidden rounded-[32px] border border-[#1d2d52] bg-[linear-gradient(180deg,rgba(12,21,39,0.98)_0%,rgba(7,13,25,1)_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_26px_90px_rgba(0,0,0,0.30),0_0_60px_rgba(108,150,255,0.08)] lg:col-span-6 lg:row-span-2">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-linear-to-b from-[#8fb4ff]/10 to-transparent" />
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8fb4ff]/8 blur-[120px]" />
+            <div className="pointer-events-none absolute -inset-px rounded-[32px] bg-[linear-gradient(135deg,rgba(143,180,255,0.16),transparent_35%,transparent_65%,rgba(143,180,255,0.10))] opacity-70 blur-sm" />
+
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div className="text-center">
+                <div className="mb-4 inline-flex items-center rounded-full border border-[#24365e] bg-[#0e1830] px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-[#8fb4ff]">
+                  Core Capabilities
+                </div>
+
+                <h3 className="text-[34px] font-light tracking-[-0.04em] text-[#f4f8ff] md:text-[42px]">
+                  Strategy, design,
+                  <br />
+                  and execution
+                </h3>
+
+                <p className="mx-auto mt-4 max-w-130 text-[14px] leading-[1.8] text-[#8ea4c9] md:text-[15px]">
+                  We combine design thinking, technical depth, and business
+                  clarity to create experiences that not only look exceptional,
+                  but perform exceptionally.
+                </p>
               </div>
 
-              <h3 className="relative z-10 mb-3 text-[22px] font-normal tracking-[-0.03em] text-[#f4f8ff] transition-colors duration-500 group-hover:text-[#b9d0ff]">
-                {service.title}
-              </h3>
+              <div className="relative mt-10 flex items-center justify-center">
+                {/* rings */}
+                <div className="absolute h-65 w-65 rounded-full border border-[#24375f]" />
+                <div className="absolute h-45 w-45 rounded-full border border-[#345286]" />
+                <div className="absolute h-30 w-30 rounded-full border border-[#4a6fb0]" />
 
-              <p className="relative z-10 max-w-60 text-[14px] leading-[1.6] text-[#7f92b6]">
-                {service.description}
-              </p>
+                {/* icons around */}
+                <div className="absolute left-[18%] top-[22%] flex h-18 w-18 items-center justify-center rounded-2xl border border-[#24365e] bg-[#0e1830]/95 shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
+                  <img
+                    src={services[0].icon}
+                    alt=""
+                    className="h-9 w-9 object-contain"
+                  />
+                </div>
 
-              <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
-                <div className="absolute inset-x-0 top-0 h-px bg-[#2a3f6e]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(100,149,255,0.12),transparent_45%)]" />
+                <div className="absolute right-[18%] top-[22%] flex h-18 w-18 items-center justify-center rounded-2xl border border-[#24365e] bg-[#0e1830]/95 shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
+                  <img
+                    src={services[1].icon}
+                    alt=""
+                    className="h-9 w-9 object-contain"
+                  />
+                </div>
+
+                <div className="absolute left-[18%] bottom-[18%] flex h-18 w-18 items-center justify-center rounded-2xl border border-[#24365e] bg-[#0e1830]/95 shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
+                  <img
+                    src={services[2].icon}
+                    alt=""
+                    className="h-9 w-9 object-contain"
+                  />
+                </div>
+
+                <div className="absolute right-[18%] bottom-[18%] flex h-18 w-18 items-center justify-center rounded-2xl border border-[#24365e] bg-[#0e1830]/95 shadow-[0_10px_30px_rgba(0,0,0,0.18)]">
+                  <img
+                    src={services[3].icon}
+                    alt=""
+                    className="h-9 w-9 object-contain"
+                  />
+                </div>
+
+                {/* center */}
+                <div className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full border border-[#9cbfff]/25 bg-[linear-gradient(180deg,#8fb4ff_0%,#5d86ff_100%)] shadow-[0_0_40px_rgba(108,150,255,0.28),0_0_100px_rgba(143,180,255,0.14)] transition-transform duration-500 group-hover:scale-105">
+                  <div className="h-14 w-14 rounded-full bg-white/20 backdrop-blur-sm" />
+                </div>
               </div>
-            </article>
-          ))}
+            </div>
+          </article>
+
+          {/* top right */}
+          <article className="group relative overflow-hidden rounded-[28px] border border-[#182746] bg-[linear-gradient(180deg,rgba(10,18,34,0.96)_0%,rgba(7,13,25,0.98)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_60px_rgba(0,0,0,0.22)] transition-all duration-500 hover:-translate-y-1 hover:border-[#29406f] hover:shadow-[0_22px_70px_rgba(0,0,0,0.28),0_0_45px_rgba(108,150,255,0.10)] lg:col-span-3 lg:row-span-1">
+            <div className="pointer-events-none absolute left-0 top-0 h-28 w-28 rounded-full bg-[#8fb4ff]/10 blur-3xl opacity-70" />
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <div className="mb-4 text-[12px] tracking-[0.15em] text-[#8ea4c9]">
+                  {services[1].id}
+                </div>
+                <h3 className="text-[24px] tracking-[-0.03em] text-[#f4f8ff]">
+                  {services[1].title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-[1.75] text-[#7f92b6]">
+                  {services[1].description}
+                </p>
+              </div>
+
+              <div className="relative mt-8 flex justify-start">
+                <div className="absolute left-6 top-1/2 h-16 w-16 -translate-y-1/2 rounded-full bg-[#8fb4ff]/10 blur-2xl" />
+                <img
+                  src={services[1].icon}
+                  alt={services[1].title}
+                  className="relative z-10 h-20 w-20 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </article>
+
+          {/* bottom left */}
+          <article className="group relative overflow-hidden rounded-[28px] border border-[#182746] bg-[linear-gradient(180deg,rgba(10,18,34,0.96)_0%,rgba(7,13,25,0.98)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_60px_rgba(0,0,0,0.22)] transition-all duration-500 hover:-translate-y-1 hover:border-[#29406f] hover:shadow-[0_22px_70px_rgba(0,0,0,0.28),0_0_45px_rgba(108,150,255,0.10)] lg:col-span-3 lg:row-span-1">
+            <div className="pointer-events-none absolute right-0 bottom-0 h-28 w-28 rounded-full bg-[#6c96ff]/10 blur-3xl opacity-70" />
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <div className="mb-4 text-[12px] tracking-[0.15em] text-[#8ea4c9]">
+                  {services[2].id}
+                </div>
+                <h3 className="text-[24px] tracking-[-0.03em] text-[#f4f8ff]">
+                  {services[2].title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-[1.75] text-[#7f92b6]">
+                  {services[2].description}
+                </p>
+              </div>
+
+              <div className="relative mt-8 flex justify-end">
+                <div className="absolute right-6 top-1/2 h-16 w-16 -translate-y-1/2 rounded-full bg-[#8fb4ff]/10 blur-2xl" />
+                <img
+                  src={services[2].icon}
+                  alt={services[2].title}
+                  className="relative z-10 h-20 w-20 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </article>
+
+          {/* bottom right */}
+          <article className="group relative overflow-hidden rounded-[28px] border border-[#182746] bg-[linear-gradient(180deg,rgba(10,18,34,0.96)_0%,rgba(7,13,25,0.98)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_60px_rgba(0,0,0,0.22)] transition-all duration-500 hover:-translate-y-1 hover:border-[#29406f] hover:shadow-[0_22px_70px_rgba(0,0,0,0.28),0_0_45px_rgba(108,150,255,0.10)] lg:col-span-3 lg:row-span-1">
+            <div className="pointer-events-none absolute left-0 bottom-0 h-28 w-28 rounded-full bg-[#6c96ff]/10 blur-3xl opacity-70" />
+            <div className="relative z-10 flex h-full flex-col justify-between">
+              <div>
+                <div className="mb-4 text-[12px] tracking-[0.15em] text-[#8ea4c9]">
+                  {services[3].id}
+                </div>
+                <h3 className="text-[24px] tracking-[-0.03em] text-[#f4f8ff]">
+                  {services[3].title}
+                </h3>
+                <p className="mt-3 text-[14px] leading-[1.75] text-[#7f92b6]">
+                  {services[3].description}
+                </p>
+              </div>
+
+              <div className="relative mt-8 flex justify-start">
+                <div className="absolute left-6 top-1/2 h-16 w-16 -translate-y-1/2 rounded-full bg-[#8fb4ff]/10 blur-2xl" />
+                <img
+                  src={services[3].icon}
+                  alt={services[3].title}
+                  className="relative z-10 h-20 w-20 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
