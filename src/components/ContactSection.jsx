@@ -81,8 +81,12 @@ export default function ContactSection() {
             </div>
 
             <h2 className="max-w-120 text-[40px] leading-none tracking-[-0.05em] text-[#f4f8ff] sm:text-[52px] md:text-[60px] lg:text-[68px]">
-              <span className="mr-2 font-serif italic text-[#dce8ff]">Let’s</span>
-              <span className="font-light text-[#f4f8ff]">Build Something Great</span>
+              <span className="mr-2 font-serif italic text-[#dce8ff]">
+                Let’s
+              </span>
+              <span className="font-light text-[#f4f8ff]">
+                Build Something Great
+              </span>
             </h2>
 
             <p className="mt-5 max-w-115 text-sm leading-[1.75] text-[#9fb0d1] md:text-[15px]">
@@ -107,46 +111,24 @@ export default function ContactSection() {
           >
             <div className="rounded-[24px] border border-[#1f2f57] bg-[#09111f]/85 p-5 sm:p-6 lg:p-7">
               <form className="grid gap-4 sm:grid-cols-2">
-                <div>
+                <div className="col-span-2">
                   <label className="mb-2 block text-sm text-[#8ea4c9]">
-                    First Name
+                    Full Name
                   </label>
                   <input
                     type="text"
-                    placeholder="John"
-                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
+                    placeholder="John calsans"
+                    className="h-13  w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
-                <div>
-                  <label className="mb-2 block text-sm text-[#8ea4c9]">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Doe"
-                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
-                  />
-                </div>
-
-                <div>
+                <div className="col-span-2">
                   <label className="mb-2 block text-sm text-[#8ea4c9]">
                     Email
                   </label>
                   <input
                     type="email"
                     placeholder="you@example.com"
-                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-2 block text-sm text-[#8ea4c9]">
-                    Budget Range
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="$1k - $5k"
                     className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
@@ -169,7 +151,8 @@ export default function ContactSection() {
                   <textarea
                     rows="8"
                     placeholder="Share your goals, features, timeline, and anything important about the project..."
-                    className="w-full rounded-[22px] border border-[#22345b] bg-[#0f1a33] px-4 py-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
+                    className="w-full rounded-[22px] border border-[#22345b] bg-[#0fimport { calsans } from '@/fonts/calsans';
+1a33] px-4 py-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 

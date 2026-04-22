@@ -1,4 +1,4 @@
-import AIFeatures from "../components/AiFeatures";
+import AIFeatures from "../components/AIFeatures";
 import About from "../components/About";
 import ContactSection from "../components/ContactSection";
 import FAQ from "../components/FAQ";
@@ -13,7 +13,7 @@ const Home = () => {
     <div>
       <Hero />
       <Services />
-      <AIFeatures />
+      <AIFeatures/>
       <About />
       <Projects />
       <Process />

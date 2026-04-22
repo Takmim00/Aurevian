@@ -35,7 +35,7 @@ const features = [
   },
 ];
 
-export function AIFeatures() {
+export default function AIFeatures() {
   return (
     <section className="relative bg-[#050816] py-32">
       {/* Gradient background */}
