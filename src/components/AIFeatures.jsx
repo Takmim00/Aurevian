@@ -6,81 +6,213 @@ const features = [
   {
     icon: Bot,
     title: "LLM Integration",
-    description: "Seamlessly integrate GPT-4, Claude, and custom language models into your applications.",
+    description:
+      "Seamlessly integrate GPT-4, Claude, and custom language models into your applications.",
   },
   {
     icon: Workflow,
     title: "Smart Workflows",
-    description: "Automate complex business processes with intelligent decision-making systems.",
+    description:
+      "Automate complex business processes with intelligent decision-making systems.",
   },
   {
     icon: Brain,
     title: "Custom Models",
-    description: "Train and deploy custom AI models tailored to your specific business needs.",
+    description:
+      "Train and deploy custom AI models tailored to your specific business needs.",
   },
   {
     icon: Cpu,
     title: "Edge AI",
-    description: "Deploy AI capabilities at the edge for real-time, low-latency processing.",
+    description:
+      "Deploy AI capabilities at the edge for real-time, low-latency processing.",
   },
   {
     icon: Database,
     title: "Vector Search",
-    description: "Implement semantic search and RAG systems for intelligent information retrieval.",
+    description:
+      "Implement semantic search and RAG systems for intelligent information retrieval.",
   },
   {
     icon: Lock,
     title: "Secure AI",
-    description: "Enterprise-grade security and privacy for all your AI implementations.",
+    description:
+      "Enterprise-grade security and privacy for all your AI implementations.",
   },
+];
+
+const orbitNodes = [
+  { left: "84%", top: "50%", delay: "0s" },
+  { left: "68%", top: "79%", delay: "0.8s" },
+  { left: "32%", top: "79%", delay: "1.4s" },
+  { left: "16%", top: "50%", delay: "2s" },
+  { left: "32%", top: "21%", delay: "2.6s" },
+  { left: "68%", top: "21%", delay: "3.2s" },
 ];
 
 export default function AIFeatures() {
   return (
-    <section className="relative bg-[#050816] py-32">
-      {/* Gradient background */}
-      <div className="absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-[#8fb4ff]/10 blur-3xl" />
+    <section className="relative overflow-hidden bg-[#050816] py-24 md:py-32 px-4  md:px-8 lg:px-10 xl:px-14">
+      {/* local styles */}
+      <style jsx>{`
+        @keyframes aiFloat {
+          0%,
+          100% {
+            transform: translate3d(0, 0, 0);
+          }
+          50% {
+            transform: translate3d(0, -10px, 0);
+          }
+        }
+
+        @keyframes nodeDrift {
+          0%,
+          100% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+          25% {
+            transform: translate(calc(-50% + 3px), calc(-50% - 5px)) scale(1.03);
+          }
+          50% {
+            transform: translate(calc(-50% - 4px), calc(-50% - 9px)) scale(0.98);
+          }
+          75% {
+            transform: translate(calc(-50% + 2px), calc(-50% - 4px)) scale(1.02);
+          }
+        }
+
+        @keyframes pulseRing {
+          0% {
+            transform: translate(-50%, -50%) scale(0.9);
+            opacity: 0.7;
+          }
+          70% {
+            transform: translate(-50%, -50%) scale(1.12);
+            opacity: 0;
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(1.12);
+            opacity: 0;
+          }
+        }
+
+        @keyframes lineFlow {
+          from {
+            stroke-dashoffset: 24;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        @keyframes rotateSlow {
+          from {
+            transform: translate(-50%, -50%) rotate(0deg);
+          }
+          to {
+            transform: translate(-50%, -50%) rotate(360deg);
+          }
+        }
+
+        @keyframes coreGlow {
+          0%,
+          100% {
+            box-shadow:
+              0 0 30px rgba(108, 150, 255, 0.22),
+              0 0 70px rgba(143, 180, 255, 0.12),
+              inset 0 1px 0 rgba(255, 255, 255, 0.16);
+          }
+          50% {
+            box-shadow:
+              0 0 44px rgba(108, 150, 255, 0.32),
+              0 0 110px rgba(143, 180, 255, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.22);
+          }
+        }
+
+        .ai-float {
+          animation: aiFloat 6s ease-in-out infinite;
+        }
+
+        .node-drift {
+          animation: nodeDrift 7s ease-in-out infinite;
+        }
+
+        .pulse-ring {
+          animation: pulseRing 3.4s ease-out infinite;
+        }
+
+        .line-flow {
+          stroke-dasharray: 6 6;
+          animation: lineFlow 1.6s linear infinite;
+        }
+
+        .rotate-slow {
+          animation: rotateSlow 24s linear infinite;
+        }
+
+        .rotate-slow-reverse {
+          animation: rotateSlow 30s linear infinite reverse;
+        }
+
+        .core-glow {
+          animation: coreGlow 3.8s ease-in-out infinite;
+        }
+      `}</style>
+
+      {/* background glows */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-130 w-225 -translate-x-1/2 rounded-full bg-[#8fb4ff]/10 blur-3xl" />
+        <div className="absolute right-[8%] top-[18%] h-80 w-[320px] rounded-full bg-[#6c96ff]/10 blur-[130px]" />
+        <div className="absolute left-[6%] bottom-[8%] h-65 w-65 rounded-full bg-[#8fb4ff]/8 blur-[110px]" />
+        <div className="absolute left-1/2 top-1/2 h-200 w-200 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(143,180,255,0.06),transparent_60%)]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Left - Content */}
+      <div className="relative z-10 mx-auto max-w-400">
+        <div className="grid items-center gap-16 lg:grid-cols-[1.02fr_.98fr]">
+          {/* left */}
           <div>
-            <p className="mb-4 text-sm uppercase tracking-widest text-primary">
+            <div className="mb-5 inline-flex items-center rounded-full border border-[#22345b] bg-[#0b1224] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.22em] text-[#8fb4ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(120,160,255,0.04)]">
               AI Capabilities
-            </p>
+            </div>
 
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl lg:text-5xl">
+            <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
               Not just software —
               <br />
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
+              <span className="bg-[linear-gradient(90deg,#edf4ff_0%,#8fb4ff_42%,#6c96ff_100%)] bg-clip-text text-transparent">
                 intelligent systems.
               </span>
             </h2>
 
-            <p className="mb-8 text-lg leading-relaxed text-muted-foreground text-pretty">
-              We don&apos;t just build applications. We create intelligent systems that learn, adapt, and evolve with your business. Our AI-first approach ensures every solution we deliver is future-proof.
+            <p className="mt-6 max-w-2xl text-[16px] leading-8 text-[#9fb0d1] sm:text-[17px]">
+              We build AI-first platforms that think, adapt, and scale with your
+              business. From intelligent automation to advanced model deployment,
+              every layer is designed to feel seamless, powerful, and future-ready.
             </p>
 
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
+
                 return (
                   <div
                     key={feature.title}
-                    className="glass glass-hover group cursor-pointer rounded-xl p-4 transition-all duration-300"
+                    className="group relative overflow-hidden rounded-2xl border border-[#1b2848] bg-[linear-gradient(180deg,rgba(11,20,38,0.92)_0%,rgba(9,17,31,0.96)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_0_1px_rgba(120,160,255,0.02)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2f4773] hover:shadow-[0_0_30px_rgba(108,150,255,0.10)]"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#0f1a33] transition-colors group-hover:bg-[#13203d]">
-                        <Icon className="h-5 w-5 text-primary" />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#8fb4ff]/10 to-transparent opacity-80" />
+                    <div className="pointer-events-none absolute -right-8 top-6 h-20 w-20 rounded-full bg-[#8fb4ff]/10 blur-2xl transition-all duration-500 group-hover:bg-[#8fb4ff]/20" />
+
+                    <div className="relative z-10 flex items-start gap-4">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#213153] bg-[#0e1830] text-[#8fb4ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:border-[#36558a] group-hover:bg-[#13203d]">
+                        <Icon className="h-5 w-5" />
                       </div>
+
                       <div>
-                        <h3 className="mb-1 font-semibold text-foreground">
+                        <h3 className="mb-2 text-[17px] font-semibold text-[#f4f8ff]">
                           {feature.title}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm leading-6 text-[#97a8ca]">
                           {feature.description}
                         </p>
                       </div>
@@ -91,74 +223,212 @@ export default function AIFeatures() {
             </div>
           </div>
 
-          {/* Right - Visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative">
-              <div className="glass glow-blue rounded-3xl p-8">
-                <div className="relative aspect-square">
-                  {/* Center node */}
-                  <div className="animate-pulse-glow absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-indigo-600">
-                    <Brain className="h-10 w-10 text-white" />
+          {/* right premium visual */}
+          <div className="relative">
+            <div className="group relative mx-auto max-w-145 perspective-[1600px]">
+              {/* big luxury glow */}
+              <div className="pointer-events-none absolute -inset-8 rounded-[42px] bg-[#8fb4ff]/10 blur-[90px] opacity-80 transition-all duration-500 group-hover:bg-[#8fb4ff]/15" />
+              <div className="pointer-events-none absolute -inset-3 rounded-[36px] bg-[radial-gradient(circle_at_top,rgba(143,180,255,0.22),transparent_55%)] blur-3xl" />
+
+              {/* glass border aura */}
+              <div className="pointer-events-none absolute -inset-1px rounded-[34px] bg-[linear-gradient(135deg,rgba(143,180,255,0.26),transparent_30%,transparent_65%,rgba(143,180,255,0.14))] opacity-70 blur-md" />
+
+              <div className="relative rounded-[32px] border border-[#1c2a49] bg-[linear-gradient(180deg,rgba(10,18,34,0.96)_0%,rgba(7,13,25,0.98)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(120,160,255,0.03),0_25px_80px_rgba(0,0,0,0.45),0_0_60px_rgba(108,150,255,0.10),0_0_140px_rgba(143,180,255,0.08)] transition-all duration-500 group-hover:border-[#355388] md:p-8">
+                {/* inner sheen */}
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-36 rounded-t-[32px] bg-linear-to-b from-[#8fb4ff]/12 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 rounded-[32px] opacity-[0.06] bg-[linear-gradient(rgba(255,255,255,0.75)_1px, transparent_1px), linear-gradient(90deg, rgba(255,255,255,0.75)_1px, transparent_1px) ] bg-size-[34px_34px]" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 rounded-b-[32px] bg-linear-to-t from-[#08101d] to-transparent" />
+
+                <div className="relative z-10">
+                  <div className="mb-8 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.22em] text-[#8fb4ff]">
+                        AI Architecture
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold text-white">
+                        Intelligence Layer
+                      </h3>
+                    </div>
+
+                    <div className="rounded-full border border-[#22345b] bg-[#0e1830] px-3 py-1 text-xs text-[#d7e5ff] shadow-[0_0_24px_rgba(108,150,255,0.12)]">
+                      Premium Active
+                    </div>
                   </div>
 
-                  {/* Orbiting nodes */}
-                  <div className="glass absolute flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:scale-110" style={{ left: "90%", top: "50%", transform: "translate(-50%, -50%)" }}>
-                    <div className="h-4 w-4 rounded-full bg-[#2196ff] animate-pulse" />
-                  </div>
-                  <div className="glass absolute flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:scale-110" style={{ left: "70%", top: "84.64%", transform: "translate(-50%, -50%)" }}>
-                    <div className="h-4 w-4 rounded-full bg-[#2196ff] animate-pulse" />
-                  </div>
-                  <div className="glass absolute flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:scale-110" style={{ left: "30%", top: "84.64%", transform: "translate(-50%, -50%)" }}>
-                    <div className="h-4 w-4 rounded-full bg-[#2196ff] animate-pulse" />
-                  </div>
-                  <div className="glass absolute flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:scale-110" style={{ left: "10%", top: "50%", transform: "translate(-50%, -50%)" }}>
-                    <div className="h-4 w-4 rounded-full bg-[#2196ff] animate-pulse" />
-                  </div>
-                  <div className="glass absolute flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:scale-110" style={{ left: "30%", top: "15.36%", transform: "translate(-50%, -50%)" }}>
-                    <div className="h-4 w-4 rounded-full bg-[#2196ff] animate-pulse" />
-                  </div>
-                  <div className="glass absolute flex h-12 w-12 items-center justify-center rounded-full transition-all duration-300 hover:scale-110" style={{ left: "70%", top: "15.36%", transform: "translate(-50%, -50%)" }}>
-                    <div className="h-4 w-4 rounded-full bg-[#2196ff] animate-pulse" />
+                  {/* visual board */}
+                  <div
+                    className="relative aspect-square overflow-hidden rounded-[28px] border border-[#18243f] bg-[radial-gradient(circle_at_center,rgba(143,180,255,0.10),rgba(8,14,26,0.98)_62%)] shadow-[inset_0_1px_0_rgba(255,255,255,0.04),inset_0_-30px_80px_rgba(0,0,0,0.25)]"
+                    style={{
+                      transform:
+                        "rotateX(10deg) rotateY(-8deg) translateZ(0)",
+                      transformStyle: "preserve-3d",
+                    }}
+                  >
+                    {/* background rings */}
+                    <div className="absolute left-1/2 top-1/2 h-[86%] w-[86%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#1b2b4a]/80" />
+                    <div className="absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#263a62]" />
+                    <div className="absolute left-1/2 top-1/2 h-[54%] w-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#2e4675]/70" />
+
+                    {/* rotating decorative rings */}
+                    <div className="rotate-slow absolute left-1/2 top-1/2 h-[76%] w-[76%] rounded-full border border-dashed border-[#355388]/50" />
+                    <div className="rotate-slow-reverse absolute left-1/2 top-1/2 h-[60%] w-[60%] rounded-full border border-dashed border-[#4c73b8]/35" />
+
+                    {/* ambient glows */}
+                    <div className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8fb4ff]/10 blur-3xl" />
+                    <div className="absolute left-[22%] top-[26%] h-20 w-20 rounded-full bg-[#8fb4ff]/8 blur-2xl" />
+                    <div className="absolute right-[18%] bottom-[22%] h-24 w-24 rounded-full bg-[#6c96ff]/10 blur-2xl" />
+
+                    {/* animated lines */}
+                    <svg
+                      className="absolute inset-0 h-full w-full"
+                      viewBox="0 0 100 100"
+                    >
+                      <defs>
+                        <linearGradient
+                          id="line-gradient-premium"
+                          x1="0%"
+                          y1="0%"
+                          x2="100%"
+                          y2="100%"
+                        >
+                          <stop offset="0%" stopColor="#dce8ff" stopOpacity="0.9" />
+                          <stop offset="45%" stopColor="#8fb4ff" stopOpacity="0.75" />
+                          <stop offset="100%" stopColor="#5a86ff" stopOpacity="0.6" />
+                        </linearGradient>
+                      </defs>
+
+                      <line
+                        className="line-flow"
+                        x1="50"
+                        y1="50"
+                        x2="84"
+                        y2="50"
+                        stroke="url(#line-gradient-premium)"
+                        strokeWidth="0.42"
+                        opacity="0.8"
+                      />
+                      <line
+                        className="line-flow"
+                        x1="50"
+                        y1="50"
+                        x2="68"
+                        y2="79"
+                        stroke="url(#line-gradient-premium)"
+                        strokeWidth="0.42"
+                        opacity="0.8"
+                      />
+                      <line
+                        className="line-flow"
+                        x1="50"
+                        y1="50"
+                        x2="32"
+                        y2="79"
+                        stroke="url(#line-gradient-premium)"
+                        strokeWidth="0.42"
+                        opacity="0.8"
+                      />
+                      <line
+                        className="line-flow"
+                        x1="50"
+                        y1="50"
+                        x2="16"
+                        y2="50"
+                        stroke="url(#line-gradient-premium)"
+                        strokeWidth="0.42"
+                        opacity="0.8"
+                      />
+                      <line
+                        className="line-flow"
+                        x1="50"
+                        y1="50"
+                        x2="32"
+                        y2="21"
+                        stroke="url(#line-gradient-premium)"
+                        strokeWidth="0.42"
+                        opacity="0.8"
+                      />
+                      <line
+                        className="line-flow"
+                        x1="50"
+                        y1="50"
+                        x2="68"
+                        y2="21"
+                        stroke="url(#line-gradient-premium)"
+                        strokeWidth="0.42"
+                        opacity="0.8"
+                      />
+                    </svg>
+
+                    {/* center pulse rings */}
+                    <div className="pulse-ring absolute left-1/2 top-1/2 h-28 w-28 rounded-full border border-[#8fb4ff]/40" />
+                    <div
+                      className="pulse-ring absolute left-1/2 top-1/2 h-40 w-40 rounded-full border border-[#8fb4ff]/20"
+                      style={{ animationDelay: "1.2s" }}
+                    />
+
+                    {/* center node */}
+                    <div className="ai-float absolute left-1/2 top-1/2 z-30 -translate-x-1/2 -translate-y-1/2">
+                      <div className="core-glow flex h-24 w-24 items-center justify-center rounded-full border border-[#b4ceff]/30 bg-[linear-gradient(180deg,#85b5ff_0%,#4b7aff_100%)]">
+                        <Brain className="h-11 w-11 text-white" />
+                      </div>
+                    </div>
+
+                    {/* orbit nodes */}
+                    {orbitNodes.map((item, i) => (
+                      <div
+                        key={i}
+                        className="node-drift absolute z-20 flex h-14 w-14 items-center justify-center rounded-full border border-[#28406b] bg-[linear-gradient(180deg,rgba(14,24,48,0.96)_0%,rgba(9,16,29,0.98)_100%)] shadow-[0_0_24px_rgba(108,150,255,0.10),inset_0_1px_0_rgba(255,255,255,0.05)]"
+                        style={{
+                          left: item.left,
+                          top: item.top,
+                          animationDelay: item.delay,
+                        }}
+                      >
+                        <div className="relative">
+                          <div className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#7eb0ff]/30 blur-md" />
+                          <div className="relative h-4 w-4 rounded-full bg-[#8fb4ff] shadow-[0_0_18px_rgba(126,176,255,0.9)]" />
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* glass reflection */}
+                    <div className="pointer-events-none absolute inset-y-0 left-[-20%] w-[38%] rotate-18 bg-[linear-gradient(180deg,rgba(255,255,255,0.10),rgba(255,255,255,0.02),transparent)] blur-2xl opacity-40" />
                   </div>
 
-                  {/* Connection lines */}
-                  <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
-                    <line x1="50" y1="50" x2="70" y2="50" stroke="url(#line-gradient)" strokeWidth="0.5" opacity="0.5" />
-                    <line x1="50" y1="50" x2="60" y2="67.32" stroke="url(#line-gradient)" strokeWidth="0.5" opacity="0.5" />
-                    <line x1="50" y1="50" x2="40" y2="67.32" stroke="url(#line-gradient)" strokeWidth="0.5" opacity="0.5" />
-                    <line x1="50" y1="50" x2="30" y2="50" stroke="url(#line-gradient)" strokeWidth="0.5" opacity="0.5" />
-                    <line x1="50" y1="50" x2="40" y2="32.68" stroke="url(#line-gradient)" strokeWidth="0.5" opacity="0.5" />
-                    <line x1="50" y1="50" x2="60" y2="32.68" stroke="url(#line-gradient)" strokeWidth="0.5" opacity="0.5" />
-                    <defs>
-                      <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#60A5FA" />
-                        <stop offset="100%" stopColor="#818CF8" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
+                  {/* bottom stats */}
+                  <div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#1a2743] pt-6">
+                    <div className="rounded-2xl border border-[#18243f] bg-[linear-gradient(180deg,rgba(11,18,33,0.92),rgba(8,14,26,0.96))] px-3 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <p className="text-2xl font-semibold text-[#8fb4ff]">
+                        99.9%
+                      </p>
+                      <p className="mt-1 text-xs tracking-wide text-[#93a6ca]">
+                        Uptime
+                      </p>
+                    </div>
 
-                {/* Stats below */}
-                <div className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
-                  <div className="text-center">
-                    <p className="text-2xl font-semibold text-primary">99.9%</p>
-                    <p className="text-xs text-muted-foreground">Uptime</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl font-semibold text-green-400">
-                      {"<"}100ms
-                    </p>
-                    <p className="text-xs text-muted-foreground">Latency</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-2xl font-semibold text-blue-400">10M+</p>
-                    <p className="text-xs text-muted-foreground">API Calls/day</p>
+                    <div className="rounded-2xl border border-[#18243f] bg-[linear-gradient(180deg,rgba(11,18,33,0.92),rgba(8,14,26,0.96))] px-3 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <p className="text-2xl font-semibold text-[#7de2a6]">
+                        {"<"}100ms
+                      </p>
+                      <p className="mt-1 text-xs tracking-wide text-[#93a6ca]">
+                        Latency
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-[#18243f] bg-[linear-gradient(180deg,rgba(11,18,33,0.92),rgba(8,14,26,0.96))] px-3 py-4 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+                      <p className="text-2xl font-semibold text-[#60a5fa]">
+                        10M+
+                      </p>
+                      <p className="mt-1 text-xs tracking-wide text-[#93a6ca]">
+                        API Calls/day
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {/* Right end */}
+          {/* right end */}
         </div>
       </div>
     </section>
