@@ -26,8 +26,8 @@ export default function Hero() {
       />
 
       {/* Gradient Background Effects */}
-      <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
-        <div className="absolute left-1/2 top-[-10%] h-[340px] w-[820px] -translate-x-1/2 rounded-full bg-[#8fb4ff]/10 blur-[110px]" />
+      <div className="pointer-events-none absolute inset-0 z-1 overflow-hidden">
+        <div className="absolute left-1/2 top-[-10%] h-85 w-205 -translate-x-1/2 rounded-full bg-[#8fb4ff]/10 blur-[110px]" />
 
         <div
           className="animate-pulse-glow absolute top-[22%] -left-28 h-80 w-80 rounded-full bg-[#8fb4ff]/14 blur-3xl"
@@ -51,7 +51,7 @@ export default function Hero() {
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 z-[2] bg-[#050816]/42" />
+      <div className="absolute inset-0 z-2 bg-[#050816]/42" />
 
       {/* Content */}
       <section className="relative z-10 overflow-hidden px-4 py-16 pb-16 pt-8 text-white md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
