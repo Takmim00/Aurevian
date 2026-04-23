@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import { BadgeCentIcon } from "lucide-react";
+import { FaDribbble, FaFacebook, FaInstagram } from "react-icons/fa";
 
 const serviceItems = [
   "AI Product Engineering",
@@ -119,6 +120,7 @@ export default function Hero() {
               </div>
             </div>
 
+           
             <div className="max-w-140 justify-self-end lg:pb-5">
               <p className="max-w-135 leading-[1.7] text-[#b7c6e0] md:leading-[1.58]">
                 We build AI-first software products that turn ambitious ideas
@@ -127,14 +129,47 @@ export default function Hero() {
                 modern brands.
               </p>
 
-              <button className="group mt-8 inline-flex items-center overflow-hidden rounded-2xl border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition-transform duration-300 hover:-translate-y-1">
-                <span className="px-7 py-4 text-base font-semibold uppercase tracking-[0.02em] md:px-8 md:py-5 md:text-lg">
-                  Know More
-                </span>
-                <span className="m-1 flex h-14 w-14 items-center justify-center rounded-xl bg-[#08111f] text-[#f4f8ff] transition-transform duration-300 group-hover:translate-x-0.5 md:h-16 md:w-16">
-                  <ArrowRight size={24} strokeWidth={1.8} />
-                </span>
-              </button>
+              <div className="mt-8 w-full max-w-140 border-t border-white/10 pt-6">
+                <div className="flex items-center justify-between gap-6">
+                  <h3 className="text-xl font-semibold tracking-[-0.02em] text-white md:text-[30px]">
+                    Contact Us
+                  </h3>
+
+                  <div className="flex items-center gap-3 md:gap-4">
+                    <a
+                      href="#"
+                      aria-label="Facebook"
+                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
+                    >
+                      <FaFacebook size={18} />
+                    </a>
+
+                    <a
+                      href="#"
+                      aria-label="Instagram"
+                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
+                    >
+                      <FaInstagram size={18} />
+                    </a>
+
+                    <a
+                      href="#"
+                      aria-label="Dribbble"
+                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
+                    >
+                      <FaDribbble size={18} />
+                    </a>
+
+                    <a
+                      href="#"
+                      aria-label="Behance"
+                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
+                    >
+                      <BadgeCentIcon size={18} />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
