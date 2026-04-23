@@ -55,29 +55,20 @@ export default function Hero() {
       <div className="absolute inset-0 z-2 bg-[#050816]/42" />
 
       {/* Content */}
-      <section className="relative z-10 overflow-hidden px-4 py-16 pb-16 pt-8 text-white md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
+      <section className="relative z-10 overflow-hidden px-4 py-16 pb-16 pt-1 text-white md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
         <div className="relative mx-auto flex max-w-400 flex-col justify-between">
-          <div className="pt-6 md:pt-10 lg:pt-8">
-            <h1 className="text-4xl font-medium leading-tight text-[#f4f8ff] sm:text-[72px]">
+          {/* Heading */}
+          <div className=" md:pt-10 lg:pt-8">
+            <h1 className="max-w-237.5 text-[38px] font-medium leading-[1.05] text-[#f4f8ff] sm:text-[52px] md:text-[64px] lg:text-[72px]">
               Engineering intelligent
-              <br /> products for the next era.
+              <br className="hidden sm:block" /> products for the next era.
             </h1>
           </div>
 
-          <div className="grid items-end gap-10 lg:grid-cols-[1fr_320px_1fr] lg:gap-8 xl:grid-cols-[1fr_360px_1fr]">
-            <div className="flex max-w-130 flex-wrap gap-3 self-end">
-              {serviceItems.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#29406f] bg-[#0b1224]/72 px-5 py-3 text-sm font-medium text-[#dbe7ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(120,160,255,0.03)] backdrop-blur-sm md:text-base"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex items-center justify-center pt-2">
-              <div className="relative flex h-60 w-60 items-center justify-center md:h-65 md:w-65">
+          <div className="mt-8 grid items-end gap-8 lg:grid-cols-[1fr_320px_1fr] lg:gap-8 xl:grid-cols-[1fr_360px_1fr]">
+            {/* Circle - mobile e heading er por ashbe */}
+            <div className="order-1 flex items-center justify-center pt-2 lg:order-2">
+              <div className="relative flex h-52 w-52 items-center justify-center sm:h-60 sm:w-60 md:h-65 md:w-65">
                 <div className="rotating-ring absolute inset-0">
                   <svg
                     viewBox="0 0 300 300"
@@ -110,7 +101,7 @@ export default function Hero() {
                   </svg>
                 </div>
 
-                <div className="hero-logo-shell relative flex h-24.5 w-24.5 items-center justify-center rounded-full border border-[#89aef7]/28 bg-[#0b1224]/72 p-5 shadow-[0_0_45px_rgba(143,180,255,0.16)] backdrop-blur-xl md:h-29 md:w-29">
+                <div className="hero-logo-shell relative flex h-22 w-22 items-center justify-center rounded-full border border-[#89aef7]/28 bg-[#0b1224]/72 p-4 shadow-[0_0_45px_rgba(143,180,255,0.16)] backdrop-blur-xl sm:h-24.5 sm:w-24.5 md:h-29 md:w-29 md:p-5">
                   <img
                     src="/aurevian.png"
                     alt="Aurevian logo"
@@ -120,9 +111,21 @@ export default function Hero() {
               </div>
             </div>
 
-           
-            <div className="max-w-140 justify-self-end lg:pb-5">
-              <p className="max-w-135 leading-[1.7] text-[#b7c6e0] md:leading-[1.58]">
+            {/* Service Items - mobile e circle er por ashbe */}
+            <div className="order-2 flex max-w-130 flex-wrap justify-center gap-3 self-end lg:order-1 lg:justify-start md:mb-5">
+              {serviceItems.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[#29406f] bg-[#0b1224]/72 px-3 py-2.5 text-center text-sm font-medium text-[#dbe7ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_0_0_1px_rgba(120,160,255,0.03)] backdrop-blur-sm sm:px-5 sm:py-3 md:text-base "
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            {/* Content - mobile e seshe ashbe */}
+            <div className="order-3 max-w-140 justify-self-end text-center lg:order-3 lg:pb-5 lg:text-left">
+              <p className="mx-auto max-w-135 leading-[1.7] text-[#b7c6e0] md:leading-[1.58] lg:mx-0">
                 We build AI-first software products that turn ambitious ideas
                 into scalable digital experiences — from intelligent web
                 platforms and SaaS systems to automation workflows built for
@@ -130,7 +133,7 @@ export default function Hero() {
               </p>
 
               <div className="mt-8 w-full max-w-140 border-t border-white/10 pt-6">
-                <div className="flex items-center justify-between gap-6">
+                <div className="flex flex-col items-center justify-between gap-5 sm:flex-row lg:items-center">
                   <h3 className="text-xl font-semibold tracking-[-0.02em] text-white md:text-[30px]">
                     Contact Us
                   </h3>
