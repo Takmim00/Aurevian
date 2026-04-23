@@ -55,11 +55,24 @@
   animation: pulseGlow 6s ease-in-out infinite;
 }
 
+
 .rotating-ring {
   animation: spinRing 20s linear infinite;
   filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.08));
+  transform-origin: center;
 }
 
+.hero-ring-text {
+  font-family:
+    "Geist Variable",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: pre;
+}
 .hero-logo-shell {
   animation: floatLogo 5.5s ease-in-out infinite;
 }

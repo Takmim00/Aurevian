@@ -133,7 +133,7 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <div className="sm:col-span-2">
+                <div className="col-span-2">
                   <label className="mb-2 block text-sm text-[#8ea4c9]">
                     Project Type
                   </label>
@@ -144,7 +144,7 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <div className="sm:col-span-2">
+                <div className="col-span-2">
                   <label className="mb-2 block text-sm text-[#8ea4c9]">
                     Tell us about your project
                   </label>

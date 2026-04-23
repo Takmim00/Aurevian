@@ -7,6 +7,8 @@ const serviceItems = [
   "Brand Experience",
 ];
 
+const circleText = "AUREVIAN • AI SOFTWARE • AGENCY • ";
+
 export default function Hero() {
   return (
     <section
@@ -15,7 +17,7 @@ export default function Hero() {
     >
       {/* Background Video */}
       <video
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover brightness-[0.82] contrast-[1.05]"
         src="/heroBG.mp4"
         autoPlay
         loop
@@ -24,18 +26,18 @@ export default function Hero() {
       />
 
       {/* Gradient Background Effects */}
-      <div className="absolute inset-0 z-1 overflow-hidden">
-        {/* Left Orb */}
+      <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
+        <div className="absolute left-1/2 top-[-10%] h-[340px] w-[820px] -translate-x-1/2 rounded-full bg-[#8fb4ff]/10 blur-[110px]" />
+
         <div
-          className="animate-pulse-glow absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-[#8fb4ff]/18 blur-3xl"
+          className="animate-pulse-glow absolute top-[22%] -left-28 h-80 w-80 rounded-full bg-[#8fb4ff]/14 blur-3xl"
           style={{
             transform: "translate(var(--mouse-x, 0), var(--mouse-y, 0))",
           }}
         />
 
-        {/* Right Orb */}
         <div
-          className="animate-pulse-glow absolute bottom-1/4 -right-32 h-80 w-80 rounded-full bg-[#6c96ff]/18 blur-3xl"
+          className="animate-pulse-glow absolute bottom-[18%] -right-24 h-72 w-72 rounded-full bg-[#6c96ff]/14 blur-3xl"
           style={{
             transform:
               "translate(calc(var(--mouse-x, 0) * -1), calc(var(--mouse-y, 0) * -1))",
@@ -43,11 +45,13 @@ export default function Hero() {
           }}
         />
 
-     
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(143,180,255,0.10)_0%,rgba(143,180,255,0.05)_22%,rgba(5,8,22,0)_48%,rgba(5,8,22,0.12)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_32%,rgba(143,180,255,0.10),transparent_26%),radial-gradient(circle_at_82%_68%,rgba(108,150,255,0.10),transparent_24%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[32%] bg-[linear-gradient(180deg,rgba(5,8,22,0)_0%,rgba(5,8,22,0.18)_42%,rgba(5,8,22,0.48)_100%)]" />
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 z-2 bg-[#050816]/62" />
+      <div className="absolute inset-0 z-[2] bg-[#050816]/42" />
 
       {/* Content */}
       <section className="relative z-10 overflow-hidden px-4 py-16 pb-16 pt-8 text-white md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
@@ -77,21 +81,29 @@ export default function Hero() {
                   <svg
                     viewBox="0 0 300 300"
                     className="h-full w-full overflow-visible"
+                    aria-hidden="true"
                   >
                     <defs>
                       <path
                         id="hero-circle-path"
-                        d="M150,150 m-102,0 a102,102 0 1,1 204,0 a102,102 0 1,1 -204,0"
+                        d="M150,150 m-98,0 a98,98 0 1,1 196,0 a98,98 0 1,1 -196,0"
                       />
                     </defs>
+
                     <text
+                      className="hero-ring-text"
                       fill="rgba(219,231,255,0.9)"
-                      fontSize="20"
-                      letterSpacing="7"
-                      fontWeight="400"
+                      fontSize="18"
+                      fontWeight="500"
+                      textAnchor="middle"
                     >
-                      <textPath href="#hero-circle-path" startOffset="0%">
-                        AUREVIAN • AI SOFTWARE • AGENCY •
+                      <textPath
+                        href="#hero-circle-path"
+                        startOffset="50%"
+                        textLength="615"
+                        lengthAdjust="spacing"
+                      >
+                        {circleText}
                       </textPath>
                     </text>
                   </svg>
