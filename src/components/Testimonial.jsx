@@ -51,10 +51,8 @@ function TestimonialCard({ quote, name, role, avatar, className = "" }) {
             "inset 0 1px 0 rgba(255,255,255,0.04), 0 10px 40px rgba(80,120,255,0.08)",
         }}
       >
-        {/* subtle glow edge */}
         <div className="pointer-events-none absolute inset-0 rounded-[20px] border border-transparent bg-[radial-gradient(circle_at_top,rgba(143,180,255,0.15),transparent_60%)] opacity-40" />
 
-        {/* top highlight line */}
         <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,205,255,0.4),transparent)]" />
 
         <p className="relative z-10 max-w-85 text-[15px] leading-normal tracking-[-0.02em] text-[#c3d3ee] sm:text-[16px] lg:text-[18px]">
@@ -63,7 +61,6 @@ function TestimonialCard({ quote, name, role, avatar, className = "" }) {
       </div>
 
       <div className="relative mt-2 flex items-center gap-3 sm:gap-4">
-        {/* avatar ring */}
         <div className="relative flex h-12 w-12 items-center justify-center rounded-full sm:h-13 sm:w-13 lg:h-14.5 lg:w-14.5">
           <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,rgba(143,180,255,0.15),rgba(143,180,255,0.7),rgba(143,180,255,0.15))] blur-[6px] opacity-70" />
           <div className="relative flex h-full w-full items-center justify-center rounded-full border border-[#2a3f6e] bg-[#0f1a33]/90 p-1">
@@ -100,7 +97,7 @@ export default function Testimonial() {
   }, []);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#050816] py-16 sm:py-20 lg:min-h-screen lg:py-0">
+    <section className="relative w-full overflow-hidden bg-[#050816] pb-10 md:pb-0  sm:py-20 lg:min-h-screen lg:py-0">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -112,38 +109,50 @@ export default function Testimonial() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(143,180,255,0.10),transparent_55%)]" />
       </div>
 
-      {/* Cards (mobile/tablet) */}
-      <div className="relative z-20 mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 md:grid-cols-2 lg:hidden">
-        {testimonials.map((item) => (
-          <TestimonialCard key={item.id} {...item} />
-        ))}
-      </div>
-
-      {/* Cards (desktop absolute) */}
-      <div className="absolute inset-0 z-20 hidden lg:block max-w-400 mx-auto">
-        <TestimonialCard {...testimonials[0]} className="absolute left-[8%] top-[6%]" />
-        <TestimonialCard {...testimonials[1]} className="absolute right-[4%] top-[12%]" />
-        <TestimonialCard {...testimonials[2]} className="absolute left-[2%] top-[48%]" />
-        <TestimonialCard {...testimonials[3]} className="absolute right-[10%] bottom-[6%]" />
-      </div>
-
       {/* Center Content */}
-      <div className="relative z-10 flex min-h-[50vh] items-center justify-center px-4 pt-14 text-center lg:min-h-screen lg:pt-0">
+      <div className="relative z-10 flex pb-8 md:pb-0 md:min-h-[50vh] items-center justify-center px-4 text-center lg:min-h-screen lg:pt-0">
         <div className="max-w-225">
           <div className="mb-6 inline-flex items-center rounded-full border border-[#22345b] bg-[#0b1224] px-4 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)] backdrop-blur-sm">
             <MessageSquareText size={16} className="mr-2 text-[#8fb4ff]" />
-           <span className="text-[#8fb4ff]">Testimonials</span> 
+            <span className="text-[#8fb4ff]">Testimonials</span>
           </div>
 
           <h2 className="leading-[0.95]">
             <span className="block font-serif text-[36px] italic tracking-[-0.04em] text-[#f4f8ff] sm:text-[48px] md:text-[56px] lg:text-[64px] xl:text-[72px]">
               Hear from the Clients
             </span>
-            <span className="block text-[34px] font-semibold tracking-[-0.05em] bg-linear-to-r from-[#dbe7ff] to-[#8fb4ff] bg-clip-text text-transparent sm:text-[44px] md:text-[52px] lg:text-[58px] xl:text-[64px]">
+            <span className="block bg-linear-to-r from-[#dbe7ff] to-[#8fb4ff] bg-clip-text text-[34px] font-semibold tracking-[-0.05em] text-transparent sm:text-[44px] md:text-[52px] lg:text-[58px] xl:text-[64px]">
               We've Partnered With
             </span>
           </h2>
         </div>
+      </div>
+
+      {/* Cards (mobile/tablet) */}
+      <div className="relative z-20 mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 md:grid-cols-2 lg:hidden">
+        {testimonials.map((item) => (
+          <TestimonialCard key={item.id} {...item} />
+        ))}
+      </div>
+
+      {/* Cards (desktop absolute) */}
+      <div className="absolute inset-0 z-20 mx-auto hidden max-w-400 lg:block">
+        <TestimonialCard
+          {...testimonials[0]}
+          className="absolute left-[8%] top-[6%]"
+        />
+        <TestimonialCard
+          {...testimonials[1]}
+          className="absolute right-[4%] top-[12%]"
+        />
+        <TestimonialCard
+          {...testimonials[2]}
+          className="absolute left-[2%] top-[48%]"
+        />
+        <TestimonialCard
+          {...testimonials[3]}
+          className="absolute right-[10%] bottom-[6%]"
+        />
       </div>
     </section>
   );
