@@ -1,177 +1,244 @@
-import { Check } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowUpRight, Check, Sparkles } from "lucide-react";
 
 const features = ["Precision-Perfect", "3D Interface", "VR Compatibility"];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 export default function Details() {
   return (
-    <section className="relative overflow-hidden bg-[#050816] px-4 py-8 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14 pt-30">
-      {/* background glow */}
+    <section className="relative overflow-hidden bg-[#050816] px-4 pb-20 pt-28 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14">
+      {/* Premium Background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-[12%] top-20 h-72 w-72 rounded-full bg-[#8fb4ff]/8 blur-[130px]" />
-        <div className="absolute right-[10%] top-[28%] h-80 w-80 rounded-full bg-[#6c96ff]/8 blur-[150px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(143,180,255,0.12),transparent_38%)]" />
+        <div className="absolute left-[8%] top-24 h-80 w-80 rounded-full bg-[#8fb4ff]/10 blur-[140px]" />
+        <div className="absolute right-[8%] top-[34%] h-96 w-96 rounded-full bg-[#6c96ff]/10 blur-[160px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:80px_80px] opacity-30" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-400">
-        {/* Top Header */}
-        <div className="mb-10 grid gap-6 md:mb-14 md:grid-cols-[1.35fr_0.65fr] md:items-start">
-          <h1 className="text-[56px] font-light leading-none tracking-[-0.065em] text-[#f4f8ff] sm:text-[72px] md:text-[96px] lg:text-[120px] xl:text-[138px]">
-            Virtual Reality
-          </h1>
+        {/* Hero Header */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mb-10 grid gap-8 md:mb-16 md:grid-cols-[1.3fr_0.7fr] md:items-end"
+        >
+          <div>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-[#c9dbff] backdrop-blur-md">
+              <Sparkles size={15} />
+              Immersive Product Experience
+            </div>
 
-          <p className="max-w-85 pt-2 text-[18px] leading-[1.05] text-[#dbe7ff] sm:text-[20px] md:justify-self-end">
-            Futuristic tech meets fearless design — branding for the next-gen
-            AR headset.
-          </p>
-        </div>
+            <h1 className="max-w-300 text-[52px] font-light leading-[0.88] tracking-[-0.07em] text-[#f4f8ff] sm:text-[72px] md:text-[96px] lg:text-[124px] xl:text-[148px]">
+              Virtual Reality
+            </h1>
+          </div>
 
-        {/* First Showcase */}
-        <ShowcaseCard image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80" />
+          <div className="md:justify-self-end">
+            <p className="max-w-95 text-[18px] leading-[1.25] text-[#dbe7ff] sm:text-[20px]">
+              Futuristic tech meets fearless design — branding for the next-gen
+              AR headset.
+            </p>
 
-        {/* Overview */}
+            <div className="mt-7 grid grid-cols-3 overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] backdrop-blur-md">
+              {["2024", "VR", "Branding"].map((item) => (
+                <div
+                  key={item}
+                  className="border-r border-white/10 px-4 py-4 text-center last:border-r-0"
+                >
+                  <p className="text-sm text-[#8394b6]">Type</p>
+                  <h4 className="mt-1 text-sm font-medium text-white md:text-base">
+                    {item}
+                  </h4>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        <ShowcaseCard
+          image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80"
+          label="Main Experience"
+        />
+
         <ContentBlock
           title="Project Overview"
+          eyebrow="01 / Strategy"
           paragraphs={[
-            "This project focused on redefining the virtual reality encounter to deliver a more immersive, emotionally engaging, and intuitive user experience. The objective was to craft a seamless blend of storytelling and interaction that would resonate deeply with users and push the boundaries of digital engagement. Collaborating closely with stakeholders, we identified key goals around immersion, accessibility, and performance optimization. From early concept sketches to high-fidelity prototypes, every phase was guided by a commitment to user-centric design and narrative cohesion. Our role was to bridge the gap between technology and emotion by designing a VR experience that was not only visually compelling but also intuitive and impactful. We initiated the process with in-depth discovery sessions and user flow mapping to define key interactions, understand user motivations, and ensure alignment with strategic objectives. This foundation shaped a compelling and cohesive experience from start to finish.",
-            "In an evolving landscape of immersive technology, the brand came to us with a clear vision — to reimagine their virtual reality encounter in a way that not only reflected their core identity but also laid the groundwork for future innovation. Their existing VR experience felt disjointed, lacked narrative cohesion, and struggled to fully engage users on an emotional or interactive level. The challenge was to transform this fragmented environment into a seamless, intuitive journey that could captivate audiences and scale with advancing technology.",
+            "This project focused on redefining the virtual reality encounter to deliver a more immersive, emotionally engaging, and intuitive user experience. The objective was to craft a seamless blend of storytelling and interaction that would resonate deeply with users and push the boundaries of digital engagement.",
+            "In an evolving landscape of immersive technology, the brand came to us with a clear vision — to reimagine their virtual reality encounter in a way that reflected their core identity and laid the groundwork for future innovation.",
           ]}
         />
 
-        <Divider />
+        <ProjectDNA />
 
-        {/* Identity + Feature list */}
-        <section className="py-10 md:py-14">
-          <h2 className="mb-6 text-[28px] font-medium tracking-[-0.03em] text-[#f4f8ff] md:text-[40px]">
-            Visual Identity & Component Architecture
-          </h2>
+        <section className="grid gap-8 py-12 md:grid-cols-[0.8fr_1.2fr] md:py-16">
+          <div>
+            <p className="mb-3 text-sm uppercase tracking-[0.28em] text-[#8fb4ff]">
+              02 / Identity
+            </p>
+            <h2 className="text-[34px] font-medium leading-[1] tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
+              Visual Identity & Component Architecture
+            </h2>
+          </div>
 
-          <p className="max-w-362.5 text-[15px] leading-[1.85] text-[#9fb0d1] md:text-[16px]">
-            Once the strategy was finalized, we moved into the design and
-            development of the virtual reality experience. Our UX process began
-            with low-fidelity spatial sketches and interaction flows to define
-            user movement, engagement points, and environmental hierarchy. After
-            validating core interactions, we advanced to high-fidelity 3D
-            prototypes, focusing on immersive UI elements and tactile feedback.
-            These designs laid the foundation for a cohesive VR design system
-            that seamlessly blended visual storytelling with intuitive user
-            interaction.
-          </p>
+          <div>
+            <p className="text-[15px] leading-[1.85] text-[#9fb0d1] md:text-[16px]">
+              Once the strategy was finalized, we moved into the design and
+              development of the virtual reality experience. Our UX process
+              began with low-fidelity spatial sketches and interaction flows to
+              define user movement, engagement points, and environmental
+              hierarchy.
+            </p>
 
-          <div className="mt-8 space-y-3">
-            {features.map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#29406f] bg-[#0f1a33] text-[#dbe7ff]">
-                  <Check size={13} />
-                </span>
-                <span className="text-[15px] text-[#dbe7ff] md:text-[16px]">
-                  {item}
-                </span>
-              </div>
-            ))}
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {features.map((item) => (
+                <div
+                  key={item}
+                  className="group rounded-[22px] border border-[#1b2848] bg-[#071021] p-4 transition duration-300 hover:-translate-y-1 hover:border-[#8fb4ff]/40 hover:bg-[#0b1428]"
+                >
+                  <span className="mb-5 flex h-9 w-9 items-center justify-center rounded-full bg-[#dbe7ff] text-[#08111f]">
+                    <Check size={15} />
+                  </span>
+                  <p className="text-[15px] text-[#dbe7ff]">{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Second Showcase */}
-        <ShowcaseCard image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80" withButton />
+        <ShowcaseCard
+          image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80"
+          label="Interaction System"
+          withButton
+        />
 
-        {/* Final Section */}
-        <section className="py-10 md:py-14">
-          <h2 className="mb-6 text-[28px] font-medium tracking-[-0.03em] text-[#f4f8ff] md:text-[40px]">
-            Real-Time Environmental Feedback
-          </h2>
-
-          <p className="max-w-362.5 text-[15px] leading-[1.85] text-[#9fb0d1] md:text-[16px]">
-            Ensuring real-time environmental feedback was a core focus
-            throughout the development of the virtual reality experience. In
-            immersive spaces, users expect their actions—whether through gaze,
-            gesture, or motion—to instantly influence their surroundings. To
-            meet this expectation, we engineered responsive interaction loops
-            that delivered immediate visual, auditory, and haptic feedback.
-            Dynamic environmental cues—like lighting changes, object animations,
-            and spatial audio—were triggered based on real-time input to
-            reinforce user presence and immersion. We conducted extensive
-            testing across multiple VR platforms and hardware configurations to
-            validate latency, synchronization accuracy, and the consistency of
-            user feedback. Performance optimizations such as lightweight
-            shaders, level-of-detail adjustments, and input prediction
-            algorithms helped maintain fluid responsiveness.
-          </p>
-        </section>
+        <ContentBlock
+          title="Real-Time Environmental Feedback"
+          eyebrow="03 / Interaction"
+          paragraphs={[
+            "Ensuring real-time environmental feedback was a core focus throughout the development of the virtual reality experience. In immersive spaces, users expect their actions—whether through gaze, gesture, or motion—to instantly influence their surroundings.",
+            "Dynamic environmental cues like lighting changes, object animations, and spatial audio were triggered based on real-time input to reinforce user presence and immersion.",
+          ]}
+        />
       </div>
     </section>
   );
 }
 
-function ShowcaseCard({ image, withButton = false }) {
+function ShowcaseCard({ image, withButton = false, label }) {
   return (
-    <div className="mb-10 md:mb-14">
-      <div className="relative overflow-hidden rounded-[34px] border border-[#1b2848] bg-[#070d1d] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_0_1px_rgba(120,160,255,0.03)] md:rounded-[42px] md:p-4">
-        {/* outer top highlight */}
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,205,255,0.5),transparent)]" />
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+      className="mb-10 md:mb-16"
+    >
+      <div className="relative overflow-hidden rounded-[34px] border border-[#1b2848] bg-[#070d1d] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_30px_120px_rgba(0,0,0,0.38)] md:rounded-[46px] md:p-4">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,205,255,0.65),transparent)]" />
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,#03060d_0px,#03060d_20px,#131c2d_24px,#d8e6ff_28px,#131c2d_32px,#03060d_42px)] opacity-[0.26]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_26%,rgba(5,8,22,0.45)_75%,rgba(5,8,22,0.75)_100%)]" />
 
-        {/* striped premium background */}
-        <div className="absolute inset-0 rounded-[34px] bg-[repeating-linear-gradient(90deg,#03060d_0px,#03060d_20px,#131c2d_24px,#d8e6ff_28px,#131c2d_32px,#03060d_42px)] opacity-[0.34] md:rounded-[42px]" />
+        <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm text-[#dbe7ff] backdrop-blur-md">
+          {label}
+        </div>
 
-        {/* dark overlay */}
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.12)_0%,rgba(5,8,22,0.34)_45%,rgba(5,8,22,0.60)_100%)]" />
+        <div className="relative flex min-h-95 items-center justify-center py-14 sm:min-h-115 md:min-h-160">
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="relative w-58 sm:w-76 md:w-110"
+          >
+            <div className="pointer-events-none absolute -inset-8 rounded-[34px] bg-[radial-gradient(circle_at_center,rgba(220,232,255,0.22),rgba(143,180,255,0.09),transparent_70%)] blur-3xl" />
 
-        {/* side vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(5,8,22,0.25)_75%,rgba(5,8,22,0.55)_100%)]" />
-
-        <div className="relative flex min-h-85 items-center justify-center py-10 sm:min-h-105 md:min-h-155">
-          <div className="relative w-55 sm:w-70 md:w-107.5">
-            {/* screen glow */}
-            <div className="pointer-events-none absolute -inset-5 rounded-[28px] bg-[radial-gradient(circle_at_center,rgba(220,232,255,0.18),rgba(143,180,255,0.08),transparent_70%)] blur-2xl" />
-
-            {/* poster frame */}
-            <div className="relative rounded-[20px] border border-[#4f658f] bg-[#0b1224] p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_20px_60px_rgba(0,0,0,0.42)] md:rounded-[24px]">
-              <div className="relative overflow-hidden rounded-[16px] border border-[#22345b] bg-[#0b1224] md:rounded-[20px]">
+            <div className="relative rotate-[-2deg] rounded-[24px] border border-[#4f658f] bg-[#0b1224] p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_26px_80px_rgba(0,0,0,0.48)] md:rounded-[28px]">
+              <div className="relative overflow-hidden rounded-[18px] border border-[#22345b] bg-[#0b1224] md:rounded-[22px]">
                 <img
                   src={image}
                   alt="Project showcase"
                   className="w-full object-cover"
                 />
-
-                {/* inner cinematic overlay */}
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.02)_16%,rgba(0,0,0,0.05)_40%,rgba(5,8,22,0.25)_100%)]" />
-
-                {/* subtle reflection line */}
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.02)_18%,rgba(5,8,22,0.35)_100%)]" />
                 <div className="pointer-events-none absolute inset-x-0 top-[30%] h-px bg-white/10" />
               </div>
             </div>
 
             {withButton && (
-              <button className="absolute right-[-18%] top-1/2 flex h-24 w-24 -translate-y-1/2 items-center justify-center rounded-full border border-[#1f2f57] bg-[radial-gradient(circle_at_30%_30%,#1c2436_0%,#0a0f19_68%,#050816_100%)] text-[20px] text-[#f4f8ff] shadow-[0_18px_60px_rgba(0,0,0,0.45),0_0_0_1px_rgba(120,160,255,0.03)] transition duration-300 hover:scale-105 md:h-36 md:w-36 md:text-[34px]">
-                View
+              <button className="absolute -right-10 top-1/2 flex h-24 w-24 -translate-y-1/2 items-center justify-center rounded-full border border-[#263c6d] bg-[radial-gradient(circle_at_30%_30%,#27334c_0%,#0a0f19_68%,#050816_100%)] text-[#f4f8ff] shadow-[0_18px_60px_rgba(0,0,0,0.45)] transition duration-300 hover:scale-105 md:-right-20 md:h-36 md:w-36">
+                <span className="flex items-center gap-1 text-[18px] md:text-[28px]">
+                  View <ArrowUpRight size={22} />
+                </span>
               </button>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-function ContentBlock({ title, paragraphs }) {
+function ContentBlock({ title, paragraphs, eyebrow }) {
   return (
-    <section className="py-10 md:py-14">
-      <h2 className="mb-6 text-[28px] font-medium tracking-[-0.03em] text-[#f4f8ff] md:text-[40px]">
-        {title}
-      </h2>
+    <motion.section
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-80px" }}
+      className="grid gap-8 py-12 md:grid-cols-[0.8fr_1.2fr] md:py-16"
+    >
+      <div>
+        <p className="mb-3 text-sm uppercase tracking-[0.28em] text-[#8fb4ff]">
+          {eyebrow}
+        </p>
+        <h2 className="text-[34px] font-medium leading-[1] tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
+          {title}
+        </h2>
+      </div>
 
       <div className="space-y-6">
         {paragraphs.map((text, index) => (
           <p
             key={index}
-            className="max-w-370 text-[15px] leading-[1.85] text-[#9fb0d1] md:text-[16px]"
+            className="text-[15px] leading-[1.85] text-[#9fb0d1] md:text-[16px]"
           >
             {text}
           </p>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 
-function Divider() {
-  return <div className="h-px w-full bg-[#1b2848]" />;
+function ProjectDNA() {
+  return (
+    <div className="overflow-hidden rounded-[30px] border border-[#1b2848] bg-[#071021] p-2">
+      <div className="grid gap-2 md:grid-cols-4">
+        {[
+          ["Mood", "Futuristic"],
+          ["System", "Spatial UI"],
+          ["Motion", "Real-time"],
+          ["Output", "Premium VR"],
+        ].map(([label, value]) => (
+          <div
+            key={label}
+            className="rounded-[24px] border border-white/[0.06] bg-white/[0.035] p-5"
+          >
+            <p className="text-sm text-[#7f90b1]">{label}</p>
+            <h4 className="mt-2 text-xl font-medium text-[#f4f8ff]">
+              {value}
+            </h4>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
