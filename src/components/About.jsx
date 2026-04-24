@@ -206,7 +206,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#050816] px-4 py-20 text-white md:px-8 lg:px-10 xl:px-14"
+      className="relative overflow-hidden bg-[#050816] px-4 md:py-20 text-white md:px-8 lg:px-10 xl:px-14"
     >
       <div className="pointer-events-none absolute inset-0 opacity-[0.08]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(143,180,255,0.16)_1px,transparent_1px)] [bg-size-22px_22px]" />
