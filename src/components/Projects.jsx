@@ -71,7 +71,7 @@ export default function Projects() {
               style={{ top: `${100 + index * 28}px` }}
             >
               <div
-                className="grid gap-3 lg:grid-cols-[1.1fr_0.95fr_0.95fr]"
+                className="grid gap-3 md:grid-cols-[1.1fr_0.95fr] lg:grid-cols-[1.1fr_0.95fr_0.95fr]"
                 data-cursor="View Now"
               >
                 <div className="relative overflow-hidden rounded-[26px] border border-[#1b2b4d] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-4">
@@ -182,12 +182,21 @@ export default function Projects() {
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
                   <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/[0.06] mix-blend-soft-light" />
+
+                  <motion.button
+                    whileHover={{ y: -2, scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute bottom-4 left-4 z-10 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-5 py-2 text-sm font-medium text-[#08111f] shadow-[0_12px_35px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:bg-white/18 lg:hidden"
+                  >
+                    View Now
+                  </motion.button>
                 </motion.div>
 
                 <motion.div
                   whileHover={{ scale: 1.015 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="group relative aspect-4/3 overflow-hidden rounded-[26px] border border-[#1b2b4d]"
+                  className="group relative hidden aspect-4/3 overflow-hidden rounded-[26px] border border-[#1b2b4d] lg:block"
                 >
                   <img
                     src={project.image2}
