@@ -40,12 +40,12 @@ const features = [
 ];
 
 const orbitNodes = [
-  { left: "84%", top: "50%", delay: "0s", icon: Bot },
-  { left: "68%", top: "79%", delay: "0.8s", icon: Workflow },
+  { left: "84%", top: "50%", delay: "0s", icon: Database },
+  { left: "68%", top: "79%", delay: "0.8s", icon: Lock },
   { left: "32%", top: "79%", delay: "1.4s", icon: Brain },
   { left: "16%", top: "50%", delay: "2s", icon: Cpu },
-  { left: "32%", top: "21%", delay: "2.6s", icon: Database },
-  { left: "68%", top: "21%", delay: "3.2s", icon: Lock },
+  { left: "32%", top: "21%", delay: "2.6s", icon: Bot },
+  { left: "68%", top: "21%", delay: "3.2s", icon: Workflow },
 ];
 
 export default function AIFeatures() {
