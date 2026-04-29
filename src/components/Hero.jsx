@@ -14,11 +14,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden pt-28 lg:pt-32"
+      className="relative min-h-screen overflow-hidden bg-[#03060B] pt-28 lg:pt-32"
     >
       {/* Background Video */}
       <video
-        className="absolute inset-0 h-full w-full object-cover brightness-[0.82] contrast-[1.05]"
+        className="absolute inset-0 z-1 h-full w-full object-cover opacity-60 mix-blend-screen"
         src="/heroBG.mp4"
         autoPlay
         loop
@@ -26,8 +26,14 @@ export default function Hero() {
         playsInline
       />
 
+      {/* Video Blue Color Tint */}
+      <div className="pointer-events-none absolute inset-0 z-2 bg-[#005290] mix-blend-color" />
+
+      {/* Video Edge Fade / Vignette */}
+      <div className="pointer-events-none absolute inset-0 z-3 bg-[radial-gradient(circle,transparent_30%,#03060B_100%)]" />
+
       {/* Gradient Background Effects */}
-      <div className="pointer-events-none absolute inset-0 z-1 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 z-4 overflow-hidden">
         <div className="absolute left-1/2 top-[-10%] h-85 w-205 -translate-x-1/2 rounded-full bg-[#8fb4ff]/10 blur-[110px]" />
 
         <div
@@ -52,7 +58,7 @@ export default function Hero() {
       </div>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 z-2 bg-[#050816]/42" />
+      <div className="absolute inset-0 z-5 bg-[#050816]/42" />
 
       {/* Content */}
       <section className="relative z-10 overflow-hidden px-4 py-16 pb-16 pt-1 text-white md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
@@ -66,7 +72,6 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 grid items-end gap-8 lg:grid-cols-[1fr_320px_1fr] lg:gap-8 xl:grid-cols-[1fr_360px_1fr]">
-            {/* Circle - mobile e heading er por ashbe */}
             <div className="order-1 flex items-center justify-center pt-2 lg:order-2">
               <div className="relative flex h-52 w-52 items-center justify-center sm:h-60 sm:w-60 md:h-65 md:w-65">
                 <div className="rotating-ring absolute inset-0">
@@ -111,7 +116,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Service Items - mobile e circle er por ashbe */}
             <div className="order-2 flex max-w-130 flex-wrap justify-center gap-3 self-end lg:order-1 lg:justify-start md:mb-5">
               {serviceItems.map((item) => (
                 <span
@@ -123,7 +127,6 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* Content - mobile e seshe ashbe */}
             <div className="order-3 max-w-140 justify-self-end text-center lg:order-3 lg:pb-5 lg:text-left">
               <p className="mx-auto max-w-135 leading-[1.7] text-[#b7c6e0] md:leading-[1.58] lg:mx-0">
                 We build AI-first software products that turn ambitious ideas
@@ -139,35 +142,16 @@ export default function Hero() {
                   </h3>
 
                   <div className="flex items-center gap-3 md:gap-4">
-                    <a
-                      href="#"
-                      aria-label="Facebook"
-                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
-                    >
+                    <a href="#" aria-label="Facebook" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
                       <FaFacebook size={18} />
                     </a>
-
-                    <a
-                      href="#"
-                      aria-label="Instagram"
-                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
-                    >
+                    <a href="#" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
                       <FaInstagram size={18} />
                     </a>
-
-                    <a
-                      href="#"
-                      aria-label="Dribbble"
-                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
-                    >
+                    <a href="#" aria-label="Dribbble" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
                       <FaDribbble size={18} />
                     </a>
-
-                    <a
-                      href="#"
-                      aria-label="Behance"
-                      className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]"
-                    >
+                    <a href="#" aria-label="Behance" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
                       <BadgeCentIcon size={18} />
                     </a>
                   </div>
