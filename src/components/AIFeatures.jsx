@@ -1,5 +1,3 @@
-"use client";
-
 import { Bot, Workflow, Brain, Cpu, Database, Lock } from "lucide-react";
 
 const features = [
