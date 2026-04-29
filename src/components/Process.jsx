@@ -259,7 +259,7 @@ export default function Process() {
 
                     <div className="relative z-10">
                       <p className="text-[14px] font-medium tracking-wide text-[#8fb4ff]">{step.id}</p>
-                      <h3 className="mt-4 text-[3px] font-semibold leading-none text-[#f4f8ff]">{step.title}</h3>
+                      <h3 className="mt-4 text-[38px] font-semibold leading-none text-[#f4f8ff]">{step.title}</h3>
                       <p className="mt-4 mb-3 text-[18px] leading-[1.6] text-[#9fb0d1]">{step.description}</p>
                     </div>
 
