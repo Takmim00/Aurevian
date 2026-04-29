@@ -1,11 +1,13 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
+  Blocks,
+  BrainCircuit,
   Code2,
+  DatabaseBackup,
   Lightbulb,
   Pencil,
   Rocket,
-  Blocks,
-  DatabaseBackup,
-  BrainCircuit,
 } from "lucide-react";
 import {
   motion,
@@ -14,8 +16,7 @@ import {
   useScroll,
   useSpring,
 } from "motion/react";
-import { useRef } from "react";
-
+import { useEffect, useRef } from "react";
 const steps = [
   {
     id: "/01",
@@ -52,16 +53,14 @@ const steps = [
   {
     id: "/05",
     title: "Database",
-    description:
-      "Structured data management and scalable architecture setup.",
+    description: "Structured data management and scalable architecture setup.",
     icon: DatabaseBackup,
     customStyle: { top: "1250px", left: "70px" },
   },
   {
     id: "/06",
     title: "AI Integration",
-    description:
-      "Intelligent features and predictive analysis implementation.",
+    description: "Intelligent features and predictive analysis implementation.",
     icon: BrainCircuit,
     customStyle: { top: "1540px", right: "70px" },
   },
@@ -112,20 +111,27 @@ export default function Process() {
   const rocketY = useMotionValue(150);
   const rocketRotate = useMotionValue(90);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1400,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 120,
+    });
+
+    AOS.refresh();
+  }, []);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start center", "end center"],
   });
 
-  // const springProgress = useSpring(scrollYProgress, {
-  //   stiffness: 130,
-  //   damping: 28,
-  // });
-const springProgress = useSpring(scrollYProgress, {
-  stiffness: 55,
-  damping: 35,
-  mass: 1.2,
-});
+
+  const springProgress = useSpring(scrollYProgress, {
+    stiffness: 55,
+    damping: 35,
+    mass: 1.2,
+  });
   useMotionValueEvent(springProgress, "change", (latest) => {
     if (!pathRef.current) return;
 
@@ -136,10 +142,10 @@ const springProgress = useSpring(scrollYProgress, {
     const point = pathRef.current.getPointAtLength(currentLength);
 
     const before = pathRef.current.getPointAtLength(
-      Math.max(0, currentLength - 5)
+      Math.max(0, currentLength - 5),
     );
     const after = pathRef.current.getPointAtLength(
-      Math.min(totalLength, currentLength + 5)
+      Math.min(totalLength, currentLength + 5),
     );
 
     let dx = after.x - before.x;
@@ -278,7 +284,15 @@ const springProgress = useSpring(scrollYProgress, {
               const Icon = step.icon;
 
               return (
-                <div key={step.id} className="absolute" style={step.customStyle}>
+                <div
+                  key={step.id}
+                  className="absolute"
+                  style={step.customStyle}
+                  data-aos={
+                    step.customStyle.left ? "fade-up-right" : "fade-up-left"
+                  }
+                 
+                >
                   <div className="group relative w-95 h-62.5 overflow-hidden rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_30px_rgba(108,150,255,0.08)] transition-all duration-500 hover:border-[#314a78] hover:shadow-[0_0_60px_rgba(108,150,255,0.15)]">
                     <div className="pointer-events-none absolute -inset-2 -z-10 rounded-[36px] bg-[#8fb4ff]/8 blur-2xl opacity-60 transition-all duration-500 group-hover:bg-[#8fb4ff]/12 group-hover:opacity-100" />
                     <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-[#8fb4ff]/10 to-transparent" />
@@ -318,6 +332,7 @@ const springProgress = useSpring(scrollYProgress, {
             return (
               <div
                 key={step.id}
+                data-aos="fade-up"
                 className="group relative overflow-hidden rounded-[26px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#8fb4ff]/8 to-transparent" />
