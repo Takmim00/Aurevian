@@ -252,7 +252,7 @@ export default function Process() {
                   className="absolute"
                   style={step.customStyle}
                 >
-                  <div className="group relative w-[380px] h-[250px] overflow-hidden rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_30px_rgba(108,150,255,0.08)] transition-all duration-500 hover:border-[#314a78] hover:shadow-[0_0_60px_rgba(108,150,255,0.15)]">
+                  <div className="group relative w-95 h-62.5 overflow-hidden rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_30px_rgba(108,150,255,0.08)] transition-all duration-500 hover:border-[#314a78] hover:shadow-[0_0_60px_rgba(108,150,255,0.15)]">
                     <div className="pointer-events-none absolute -inset-2 -z-10 rounded-[36px] bg-[#8fb4ff]/8 blur-2xl opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:bg-[#8fb4ff]/12" />
                     <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-[#8fb4ff]/10 to-transparent" />
                     <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(175,205,255,0.55),transparent)]" />
@@ -266,7 +266,7 @@ export default function Process() {
                     <div className="pointer-events-none absolute -bottom-37.5 left-1/2 h-80 w-[320px] -translate-x-1/2 rounded-full border border-[#24375f] bg-[radial-gradient(circle_at_center,rgba(220,232,255,0.10),rgba(143,180,255,0.08),transparent_70%)]" />
                     <div className="pointer-events-none absolute -bottom-7.5 left-1/2 h-37.5 w-30 -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(220,232,255,0.20),rgba(143,180,255,0.10),transparent_75%)] blur-2xl" />
 
-                    <div className="absolute bottom-2 left-1/2 z-1 -translate-x-1/2">
+                    <div className="absolute -bottom-2 left-1/2 z-1 -translate-x-1/2">
                       <div className="flex h-13 w-13 items-center justify-center rounded-full bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.22)] transition-transform duration-500 group-hover:scale-110">
                         <Icon size={20} strokeWidth={2.2} />
                       </div>
