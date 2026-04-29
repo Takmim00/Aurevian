@@ -121,7 +121,7 @@ export default function Process() {
       ref={sectionRef}
       className="relative overflow-hidden bg-[#050816] px-6 py-20 text-white md:px-10 lg:px-12"
     >
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto container">
         {/* Header Section */}
         <div className="mb-24 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
