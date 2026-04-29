@@ -269,11 +269,11 @@ export default function Process() {
               }}
             >
               <image
-                href="/rocket2.svg"
-                x="-35"
-                y="-35"
-                width="70"
-                height="70"
+                href="/rocket5.svg"
+                x="-45"
+                y="-45"
+                width="90"
+                height="90"
                 preserveAspectRatio="xMidYMid meet"
               />
             </motion.g>
