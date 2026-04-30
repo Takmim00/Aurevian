@@ -269,7 +269,7 @@ export default function Process() {
               }}
             >
               <image
-                href="/rocket5.svg"
+                href="/rocket3.svg"
                 x="-45"
                 y="-45"
                 width="90"
