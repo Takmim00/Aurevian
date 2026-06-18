@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Do you offer support after launch?",
     answer:
-      "Yes. We can continue with optimization, fixes, feature enhancements, performance improvements, and ongoing technical support after the initial launch.",
+      "Yes. We can continue with optimization, fixes, feature enhancements, performance improvements, and ongoing technical support after the initial launches.",
   },
 ];
 
