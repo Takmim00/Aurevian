@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en" data-theme="dark" data-scroll-behavior="smooth">
       <head>
         <link rel="icon" type="image/svg+xml" href="/aurevian.png" />
       </head>

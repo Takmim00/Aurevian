@@ -27,7 +27,7 @@ function OrbitTag({ children }) {
 export default function Projects() {
   return (
     <section className="bg-[#050816] px-4 py-16 md:px-8 lg:px-10 xl:px-12 2xl:px-14">
-      <div className="mx-auto max-w-400">
+      <div className="relative mx-auto max-w-400">
         <StackingCards className="space-y-5">
           {projects.map((project, index) => (
             <StackingCardItem

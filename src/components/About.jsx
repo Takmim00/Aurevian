@@ -113,7 +113,7 @@ function RevealParagraph() {
   const animatedCount = words.length - fixedWhiteCount;
 
   return (
-    <div ref={containerRef} className="mx-auto max-w-150">
+    <div ref={containerRef} className="relative mx-auto max-w-150">
       <p className="flex flex-wrap justify-center text-center text-[22px] font-medium leading-[1.45] tracking-[-0.02em] md:text-[24px] md:leading-[1.35] lg:text-[28px]">
         {words.map((word, i) => {
           const alwaysWhite = i < fixedWhiteCount;
