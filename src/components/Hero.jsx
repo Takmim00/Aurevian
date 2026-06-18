@@ -30,7 +30,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 z-2 bg-[#005290] mix-blend-color" />
 
       {/* Video Edge Fade / Vignette */}
-      <div className="pointer-events-none absolute inset-0 z-3 bg-[radial-gradient(circle,transparent_30%,#03060B_100%)]" />
+      <div className="pointer-events-none absolute inset-0  z-3 bg-[radial-gradient(circle,transparent_30%,#03060B_100%)]" />
 
       {/* Gradient Background Effects */}
       <div className="pointer-events-none absolute inset-0 z-4 overflow-hidden">
