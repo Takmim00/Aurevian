@@ -1,3 +1,4 @@
+"use client";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 

@@ -1,3 +1,4 @@
+"use client";
 // author: Khoa Phan <https://www.pldkhoa.dev>
 import { motion, useScroll, useTransform } from "motion/react";
 import { createContext, useContext, useRef } from "react";
