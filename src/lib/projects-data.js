@@ -1,0 +1,126 @@
+const projects = [
+  {
+    id: "lemonide-tech",
+    year: "2024",
+    title: "Lemonide Tech",
+    slug: "lemonide-tech",
+    points: ["AI Integration", "Responsive Design", "Custom Layouts", "Fast Loading"],
+    tags: ["E-Commerce", "Portfolio"],
+    image1: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80",
+    image2: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
+    badge: "E-Commerce Platform",
+    tagline: "Modern e-commerce meets intelligent automation — a fully responsive brand experience.",
+    typeYear: "2024",
+    typeProject: "E-Commerce",
+    typeService: "Web Development",
+    overviewTitle: "Project Overview",
+    overviewEyebrow: "01 / Strategy",
+    overviewParagraphs: [
+      "Lemonide Tech needed a digital storefront that matched their cutting-edge hardware — something clean, fast, and conversion-focused. We built a fully custom e-commerce platform with AI-powered product recommendations and seamless checkout.",
+      "The result was a 40% increase in engagement and a brand identity that positioned them as leaders in their space.",
+    ],
+    dna: [
+      ["Mood", "Modern"],
+      ["System", "E-Commerce"],
+      ["Motion", "Smooth"],
+      ["Output", "Live Site"],
+    ],
+    identityTitle: "Visual Identity & Architecture",
+    identityParagraphs: "We designed a modular component system that adapts across devices while maintaining brand consistency. AI-powered search and personalized recommendations elevate the shopping experience.",
+    identityFeatures: ["AI Search", "Smart Cart", "Responsive", "Fast API"],
+    showcase2: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
+    showcase2Label: "Product Interface",
+    contentBlock3Title: "Real-Time Inventory Sync",
+    contentBlock3Eyebrow: "03 / Engineering",
+    contentBlock3Paragraphs: [
+      "Real-time inventory management across warehouses ensures customers always see accurate stock levels. The system syncs orders, returns, and restocks instantly.",
+      "Automated low-stock alerts and predictive reordering help Lemonide Tech stay ahead of demand without overstocking.",
+    ],
+  },
+  {
+    id: "nexus-ai",
+    year: "2024",
+    title: "Nexus AI",
+    slug: "nexus-ai",
+    points: ["AI Dashboard", "Automation", "Real-time Data", "Clean UI"],
+    tags: ["SaaS", "AI"],
+    image1: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
+    image2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    badge: "AI SaaS Platform",
+    tagline: "Intelligent dashboard for real-time AI model monitoring and team collaboration.",
+    typeYear: "2024",
+    typeProject: "SaaS",
+    typeService: "AI Development",
+    overviewTitle: "Project Overview",
+    overviewEyebrow: "01 / Strategy",
+    overviewParagraphs: [
+      "Nexus AI needed a powerful yet intuitive dashboard for teams to monitor, manage, and optimize their AI models in production. We designed a data-rich interface that simplifies complex ML operations.",
+      "Real-time metrics, custom alerting, and collaboration tools turned their platform into an indispensable operations hub.",
+    ],
+    dna: [
+      ["Mood", "Intelligent"],
+      ["System", "SaaS"],
+      ["Motion", "Real-time"],
+      ["Output", "Dashboard"],
+    ],
+    identityTitle: "Data Visualization & UX",
+    identityParagraphs: "Every chart, widget, and metric was designed for clarity at a glance. Dark-themed UI with subtle animations makes data exploration feel natural and responsive.",
+    identityFeatures: ["Live Charts", "Custom Alerts", "Team Workspace", "API Access"],
+    showcase2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    showcase2Label: "Analytics View",
+    contentBlock3Title: "Real-Time Model Monitoring",
+    contentBlock3Eyebrow: "03 / Infrastructure",
+    contentBlock3Paragraphs: [
+      "Continuous monitoring of model performance with drift detection, latency tracking, and automatic retraining triggers keeps ML pipelines healthy.",
+      "Teams receive instant notifications on anomalies, ensuring rapid response to production issues.",
+    ],
+  },
+  {
+    id: "green-harvest",
+    year: "2023",
+    title: "Green Harvest",
+    slug: "green-harvest",
+    points: ["E-commerce", "Cart System", "Wishlist", "Fast API"],
+    tags: ["Shop", "Organic"],
+    image1: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
+    image2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    badge: "Organic Marketplace",
+    tagline: "A fresh, organic marketplace connecting local farmers with conscious consumers.",
+    typeYear: "2023",
+    typeProject: "Marketplace",
+    typeService: "Full-Stack",
+    overviewTitle: "Project Overview",
+    overviewEyebrow: "01 / Strategy",
+    overviewParagraphs: [
+      "Green Harvest set out to build a digital marketplace for organic produce — connecting local farmers directly to consumers. We built a full-featured platform with smart cart, wishlist, and fast API-driven checkout.",
+      "The platform supports vendor management, seasonal inventory, and community-driven ratings.",
+    ],
+    dna: [
+      ["Mood", "Fresh"],
+      ["System", "Marketplace"],
+      ["Motion", "Fluid"],
+      ["Output", "Web App"],
+    ],
+    identityTitle: "User Experience & Design",
+    identityParagraphs: "Warm, organic aesthetics paired with a clean shopping experience. The interface focuses on product storytelling, farm transparency, and seamless add-to-cart flow.",
+    identityFeatures: ["Smart Cart", "Wishlist", "Vendor Portal", "Fast Checkout"],
+    showcase2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    showcase2Label: "Shopping Experience",
+    contentBlock3Title: "Real-Time Order Tracking",
+    contentBlock3Eyebrow: "03 / Operations",
+    contentBlock3Paragraphs: [
+      "End-to-end order tracking from farm to doorstep. Customers see real-time updates on harvest, packing, and delivery stages with estimated arrival windows.",
+      "Vendors get a dedicated dashboard for inventory management, order fulfillment, and customer communication.",
+    ],
+  },
+];
+
+export function getProjectBySlug(slug) {
+  return projects.find((p) => p.id === slug) || null;
+}
+
+export function getAllProjectSlugs() {
+  return projects.map((p) => p.id);
+}
+
+export default projects;

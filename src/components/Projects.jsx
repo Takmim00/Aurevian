@@ -1,45 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import Link from "next/link";
+import projects from "../lib/projects-data";
 import StackingCards, { StackingCardItem } from "./fancy/blocks/stacking-cards";
-
-const projects = [
-  {
-    year: "2024",
-    title: "Lemonide Tech",
-    points: [
-      "AI Integration",
-      "Responsive Design",
-      "Custom Layouts",
-      "Fast Loading",
-    ],
-    tags: ["E-Commerce", "Portfolio"],
-    image1:
-      "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80",
-    image2:
-      "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    year: "2024",
-    title: "Nexus AI",
-    points: ["AI Dashboard", "Automation", "Real-time Data", "Clean UI"],
-    tags: ["SaaS", "AI"],
-    image1:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
-    image2:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    year: "2023",
-    title: "Green Harvest",
-    points: ["E-commerce", "Cart System", "Wishlist", "Fast API"],
-    tags: ["Shop", "Organic"],
-    image1:
-      "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
-    image2:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-  },
-];
 
 function OrbitTag({ children }) {
   return (
@@ -71,7 +35,8 @@ export default function Projects() {
               className="sticky rounded-[32px] border border-[#182746] bg-[#070d1d] p-2.5 shadow-[0_0_0_1px_rgba(120,160,255,0.03)]"
               style={{ top: `${100 + index * 28}px` }}
             >
-              <div
+              <Link
+                href={`/details/${project.id}`}
                 className="grid gap-3 md:grid-cols-[1.1fr_0.95fr] lg:grid-cols-[1.1fr_0.95fr_0.95fr]"
                 data-cursor="View Now"
               >
@@ -207,7 +172,7 @@ export default function Projects() {
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
                   <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/[0.06] mix-blend-soft-light" />
                 </motion.div>
-              </div>
+              </Link>
             </StackingCardItem>
           ))}
         </StackingCards>

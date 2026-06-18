@@ -2,8 +2,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check, Sparkles } from "lucide-react";
 
-const features = ["Precision-Perfect", "3D Interface", "VR Compatibility"];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   show: {
@@ -13,10 +11,9 @@ const fadeUp = {
   },
 };
 
-export default function Details() {
+export default function Details({ project }) {
   return (
     <section className="relative overflow-hidden bg-[#050816] px-4 pb-20 pt-28 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14">
-      {/* Premium Background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(143,180,255,0.12),transparent_38%)]" />
         <div className="absolute left-[8%] top-24 h-80 w-80 rounded-full bg-[#8fb4ff]/10 blur-[140px]" />
@@ -25,7 +22,6 @@ export default function Details() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-400">
-        {/* Hero Header */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -35,29 +31,32 @@ export default function Details() {
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-[#c9dbff] backdrop-blur-md">
               <Sparkles size={15} />
-              Immersive Product Experience
+              {project.badge}
             </div>
 
             <h1 className="max-w-300 text-[52px] font-light leading-[0.88] tracking-[-0.07em] text-[#f4f8ff] sm:text-[72px] md:text-[96px] lg:text-[124px] xl:text-[148px]">
-              Virtual Reality
+              {project.title}
             </h1>
           </div>
 
           <div className="md:justify-self-end">
             <p className="max-w-95 text-[18px] leading-[1.25] text-[#dbe7ff] sm:text-[20px]">
-              Futuristic tech meets fearless design — branding for the next-gen
-              AR headset.
+              {project.tagline}
             </p>
 
             <div className="mt-7 grid grid-cols-3 overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] backdrop-blur-md">
-              {["2024", "VR", "Branding"].map((item) => (
+              {[
+                { label: "Year", value: project.typeYear },
+                { label: "Project", value: project.typeProject },
+                { label: "Service", value: project.typeService },
+              ].map((item) => (
                 <div
-                  key={item}
+                  key={item.label}
                   className="border-r border-white/10 px-4 py-4 text-center last:border-r-0"
                 >
-                  <p className="text-sm text-[#8394b6]">Type</p>
+                  <p className="text-sm text-[#8394b6]">{item.label}</p>
                   <h4 className="mt-1 text-sm font-medium text-white md:text-base">
-                    {item}
+                    {item.value}
                   </h4>
                 </div>
               ))}
@@ -66,20 +65,17 @@ export default function Details() {
         </motion.div>
 
         <ShowcaseCard
-          image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80"
+          image={project.image1}
           label="Main Experience"
         />
 
         <ContentBlock
-          title="Project Overview"
-          eyebrow="01 / Strategy"
-          paragraphs={[
-            "This project focused on redefining the virtual reality encounter to deliver a more immersive, emotionally engaging, and intuitive user experience. The objective was to craft a seamless blend of storytelling and interaction that would resonate deeply with users and push the boundaries of digital engagement.",
-            "In an evolving landscape of immersive technology, the brand came to us with a clear vision — to reimagine their virtual reality encounter in a way that reflected their core identity and laid the groundwork for future innovation.",
-          ]}
+          title={project.overviewTitle}
+          eyebrow={project.overviewEyebrow}
+          paragraphs={project.overviewParagraphs}
         />
 
-        <ProjectDNA />
+        <ProjectDNA items={project.dna} />
 
         <section className="grid gap-8 py-12 md:grid-cols-[0.8fr_1.2fr] md:py-16">
           <div>
@@ -87,21 +83,17 @@ export default function Details() {
               02 / Identity
             </p>
             <h2 className="text-[34px] font-medium leading-[1] tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
-              Visual Identity & Component Architecture
+              {project.identityTitle}
             </h2>
           </div>
 
           <div>
             <p className="text-[15px] leading-[1.85] text-[#9fb0d1] md:text-[16px]">
-              Once the strategy was finalized, we moved into the design and
-              development of the virtual reality experience. Our UX process
-              began with low-fidelity spatial sketches and interaction flows to
-              define user movement, engagement points, and environmental
-              hierarchy.
+              {project.identityParagraphs}
             </p>
 
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              {features.map((item) => (
+              {project.identityFeatures.map((item) => (
                 <div
                   key={item}
                   className="group rounded-[22px] border border-[#1b2848] bg-[#071021] p-4 transition duration-300 hover:-translate-y-1 hover:border-[#8fb4ff]/40 hover:bg-[#0b1428]"
@@ -117,18 +109,15 @@ export default function Details() {
         </section>
 
         <ShowcaseCard
-          image="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80"
-          label="Interaction System"
+          image={project.showcase2}
+          label={project.showcase2Label}
           withButton
         />
 
         <ContentBlock
-          title="Real-Time Environmental Feedback"
-          eyebrow="03 / Interaction"
-          paragraphs={[
-            "Ensuring real-time environmental feedback was a core focus throughout the development of the virtual reality experience. In immersive spaces, users expect their actions—whether through gaze, gesture, or motion—to instantly influence their surroundings.",
-            "Dynamic environmental cues like lighting changes, object animations, and spatial audio were triggered based on real-time input to reinforce user presence and immersion.",
-          ]}
+          title={project.contentBlock3Title}
+          eyebrow={project.contentBlock3Eyebrow}
+          paragraphs={project.contentBlock3Paragraphs}
         />
       </div>
     </section>
@@ -219,16 +208,11 @@ function ContentBlock({ title, paragraphs, eyebrow }) {
   );
 }
 
-function ProjectDNA() {
+function ProjectDNA({ items }) {
   return (
     <div className="overflow-hidden rounded-[30px] border border-[#1b2848] bg-[#071021] p-2">
       <div className="grid gap-2 md:grid-cols-4">
-        {[
-          ["Mood", "Futuristic"],
-          ["System", "Spatial UI"],
-          ["Motion", "Real-time"],
-          ["Output", "Premium VR"],
-        ].map(([label, value]) => (
+        {items.map(([label, value]) => (
           <div
             key={label}
             className="rounded-[24px] border border-white/[0.06] bg-white/[0.035] p-5"
