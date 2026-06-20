@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: "Aurevian",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="dark" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );
