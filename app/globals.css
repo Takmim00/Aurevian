@@ -251,6 +251,9 @@ body {
 /* =========================
    ROLLING TEXT
 ========================= */
+/* =========================
+   ROLLING TEXT
+========================= */
 .rolling-text {
   display: inline-block;
   overflow: hidden;
@@ -333,6 +336,7 @@ body {
 .letter:nth-child(21) {
   transition-delay: 0.3s;
 }
+
 
 /* =========================
    HERO HELPERS

@@ -1,19 +1,26 @@
 "use client";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = ["HOME", "SERVICES", "ABOUT", "PROCESS", "FAQ", "CONTACT"];
 
-function RollingText({ text, active, previous, darkMode }) {
+function RollingText({ text, active, darkMode }) {
   const [play, setPlay] = useState(false);
+  const isFirst = useRef(true);
 
   useEffect(() => {
-    if (active || previous) {
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
+    if (active) {
       setPlay(true);
       const timer = setTimeout(() => setPlay(false), 700);
       return () => clearTimeout(timer);
+    } else {
+      setPlay(false);
     }
-  }, [active, previous]);
+  }, [active]);
 
   const letters = text.split("");
 
@@ -35,7 +42,6 @@ function RollingText({ text, active, previous, darkMode }) {
 
 export default function Navbar() {
   const [active, setActive] = useState("HOME");
-  const [previous, setPrevious] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -52,7 +58,6 @@ export default function Navbar() {
   const handleNavClick = (item) => {
     if (item === active) return;
 
-    setPrevious(active);
     setActive(item);
 
     const sectionId = item.toLowerCase();
@@ -64,10 +69,6 @@ export default function Navbar() {
         block: "start",
       });
     }
-
-    setTimeout(() => {
-      setPrevious("");
-    }, 700);
   };
 
   return (
@@ -93,7 +94,6 @@ export default function Navbar() {
           <ul className="flex items-center gap-12 xl:gap-16">
             {navItems.map((item) => {
               const isActive = active === item;
-              const isPrevious = previous === item;
 
               return (
                 <li key={item} className="relative">
@@ -104,7 +104,6 @@ export default function Navbar() {
                     <RollingText
                       text={item}
                       active={isActive}
-                      previous={isPrevious}
                       darkMode={true}
                     />
                   </button>
@@ -142,7 +141,6 @@ export default function Navbar() {
           <ul className="flex flex-col gap-5">
             {navItems.map((item) => {
               const isActive = active === item;
-              const isPrevious = previous === item;
 
               return (
                 <li key={item}>
@@ -156,7 +154,6 @@ export default function Navbar() {
                     <RollingText
                       text={item}
                       active={isActive}
-                      previous={isPrevious}
                       darkMode={true}
                     />
 
