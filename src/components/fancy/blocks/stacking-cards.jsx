@@ -1,6 +1,6 @@
 "use client";
 // author: Khoa Phan <https://www.pldkhoa.dev>
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { createContext, useContext, useRef } from "react";
 
 import { cn } from "@/lib/utils";

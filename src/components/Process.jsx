@@ -16,7 +16,7 @@ import {
   useMotionValueEvent,
   useScroll,
   useSpring,
-} from "motion/react";
+} from "framer-motion";
 import { useEffect, useRef } from "react";
 const steps = [
   {
