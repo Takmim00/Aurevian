@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { useState } from "react";
 
 const contactInfo = [
   {
@@ -57,6 +58,45 @@ function InfoCard({ item, index }) {
 }
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    projectType: "",
+    message: "",
+  });
+  const [status, setStatus] = useState({ type: "", text: "" });
+  const [sending, setSending] = useState(false);
+
+  function handleChange(e) {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setSending(true);
+    setStatus({ type: "", text: "" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus({ type: "success", text: "Thank you! We'll get back to you soon." });
+        setFormData({ name: "", email: "", projectType: "", message: "" });
+      } else {
+        setStatus({ type: "error", text: data.error || "Something went wrong. Please try again." });
+      }
+    } catch {
+      setStatus({ type: "error", text: "Network error. Please try again later." });
+    } finally {
+      setSending(false);
+    }
+  }
+
   return (
     <section
       id="contact"
@@ -111,15 +151,19 @@ export default function ContactSection() {
             className="rounded-[30px] border border-[#1b2848] bg-[#0b1224]/58 p-5 backdrop-blur-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_10px_40px_rgba(80,120,255,0.06)] sm:p-7 lg:p-8"
           >
             <div className="rounded-[24px] border border-[#1f2f57] bg-[#09111f]/85 p-5 sm:p-6 lg:p-7">
-              <form className="grid gap-4 sm:grid-cols-2">
+              <form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2">
                 <div className="col-span-2">
                   <label className="mb-2 block text-sm text-[#8ea4c9]">
                     Full Name
                   </label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
                     placeholder="John calsans"
-                    className="h-13  w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
+                    className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
@@ -129,6 +173,10 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
                     placeholder="you@example.com"
                     className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
@@ -140,6 +188,10 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="text"
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={handleChange}
+                    required
                     placeholder="Website, SaaS, redesign, AI product..."
                     className="h-13 w-full rounded-2xl border border-[#22345b] bg-[#0f1a33] px-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
@@ -150,26 +202,51 @@ export default function ContactSection() {
                     Tell us about your project
                   </label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                     rows="8"
                     placeholder="Share your goals, features, timeline, and anything important about the project..."
-                    className="w-full rounded-[22px] border border-[#22345b] bg-[#0fimport { calsans } from '@/fonts/calsans';
-1a33] px-4 py-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
+                    className="w-full rounded-[22px] border border-[#22345b] bg-[#0f1a33] px-4 py-4 text-[#f4f8ff] outline-none transition placeholder:text-[#6f86ad] focus:border-[#4b6fb8] focus:bg-[#13203d]"
                   />
                 </div>
 
                 <div className="sm:col-span-2">
+                  {status.text && (
+                    <div
+                      className={`mb-2 flex items-center gap-2 rounded-xl px-4 py-3 text-sm ${
+                        status.type === "success"
+                          ? "bg-green-900/30 text-green-300"
+                          : "bg-red-900/30 text-red-300"
+                      }`}
+                    >
+                      {status.type === "success" ? <CheckCircle size={16} /> : <AlertCircle size={16} />}
+                      {status.text}
+                    </div>
+                  )}
+
                   <motion.button
                     whileHover={{ y: -2, scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     type="submit"
-                    className="group relative inline-flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 text-sm font-medium text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition"
+                    disabled={sending}
+                    className="group relative inline-flex h-14 w-full items-center justify-center gap-2 overflow-hidden rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 text-sm font-medium text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition disabled:opacity-60"
                   >
                     <span className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.7),transparent_65%)] opacity-60" />
-                    <span className="relative z-10">Send Inquiry</span>
-                    <ArrowUpRight
-                      size={17}
-                      className="relative z-10 transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-                    />
+                    <span className="relative z-10 flex items-center gap-2">
+                      {sending ? (
+                        <>
+                          <Loader2 size={17} className="animate-spin" />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Inquiry
+                          <ArrowUpRight size={17} className="transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </>
+                      )}
+                    </span>
                   </motion.button>
                 </div>
               </form>
