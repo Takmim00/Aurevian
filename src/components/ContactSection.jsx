@@ -123,7 +123,7 @@ export default function ContactSection() {
 
             <h2 className="max-w-120 text-[40px] leading-none tracking-[-0.05em] text-[#f4f8ff] sm:text-[52px] md:text-[60px] lg:text-[68px]">
               <span className="mr-2 font-serif italic text-[#dce8ff]">
-                Let’s
+                Let&rsquo;s
               </span>
               <span className="font-light text-[#f4f8ff]">
                 Build Something Great
@@ -131,7 +131,7 @@ export default function ContactSection() {
             </h2>
 
             <p className="mt-5 max-w-115 text-sm leading-[1.75] text-[#9fb0d1] md:text-[15px]">
-              Tell us about your idea, product, or redesign goals. We’ll help
+              Tell us about your idea, product, or redesign goals. We&rsquo;ll help
               shape a clean, high-impact digital experience that feels modern
               and performs well.
             </p>
@@ -243,7 +243,10 @@ export default function ContactSection() {
                       ) : (
                         <>
                           Send Inquiry
-                          <ArrowUpRight size={17} className="transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                          <ArrowUpRight
+                            size={17}
+                            className="transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                          />
                         </>
                       )}
                     </span>
