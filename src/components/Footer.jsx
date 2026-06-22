@@ -1,18 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Send } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const links = {
   Pages: ["Home", "Services", "About", "Projects"],
-  Company: ["FAQ", "Contact", "Privacy Policy", "Terms"],
+  Company: ["FAQ", "Privacy Policy", "Terms"],
 };
 
 const socials = [
-  { icon: FaFacebook, href: "#", label: "Facebook" },
-  { icon: FaInstagram, href: "#", label: "Instagram" },
-  { icon: FaLinkedin, href: "#", label: "LinkedIn" },
-  { icon: Send, href: "#", label: "Dribbble" },
+  { icon: FaFacebook, href: "https://www.facebook.com/aurevian.agency", label: "Facebook" },
+  { icon: FaInstagram, href: "https://www.instagram.com/aurevian_00/", label: "Instagram" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/company/aurevian-agency", label: "LinkedIn" },
 ];
 
 export default function Footer() {
@@ -50,11 +49,11 @@ export default function Footer() {
               </p>
 
               <motion.a
-                href="#contact"
+                href="mailto:hello@aurevian.agency"
                 whileHover={{ x: 4 }}
                 className="mt-6 inline-flex items-center gap-2 text-sm text-[#dbe7ff] transition hover:text-[#8fb4ff]"
               >
-                Start a project <ArrowUpRight size={16} />
+                Contact Us <ArrowUpRight size={16} />
               </motion.a>
             </div>
 
@@ -90,13 +89,15 @@ export default function Footer() {
                 Socials
               </h3>
 
-              <div className="mb-6 flex flex-wrap gap-3">
+                  <div className="mb-6 flex flex-wrap gap-3">
                 {socials.map((social, index) => {
                   const Icon = social.icon;
                   return (
                     <motion.a
                       key={social.label}
                       href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={social.label}
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
@@ -112,7 +113,7 @@ export default function Footer() {
               </div>
 
               <p className="text-sm leading-7 text-[#9fb0d1]">
-                hello@aurevian.agency
+                <a href="mailto:hello@aurevian.agency" className="hover:text-[#8fb4ff] transition-colors">hello@aurevian.agency</a>
                 <br />
                 Bangladesh · Worldwide Remote
               </p>

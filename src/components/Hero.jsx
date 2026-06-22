@@ -1,5 +1,4 @@
-import { BadgeCentIcon } from "lucide-react";
-import { FaDribbble, FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const serviceItems = [
   "AI Product Engineering",
@@ -137,22 +136,19 @@ export default function Hero() {
 
               <div className="mt-8 w-full max-w-140 border-t border-white/10 pt-6">
                 <div className="flex flex-col items-center justify-between gap-5 sm:flex-row lg:items-center">
-                  <h3 className="text-xl font-semibold tracking-[-0.02em] text-white md:text-[30px]">
+                  <a href="mailto:hello@aurevian.agency" className="text-xl font-semibold tracking-[-0.02em] text-white md:text-[30px] hover:text-[#8fb4ff] transition-colors">
                     Contact Us
-                  </h3>
+                  </a>
 
                   <div className="flex items-center gap-3 md:gap-4">
-                    <a href="#" aria-label="Facebook" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
+                    <a href="https://www.facebook.com/aurevian.agency" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
                       <FaFacebook size={18} />
                     </a>
-                    <a href="#" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
+                    <a href="https://www.instagram.com/aurevian_00/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
                       <FaInstagram size={18} />
                     </a>
-                    <a href="#" aria-label="Dribbble" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
-                      <FaDribbble size={18} />
-                    </a>
-                    <a href="#" aria-label="Behance" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
-                      <BadgeCentIcon size={18} />
+                    <a href="https://www.linkedin.com/company/aurevian-agency" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/12 bg-white/8 text-white/90 backdrop-blur-md transition-all duration-300 hover:scale-110 hover:border-[#89aef7]/40 hover:bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] hover:text-[#08111f]">
+                      <FaLinkedin size={18} />
                     </a>
                   </div>
                 </div>
