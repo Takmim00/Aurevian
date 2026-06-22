@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const serviceItems = [
@@ -106,9 +107,11 @@ export default function Hero() {
                 </div>
 
                 <div className="hero-logo-shell relative flex h-22 w-22 items-center justify-center rounded-full border border-[#89aef7]/28 bg-[#0b1224]/72 p-4 shadow-[0_0_45px_rgba(143,180,255,0.16)] backdrop-blur-xl sm:h-24.5 sm:w-24.5 md:h-29 md:w-29 md:p-5">
-                  <img
-                    src="/aurevian.png"
+                  <Image
+                    src="/aurevian.webp"
                     alt="Aurevian logo"
+                    width={88}
+                    height={88}
                     className="h-full w-full object-contain drop-shadow-[0_0_20px_rgba(143,180,255,0.28)]"
                   />
                 </div>

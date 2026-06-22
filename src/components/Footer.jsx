@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -33,10 +34,12 @@ export default function Footer() {
           <div className="grid gap-8 border-b border-[#1f2f57] px-5 py-8 sm:px-7 sm:py-10 lg:grid-cols-[1.15fr_0.85fr_0.85fr_1fr] lg:px-10 lg:py-12">
             <div>
               <div className="mb-5 flex items-center gap-3">
-                <img
-                  src="/aurevian.png"
+                <Image
+                  src="/aurevian.webp"
                   alt="Aurevian"
-                  className="h-10 w-10 rounded-full object-cover "
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 rounded-full object-cover"
                 />
                 <span className="text-2xl font-medium tracking-[-0.04em] text-[#f4f8ff]">
                   Aurevian

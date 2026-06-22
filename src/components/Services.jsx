@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const services = [
@@ -7,42 +8,42 @@ const services = [
     title: "Brand Identity",
     description:
       "Create visual identities that align with your voice and make lasting impressions.",
-    icon: "/brand.png",
+    icon: "/brand.webp",
   },
   {
     id: "/02",
     title: "UI/UX Design",
     description:
       "Focus on user-first interfaces that are both beautiful, intuitive, and purposeful.",
-    icon: "/uiux.png",
+    icon: "/uiux.webp",
   },
   {
     id: "/03",
     title: "Web Development",
     description:
       "Develop high-performance websites and apps built to grow with you.",
-    icon: "/development.png",
+    icon: "/development.webp",
   },
   {
     id: "/04",
     title: "Digital Marketing",
     description:
       "Craft data-driven campaigns that attract, engage, and convert — across channels.",
-    icon: "/marketing.png",
+    icon: "/marketing.webp",
   },
   {
     id: "/05",
     title: "AI Automation",
     description:
       "Build smart automation systems that save time and improve business workflows.",
-    icon: "/marketing.png",
+    icon: "/marketing.webp",
   },
   {
     id: "/06",
     title: "SaaS Development",
     description:
       "Create scalable SaaS platforms with clean UX, strong architecture, and speed.",
-    icon: "/marketing.png",
+    icon: "/marketing.webp",
   },
 ];
 
@@ -86,9 +87,11 @@ function ServiceCard({ service, className = "", glow = "right-0 top-0" }) {
             className="relative shrink-0"
           >
             <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#8fb4ff]/10 blur-2xl" />
-            <img
+            <Image
               src={service.icon}
               alt={service.title}
+              width={64}
+              height={64}
               className="relative z-10 h-16 w-16 object-contain"
             />
           </motion.div>
@@ -216,7 +219,7 @@ export default function Services() {
                             : "right-[18%] bottom-[18%]"
                     }`}
                   >
-                    <img src={services[i].icon} alt="" className="h-9 w-9 object-contain" />
+                    <Image src={services[i].icon} alt="" width={36} height={36} className="h-9 w-9 object-contain" />
                   </motion.div>
                 ))}
 

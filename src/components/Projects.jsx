@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Link from "next/link";
@@ -141,10 +142,12 @@ export default function Projects() {
                   transition={{ duration: 0.35, ease: "easeOut" }}
                   className="group relative aspect-4/3 overflow-hidden rounded-[26px] border border-[#1b2b4d]"
                 >
-                  <img
+                  <Image
                     src={project.image1}
                     alt={project.title}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
                   <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/[0.06] mix-blend-soft-light" />
@@ -164,10 +167,12 @@ export default function Projects() {
                   transition={{ duration: 0.35, ease: "easeOut" }}
                   className="group relative hidden aspect-4/3 overflow-hidden rounded-[26px] border border-[#1b2b4d] lg:block"
                 >
-                  <img
+                  <Image
                     src={project.image2}
                     alt={project.title}
-                    className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    fill
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
                   <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/[0.06] mix-blend-soft-light" />

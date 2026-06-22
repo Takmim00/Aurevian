@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { MessageSquareText } from "lucide-react";
@@ -65,10 +66,12 @@ function TestimonialCard({ quote, name, role, avatar, className = "" }) {
         <div className="relative flex h-12 w-12 items-center justify-center rounded-full sm:h-13 sm:w-13 lg:h-14.5 lg:w-14.5">
           <div className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,rgba(143,180,255,0.15),rgba(143,180,255,0.7),rgba(143,180,255,0.15))] blur-[6px] opacity-70" />
           <div className="relative flex h-full w-full items-center justify-center rounded-full border border-[#2a3f6e] bg-[#0f1a33]/90 p-1">
-            <img
+            <Image
               src={avatar}
               alt={name}
-              className="h-full w-full rounded-full object-cover"
+              fill
+              className="rounded-full object-cover"
+              sizes="56px"
             />
           </div>
         </div>
@@ -101,10 +104,12 @@ export default function Testimonial() {
     <section className="relative w-full overflow-hidden bg-[#050816] pb-10 md:pb-0  sm:py-20 lg:min-h-screen lg:py-0">
       {/* Background */}
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           src="/testimonial-bg.png"
           alt="testimonial background"
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-[#050816]/60" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(143,180,255,0.10),transparent_55%)]" />

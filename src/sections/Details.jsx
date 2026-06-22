@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check, Sparkles } from "lucide-react";
 
@@ -152,9 +153,11 @@ function ShowcaseCard({ image, withButton = false, label }) {
 
             <div className="relative rotate-[-2deg] rounded-[24px] border border-[#4f658f] bg-[#0b1224] p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_26px_80px_rgba(0,0,0,0.48)] md:rounded-[28px]">
               <div className="relative overflow-hidden rounded-[18px] border border-[#22345b] bg-[#0b1224] md:rounded-[22px]">
-                <img
+                <Image
                   src={image}
                   alt="Project showcase"
+                  width={800}
+                  height={600}
                   className="w-full object-cover"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.12)_0%,rgba(255,255,255,0.02)_18%,rgba(5,8,22,0.35)_100%)]" />
