@@ -1,9 +1,25 @@
 "use client";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Lenis from "lenis";
 
 export default function SmoothScroll({ children }) {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    const check = () => {
+      setIsMobile(
+        window.matchMedia("(pointer: coarse)").matches ||
+          "ontouchstart" in window
+      );
+    };
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const lenis = new Lenis({
       duration: 1.0,
       easing: (t) => 1 - Math.pow(1 - t, 3),
@@ -13,14 +29,18 @@ export default function SmoothScroll({ children }) {
       touchMultiplier: 1.5,
     });
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    return () => lenis.destroy();
-  }, []);
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, [isMobile]);
 
   return children;
 }
