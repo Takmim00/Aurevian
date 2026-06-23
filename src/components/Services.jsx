@@ -65,11 +65,7 @@ function ServiceCard({ service, className = "", glow = "right-0 top-0" }) {
       transition={{ type: "spring", stiffness: 260, damping: 22 }}
       className={`group relative overflow-hidden rounded-[28px] border border-[#182746] bg-[linear-gradient(180deg,rgba(10,18,34,0.96)_0%,rgba(7,13,25,0.98)_100%)] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_60px_rgba(0,0,0,0.22)] transition-colors duration-500 hover:shadow-[0_25px_80px_rgba(0,0,0,0.45),0_0_0_1px_rgba(108,150,255,0.15),0_0_60px_rgba(108,150,255,0.25),0_0_120px_rgba(108,150,255,0.15)] ${className}`}
     >
-      <motion.div
-        animate={{ opacity: [0.45, 0.85, 0.45], scale: [1, 1.2, 1] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className={`pointer-events-none absolute ${glow} h-28 w-28 rounded-full bg-[#8fb4ff]/10 blur-3xl`}
-      />
+      <div className={`pointer-events-none absolute ${glow} h-28 w-28 rounded-full bg-[#8fb4ff]/10 blur-3xl`} />
 
       <div className="relative z-10 h-full">
         <div className="flex items-start justify-between gap-5">
@@ -112,16 +108,8 @@ export default function Services() {
       className="relative overflow-hidden bg-[#050816] px-4 py-20 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14"
     >
       <div className="pointer-events-none absolute inset-0">
-        <motion.div
-          animate={{ x: [0, 30, 0], y: [0, -20, 0], scale: [1, 1.15, 1] }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-[12%] top-[8%] h-64 w-64 rounded-full bg-[#8fb4ff]/8 blur-[120px]"
-        />
-        <motion.div
-          animate={{ x: [0, -25, 0], y: [0, 20, 0], scale: [1, 1.12, 1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute right-[10%] top-[15%] h-72 w-72 rounded-full bg-[#6c96ff]/8 blur-[140px]"
-        />
+        <div className="absolute left-[12%] top-[8%] h-64 w-64 rounded-full bg-[#8fb4ff]/8 blur-[120px]" />
+        <div className="absolute right-[10%] top-[15%] h-72 w-72 rounded-full bg-[#6c96ff]/8 blur-[140px]" />
       </div>
 
       <div className="relative mx-auto max-w-400">
@@ -129,7 +117,7 @@ export default function Services() {
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="mb-14 text-center"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-sm uppercase tracking-[0.16em] text-[#8fb4ff]">
@@ -151,7 +139,7 @@ export default function Services() {
         <motion.div
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ staggerChildren: 0.12 }}
           className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[200px_200px_200px]"
         >
@@ -187,29 +175,14 @@ export default function Services() {
               </div>
 
               <div className="relative flex min-h-80 items-center justify-center md:mt-4">
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-                  className="absolute h-65 w-65 rounded-full border border-[#24375f]"
-                />
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-                  className="absolute h-45 w-45 rounded-full border border-[#345286]"
-                />
+                <div className="absolute h-65 w-65 animate-[spin_24s_linear_infinite] rounded-full border border-[#24375f]" />
+                <div className="absolute h-45 w-45 animate-[spin_28s_linear_infinite_reverse] rounded-full border border-[#345286]" />
                 <div className="absolute h-30 w-30 rounded-full border border-[#4a6fb0]" />
 
                 {[0, 1, 2, 3].map((i, index) => (
-                  <motion.div
+                  <div
                     key={i}
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.25,
-                    }}
-                    className={`absolute flex h-18 w-18 items-center justify-center rounded-2xl border border-[#24365e] bg-[#0e1830]/95 shadow-[0_10px_30px_rgba(0,0,0,0.18)] ${
+                    className={`absolute flex h-18 w-18 animate-[float_3s_ease-in-out_infinite] items-center justify-center rounded-2xl border border-[#24365e] bg-[#0e1830]/95 shadow-[0_10px_30px_rgba(0,0,0,0.18)] ${
                       index === 0
                         ? "left-[18%] top-[22%]"
                         : index === 1
@@ -218,24 +191,15 @@ export default function Services() {
                             ? "left-[18%] bottom-[18%]"
                             : "right-[18%] bottom-[18%]"
                     }`}
+                    style={{ animationDelay: `${index * 0.25}s` }}
                   >
                     <Image src={services[i].icon} alt="" width={36} height={36} className="h-9 w-9 object-contain" />
-                  </motion.div>
+                  </div>
                 ))}
 
-                <motion.div
-                  animate={{
-                    boxShadow: [
-                      "0 0 40px rgba(108,150,255,0.28)",
-                      "0 0 80px rgba(143,180,255,0.35)",
-                      "0 0 40px rgba(108,150,255,0.28)",
-                    ],
-                  }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full border border-[#9cbfff]/25 bg-[linear-gradient(180deg,#8fb4ff_0%,#5d86ff_100%)]"
-                >
+                <div className="relative z-10 flex h-28 w-28 animate-[glow_3s_ease-in-out_infinite] items-center justify-center rounded-full border border-[#9cbfff]/25 bg-[linear-gradient(180deg,#8fb4ff_0%,#5d86ff_100%)]">
                   <div className="h-14 w-14 rounded-full bg-white/20 backdrop-blur-sm" />
-                </motion.div>
+                </div>
               </div>
             </div>
           </motion.article>
