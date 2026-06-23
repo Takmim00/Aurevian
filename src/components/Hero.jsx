@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "@/lib/social-icons";
 
 const serviceItems = [
   "AI Product Engineering",

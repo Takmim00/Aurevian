@@ -1,6 +1,4 @@
 "use client";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import {
   Blocks,
   BrainCircuit,
@@ -10,6 +8,8 @@ import {
   Pencil,
   Rocket,
 } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import {
   motion,
   useMotionValue,
@@ -122,6 +122,7 @@ export default function Process() {
 
     AOS.refresh();
   }, []);
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start center", "end center"],
@@ -292,7 +293,6 @@ export default function Process() {
                   data-aos={
                     step.customStyle.left ? "fade-up-right" : "fade-up-left"
                   }
-                 
                 >
                   <div className="group relative w-95 h-62.5 overflow-hidden rounded-[30px] border border-[#1b2848] bg-[linear-gradient(180deg,#0b1426_0%,#09111f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_30px_rgba(108,150,255,0.08)] transition-all duration-500 hover:border-[#314a78] hover:shadow-[0_0_60px_rgba(108,150,255,0.15)]">
                     <div className="pointer-events-none absolute -inset-2 -z-10 rounded-[36px] bg-[#8fb4ff]/8 blur-2xl opacity-60 transition-all duration-500 group-hover:bg-[#8fb4ff]/12 group-hover:opacity-100" />
@@ -357,10 +357,10 @@ export default function Process() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.20)]">
                     <Icon size={18} strokeWidth={2.2} />
                   </div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
     </section>
