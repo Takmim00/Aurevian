@@ -2,7 +2,7 @@
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-const navItems = ["HOME", "SERVICES", "ABOUT", "PROCESS", "FAQ", "CONTACT"];
+const navItems = ["HOME", "SERVICES", "ABOUT", "PROCESS", "CONTACT"];
 
 function RollingText({ text, active, darkMode }) {
   const [play, setPlay] = useState(false);
@@ -116,7 +116,10 @@ export default function Navbar() {
         {/* Right Side */}
         <div className="flex items-center gap-3">
           {/* Desktop CTA */}
-          <button className="hidden lg:inline-flex items-center gap-4 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-8 py-3 text-[17px] font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition-all duration-300 hover:scale-[1.02]">
+          <button
+            onClick={() => handleNavClick("CONTACT")}
+            className="hidden lg:inline-flex items-center gap-4 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-8 py-3 text-[17px] font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)] transition-all duration-300 hover:scale-[1.02]"
+          >
             <span>Let's Chat!</span>
             <ArrowRight size={22} strokeWidth={2} />
           </button>
@@ -170,7 +173,13 @@ export default function Navbar() {
             })}
           </ul>
 
-          <button className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 py-3.5 text-sm font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)]">
+          <button
+            onClick={() => {
+              handleNavClick("CONTACT");
+              setMenuOpen(false);
+            }}
+            className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 py-3.5 text-sm font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)]"
+          >
             <span>Let's Chat!</span>
             <ArrowRight size={18} strokeWidth={2} />
           </button>
