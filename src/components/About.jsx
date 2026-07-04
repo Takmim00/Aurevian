@@ -33,9 +33,9 @@ const words = [
 const fixedWhiteCount = 16;
 
 const stats = [
-  { label: "Projects Launched", value: 140, suffix: "+" },
-  { label: "Years Of Experience", value: 10, suffix: "+" },
-  { label: "Happy Clients", value: 50, suffix: "+" },
+  { label: "Projects Launched", value: 20, suffix: "+" },
+  { label: "Years Of Experience", value: 1, suffix: "+" },
+  { label: "Happy Clients", value: 15, suffix: "+" },
 ];
 
 function AboutBadge() {
