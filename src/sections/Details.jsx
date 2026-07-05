@@ -12,7 +12,13 @@ const fadeUp = {
   },
 };
 
+import { useEffect } from "react";
+
 export default function Details({ project }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="relative overflow-hidden bg-[#050816] px-4 pb-20 pt-28 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14">
       <div className="pointer-events-none absolute inset-0">
@@ -44,6 +50,17 @@ export default function Details({ project }) {
             <p className="max-w-95 text-[18px] leading-[1.25] text-[#dbe7ff] sm:text-[20px]">
               {project.tagline}
             </p>
+
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-5 py-2.5 text-sm font-medium text-[#08111f] shadow-[0_12px_35px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:scale-105"
+              >
+                Visit Live Site <ArrowUpRight size={16} />
+              </a>
+            )}
 
             <div className="mt-7 grid grid-cols-3 overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] backdrop-blur-md">
               {[
@@ -113,6 +130,7 @@ export default function Details({ project }) {
           image={project.showcase2}
           label={project.showcase2Label}
           withButton
+          liveLink={project.liveLink}
         />
 
         <ContentBlock
@@ -125,7 +143,7 @@ export default function Details({ project }) {
   );
 }
 
-function ShowcaseCard({ image, withButton = false, label }) {
+function ShowcaseCard({ image, withButton = false, label, liveLink }) {
   return (
     <motion.div
       variants={fadeUp}
@@ -165,12 +183,17 @@ function ShowcaseCard({ image, withButton = false, label }) {
               </div>
             </div>
 
-            {withButton && (
-              <button className="absolute -right-10 top-1/2 flex h-24 w-24 -translate-y-1/2 items-center justify-center rounded-full border border-[#263c6d] bg-[radial-gradient(circle_at_30%_30%,#27334c_0%,#0a0f19_68%,#050816_100%)] text-[#f4f8ff] shadow-[0_18px_60px_rgba(0,0,0,0.45)] transition duration-300 hover:scale-105 md:-right-20 md:h-36 md:w-36">
+            {withButton && liveLink && (
+              <a
+                href={liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute -right-10 top-1/2 flex h-24 w-24 -translate-y-1/2 items-center justify-center rounded-full border border-[#263c6d] bg-[radial-gradient(circle_at_30%_30%,#27334c_0%,#0a0f19_68%,#050816_100%)] text-[#f4f8ff] shadow-[0_18px_60px_rgba(0,0,0,0.45)] transition duration-300 hover:scale-105 md:-right-20 md:h-36 md:w-36"
+              >
                 <span className="flex items-center gap-1 text-[18px] md:text-[28px]">
                   View <ArrowUpRight size={22} />
                 </span>
-              </button>
+              </a>
             )}
           </motion.div>
         </div>

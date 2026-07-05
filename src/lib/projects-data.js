@@ -1,116 +1,215 @@
 const projects = [
   {
-    id: "lemonide-tech",
+    id: "puremotion",
     year: "2024",
-    title: "Lemonide Tech",
-    slug: "lemonide-tech",
-    points: ["AI Integration", "Responsive Design", "Custom Layouts", "Fast Loading"],
-    tags: ["E-Commerce", "Portfolio"],
-    image1: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=1200&q=80",
-    image2: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
-    badge: "E-Commerce Platform",
-    tagline: "Modern e-commerce meets intelligent automation — a fully responsive brand experience.",
+    title: "PureMotion",
+    slug: "puremotion",
+    points: [
+      "AI Video Generation",
+      "Image Animation",
+      "Content Moderation",
+      "Privacy Protection",
+    ],
+    tags: ["AI SaaS", "Image to Video"],
+
+    liveLink: "https://www.puremotion.co/",
+
+    image1:
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783234696/puremotion01_zufl9t.png",
+    image2:
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783234550/puremotion02_umxpwt.png",
+
+    badge: "AI Video Generation Platform",
+
+    tagline:
+      "Transform static photos into emotionally engaging AI-generated videos with advanced safety, privacy, and intelligent animation.",
+
     typeYear: "2024",
-    typeProject: "E-Commerce",
-    typeService: "Web Development",
+    typeProject: "AI SaaS Platform",
+    typeService: "Full-Stack Development",
+
     overviewTitle: "Project Overview",
     overviewEyebrow: "01 / Strategy",
+
     overviewParagraphs: [
-      "Lemonide Tech needed a digital storefront that matched their cutting-edge hardware — something clean, fast, and conversion-focused. We built a fully custom e-commerce platform with AI-powered product recommendations and seamless checkout.",
-      "The result was a 40% increase in engagement and a brand identity that positioned them as leaders in their space.",
+      "PureMotion is an AI-powered SaaS platform that transforms static images into realistic, emotionally engaging videos within seconds. Designed with simplicity in mind, the platform allows users to upload a single photo, choose an animation style, and generate high-quality memory videos through an intuitive three-step workflow.",
+
+      "Beyond AI video generation, the platform prioritizes safety, privacy, and responsible AI usage. Advanced content moderation prevents harmful or inappropriate generations, while encrypted image processing and automatic data protection ensure users can create and preserve meaningful memories in a secure environment.",
     ],
+
     dna: [
-      ["Mood", "Modern"],
-      ["System", "E-Commerce"],
-      ["Motion", "Smooth"],
-      ["Output", "Live Site"],
+      ["Mood", "Emotional"],
+      ["System", "AI SaaS"],
+      ["Motion", "Cinematic"],
+      ["Output", "Web Platform"],
     ],
-    identityTitle: "Visual Identity & Architecture",
-    identityParagraphs: "We designed a modular component system that adapts across devices while maintaining brand consistency. AI-powered search and personalized recommendations elevate the shopping experience.",
-    identityFeatures: ["AI Search", "Smart Cart", "Responsive", "Fast API"],
-    showcase2: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1200&q=80",
-    showcase2Label: "Product Interface",
-    contentBlock3Title: "Real-Time Inventory Sync",
+
+    identityTitle: "User Experience & AI Design",
+
+    identityParagraphs:
+      "PureMotion combines a clean, emotionally driven interface with powerful AI technology to make video creation effortless for everyone. The experience focuses on simplicity, guided workflows, responsive design, and privacy-first interactions while allowing users to customize animation styles without technical knowledge.",
+
+    identityFeatures: [
+      "AI Image-to-Video",
+      "Animation Styles",
+      "Secure Processing",
+      "Content Moderation",
+    ],
+
+    showcase2:
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783234550/puremotion02_umxpwt.png",
+
+    showcase2Label: "AI Video Generation Experience",
+
+    contentBlock3Title: "AI Processing & Content Safety",
     contentBlock3Eyebrow: "03 / Engineering",
+
     contentBlock3Paragraphs: [
-      "Real-time inventory management across warehouses ensures customers always see accurate stock levels. The system syncs orders, returns, and restocks instantly.",
-      "Automated low-stock alerts and predictive reordering help Lemonide Tech stay ahead of demand without overstocking.",
+      "PureMotion utilizes optimized AI processing to generate realistic motion from a single image in under a minute. Users can select different animation styles while the platform intelligently restores photo details and creates natural cinematic movement.",
+
+      "A robust moderation pipeline continuously analyzes uploaded content and generation requests to prevent unsafe or inappropriate outputs. Combined with encrypted uploads, automatic privacy protection, and secure cloud processing, the platform delivers a trustworthy AI-powered creative experience.",
     ],
   },
   {
-    id: "nexus-ai",
-    year: "2024",
-    title: "Nexus AI",
-    slug: "nexus-ai",
-    points: ["AI Dashboard", "Automation", "Real-time Data", "Clean UI"],
-    tags: ["SaaS", "AI"],
-    image1: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
-    image2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    badge: "AI SaaS Platform",
-    tagline: "Intelligent dashboard for real-time AI model monitoring and team collaboration.",
-    typeYear: "2024",
-    typeProject: "SaaS",
-    typeService: "AI Development",
-    overviewTitle: "Project Overview",
-    overviewEyebrow: "01 / Strategy",
-    overviewParagraphs: [
-      "Nexus AI needed a powerful yet intuitive dashboard for teams to monitor, manage, and optimize their AI models in production. We designed a data-rich interface that simplifies complex ML operations.",
-      "Real-time metrics, custom alerting, and collaboration tools turned their platform into an indispensable operations hub.",
-    ],
-    dna: [
-      ["Mood", "Intelligent"],
-      ["System", "SaaS"],
-      ["Motion", "Real-time"],
-      ["Output", "Dashboard"],
-    ],
-    identityTitle: "Data Visualization & UX",
-    identityParagraphs: "Every chart, widget, and metric was designed for clarity at a glance. Dark-themed UI with subtle animations makes data exploration feel natural and responsive.",
-    identityFeatures: ["Live Charts", "Custom Alerts", "Team Workspace", "API Access"],
-    showcase2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    showcase2Label: "Analytics View",
-    contentBlock3Title: "Real-Time Model Monitoring",
-    contentBlock3Eyebrow: "03 / Infrastructure",
-    contentBlock3Paragraphs: [
-      "Continuous monitoring of model performance with drift detection, latency tracking, and automatic retraining triggers keeps ML pipelines healthy.",
-      "Teams receive instant notifications on anomalies, ensuring rapid response to production issues.",
-    ],
-  },
+  id: "safe-driving",
+  year: "2024",
+  title: "SafeDrive AI",
+  slug: "safe-driving",
+
+  points: [
+    "AI Driver Monitoring",
+    "Real-time Detection",
+    "Analytics Dashboard",
+    "Emergency Alerts",
+  ],
+
+  tags: ["SaaS", "AI"],
+
+  liveLink: "https://safe-driving-nine.vercel.app/",
+
+  image1:
+    "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783238069/safeDriving01_nhevpd.png",
+
+  image2:
+    "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783238732/safeDriving02_svofbl.png",
+
+  badge: "AI Driver Safety Platform",
+
+  tagline:
+    "AI-powered driver monitoring platform that detects drowsiness in real-time, sends instant alerts, and provides fleet analytics for safer roads.",
+
+  typeYear: "2024",
+  typeProject: "SaaS",
+  typeService: "AI Development",
+
+  overviewTitle: "Project Overview",
+  overviewEyebrow: "01 / Strategy",
+
+  overviewParagraphs: [
+    "SafeDrive AI is a comprehensive driver safety monitoring platform built to reduce road accidents caused by drowsiness and distracted driving. Using TensorFlow.js and computer vision, the system continuously analyzes driver behavior directly in the browser.",
+    "The platform combines real-time detection, emergency response, fleet management, subscription billing, and advanced analytics into a scalable multi-tenant SaaS solution for transport companies and professional drivers.",
+  ],
+
+  dna: [
+    ["Mood", "Reliable"],
+    ["System", "SaaS"],
+    ["Technology", "AI Vision"],
+    ["Output", "Driver Safety"],
+  ],
+
+  identityTitle: "AI Monitoring & Analytics",
+
+  identityParagraphs:
+    "The interface focuses on clarity, fast decision-making, and real-time feedback. Dark-themed dashboards, live analytics, detection history, and emergency notifications create an intuitive monitoring experience for both drivers and fleet managers.",
+
+  identityFeatures: [
+    "Real-time Detection",
+    "Analytics Dashboard",
+    "Emergency Alerts",
+    "Fleet Management",
+  ],
+
+  showcase2:
+    "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783238732/safeDriving02_svofbl.png",
+
+  showcase2Label: "Detection Analytics Dashboard",
+
+  contentBlock3Title: "AI Driver Monitoring Infrastructure",
+  contentBlock3Eyebrow: "03 / Infrastructure",
+
+  contentBlock3Paragraphs: [
+    "TensorFlow.js powers real-time drowsiness and distraction detection directly inside the browser, minimizing latency while protecting user privacy with on-device processing.",
+    "The platform integrates live notifications, GPS location sharing, historical analytics, Stripe subscription management, and scalable backend services to deliver a complete AI-powered driver safety ecosystem.",
+  ],
+},
   {
-    id: "green-harvest",
-    year: "2023",
-    title: "Green Harvest",
-    slug: "green-harvest",
-    points: ["E-commerce", "Cart System", "Wishlist", "Fast API"],
-    tags: ["Shop", "Organic"],
-    image1: "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
-    image2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    badge: "Organic Marketplace",
-    tagline: "A fresh, organic marketplace connecting local farmers with conscious consumers.",
-    typeYear: "2023",
-    typeProject: "Marketplace",
-    typeService: "Full-Stack",
+    id: "cleftinject",
+    year: "2026",
+    title: "CleftInject",
+    slug: "cleftinject",
+    points: [
+      "Healthcare Platform",
+      "Appointment Booking",
+      "Verified Specialists",
+      "Patient Management",
+    ],
+    tags: ["Healthcare", "Medical", "Directory", "Booking"],
+    liveLink: "https://www.cleftinject.org/",
+
+    image1:
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783235869/CleftInject01_dxic3q.png",
+    image2:
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783235869/CleftInject02_y9jxpg.png",
+
+    badge: "Healthcare Platform",
+
+    tagline:
+      "A global healthcare platform connecting families with certified cleft lip specialists through secure appointments and verified medical care.",
+
+    typeYear: "2026",
+    typeProject: "Healthcare Directory",
+    typeService: "Full-Stack Development",
+
     overviewTitle: "Project Overview",
     overviewEyebrow: "01 / Strategy",
+
     overviewParagraphs: [
-      "Green Harvest set out to build a digital marketplace for organic produce — connecting local farmers directly to consumers. We built a full-featured platform with smart cart, wishlist, and fast API-driven checkout.",
-      "The platform supports vendor management, seasonal inventory, and community-driven ratings.",
+      "CleftInject is a global healthcare platform designed to connect adults born with cleft lip and their families with verified specialists trained in cleft-specific dermal filler treatment. The platform simplifies the process of discovering qualified practitioners through an accessible public directory while ensuring every listed professional has completed specialist training and credential verification.",
+
+      "The platform features an intuitive appointment booking experience, specialist profiles, patient education resources, and secure communication between patients and healthcare providers. By combining verified practitioner listings with streamlined scheduling and patient management tools, CleftInject improves access to specialized healthcare while promoting transparency, trust, and better treatment outcomes.",
     ],
+
     dna: [
-      ["Mood", "Fresh"],
-      ["System", "Marketplace"],
-      ["Motion", "Fluid"],
-      ["Output", "Web App"],
+      ["Mood", "Professional"],
+      ["System", "Healthcare Directory"],
+      ["Motion", "Clean"],
+      ["Output", "Web Platform"],
     ],
+
     identityTitle: "User Experience & Design",
-    identityParagraphs: "Warm, organic aesthetics paired with a clean shopping experience. The interface focuses on product storytelling, farm transparency, and seamless add-to-cart flow.",
-    identityFeatures: ["Smart Cart", "Wishlist", "Vendor Portal", "Fast Checkout"],
-    showcase2: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
-    showcase2Label: "Shopping Experience",
-    contentBlock3Title: "Real-Time Order Tracking",
+
+    identityParagraphs:
+      "The interface was designed with accessibility, trust, and clarity at its core. A clean medical-inspired visual language, intuitive navigation, and patient-focused content help users confidently find verified specialists, understand treatment options, and book appointments through a seamless digital experience.",
+
+    identityFeatures: [
+      "Verified Specialist Directory",
+      "Appointment Booking",
+      "Patient Dashboard",
+      "Healthcare Resources",
+    ],
+
+    showcase2:
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783235869/CleftInject02_y9jxpg.png",
+
+    showcase2Label: "Patient Appointment Experience",
+
+    contentBlock3Title: "Verified Specialists & Patient Management",
     contentBlock3Eyebrow: "03 / Operations",
+
     contentBlock3Paragraphs: [
-      "End-to-end order tracking from farm to doorstep. Customers see real-time updates on harvest, packing, and delivery stages with estimated arrival windows.",
-      "Vendors get a dedicated dashboard for inventory management, order fulfillment, and customer communication.",
+      "Patients can search certified practitioners by location, review qualifications, explore treatment information, and connect directly through secure booking channels. Every listed specialist completes CleftInject™ training and undergoes credential verification before appearing in the public directory.",
+
+      "Healthcare providers benefit from an organized platform that streamlines appointment management, patient communication, profile verification, and treatment inquiries. The system creates a trusted ecosystem that improves access to specialized cleft lip care while maintaining transparency and high clinical standards.",
     ],
   },
 ];
