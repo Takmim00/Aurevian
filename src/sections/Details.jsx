@@ -25,7 +25,7 @@ export default function Details({ project }) {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(143,180,255,0.12),transparent_38%)]" />
         <div className="absolute left-[8%] top-24 h-80 w-80 rounded-full bg-[#8fb4ff]/10 blur-[140px]" />
         <div className="absolute right-[8%] top-[34%] h-96 w-96 rounded-full bg-[#6c96ff]/10 blur-[160px]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:80px_80px] opacity-30" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-size-[80px_80px] opacity-30" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-400">
@@ -36,7 +36,7 @@ export default function Details({ project }) {
           className="mb-10 grid gap-8 md:mb-16 md:grid-cols-[1.3fr_0.7fr] md:items-end"
         >
           <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-[#c9dbff] backdrop-blur-md">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm text-[#c9dbff] backdrop-blur-md">
               <Sparkles size={15} />
               {project.badge}
             </div>
@@ -47,7 +47,7 @@ export default function Details({ project }) {
           </div>
 
           <div className="md:justify-self-end">
-            <p className="max-w-95 text-[18px] leading-[1.25] text-[#dbe7ff] sm:text-[20px]">
+            <p className="max-w-95 text-[18px] leading-tight text-[#dbe7ff] sm:text-[20px]">
               {project.tagline}
             </p>
 
@@ -101,7 +101,7 @@ export default function Details({ project }) {
             <p className="mb-3 text-sm uppercase tracking-[0.28em] text-[#8fb4ff]">
               02 / Identity
             </p>
-            <h2 className="text-[34px] font-medium leading-[1] tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
+            <h2 className="text-[34px] font-medium leading-none tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
               {project.identityTitle}
             </h2>
           </div>
@@ -159,7 +159,7 @@ function ShowcaseCard({ image, withButton = false, label, liveLink, alt }) {
         <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,#03060d_0px,#03060d_20px,#131c2d_24px,#d8e6ff_28px,#131c2d_32px,#03060d_42px)] opacity-[0.26]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_26%,rgba(5,8,22,0.45)_75%,rgba(5,8,22,0.75)_100%)]" />
 
-        <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm text-[#dbe7ff] backdrop-blur-md">
+        <div className="absolute left-5 top-5 z-20 rounded-full border border-white/10 bg-white/6 px-4 py-2 text-sm text-[#dbe7ff] backdrop-blur-md">
           {label}
         </div>
 
@@ -171,7 +171,7 @@ function ShowcaseCard({ image, withButton = false, label, liveLink, alt }) {
           >
             <div className="pointer-events-none absolute -inset-8 rounded-[34px] bg-[radial-gradient(circle_at_center,rgba(220,232,255,0.22),rgba(143,180,255,0.09),transparent_70%)] blur-3xl" />
 
-            <div className="relative rotate-[-2deg] rounded-[24px] border border-[#4f658f] bg-[#0b1224] p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_26px_80px_rgba(0,0,0,0.48)] md:rounded-[28px]">
+            <div className="relative -rotate-2 rounded-[24px] border border-[#4f658f] bg-[#0b1224] p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_26px_80px_rgba(0,0,0,0.48)] md:rounded-[28px]">
               <div className="relative overflow-hidden rounded-[18px] border border-[#22345b] bg-[#0b1224] md:rounded-[22px]">
                 <Image
                   src={image}
@@ -217,7 +217,7 @@ function ContentBlock({ title, paragraphs, eyebrow }) {
         <p className="mb-3 text-sm uppercase tracking-[0.28em] text-[#8fb4ff]">
           {eyebrow}
         </p>
-        <h2 className="text-[34px] font-medium leading-[1] tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
+        <h2 className="text-[34px] font-medium leading-none tracking-[-0.04em] text-[#f4f8ff] md:text-[52px]">
           {title}
         </h2>
       </div>
@@ -243,7 +243,7 @@ function ProjectDNA({ items }) {
         {items.map(([label, value]) => (
           <div
             key={label}
-            className="rounded-[24px] border border-white/[0.06] bg-white/[0.035] p-5"
+            className="rounded-[24px] border border-white/6 bg-white/[0.035] p-5"
           >
             <p className="text-sm text-[#7f90b1]">{label}</p>
             <h4 className="mt-2 text-xl font-medium text-[#f4f8ff]">
