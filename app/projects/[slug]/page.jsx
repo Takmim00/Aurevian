@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
       images: [project.image1],
     },
     alternates: {
-      canonical: `https://aurevian.com/projects/${project.id}`,
+      canonical: `https://aurevian.agency/projects/${project.id}`,
     },
   };
 }
@@ -53,7 +53,7 @@ export default async function ProjectDetailsPage({ params }) {
             name: project.title,
             description: project.tagline,
             image: project.image1,
-            url: `https://aurevian.com/projects/${project.id}`,
+            url: `https://aurevian.agency/projects/${project.id}`,
             keywords: project.tags?.join(", "),
             datePublished: project.year,
           }),
