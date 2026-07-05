@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const navItems = ["HOME", "SERVICES", "ABOUT", "PROCESS", "CONTACT"];
 
@@ -41,9 +42,18 @@ function RollingText({ text, active, darkMode }) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [active, setActive] = useState("HOME");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "").toUpperCase();
+    if (hash && navItems.includes(hash)) {
+      setActive(hash);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,18 +66,27 @@ export default function Navbar() {
   }, []);
 
   const handleNavClick = (item) => {
-    if (item === active) return;
-
     setActive(item);
+    setMenuOpen(false);
+
+    if (item === "HOME") {
+      if (!isHome) {
+        window.location.href = "/";
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      return;
+    }
 
     const sectionId = item.toLowerCase();
-    const section = document.getElementById(sectionId);
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (isHome) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      window.location.href = "/#" + sectionId;
     }
   };
 
@@ -148,10 +167,7 @@ export default function Navbar() {
               return (
                 <li key={item}>
                   <button
-                    onClick={() => {
-                      handleNavClick(item);
-                      setMenuOpen(false);
-                    }}
+                    onClick={() => handleNavClick(item)}
                     className="group relative py-1"
                   >
                     <RollingText
@@ -174,10 +190,7 @@ export default function Navbar() {
           </ul>
 
           <button
-            onClick={() => {
-              handleNavClick("CONTACT");
-              setMenuOpen(false);
-            }}
+            onClick={() => handleNavClick("CONTACT")}
             className="mt-6 inline-flex items-center gap-3 rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-6 py-3.5 text-sm font-semibold text-[#08111f] shadow-[0_10px_30px_rgba(143,180,255,0.18)]"
           >
             <span>Let's Chat!</span>
