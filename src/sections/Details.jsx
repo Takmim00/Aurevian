@@ -85,6 +85,7 @@ export default function Details({ project }) {
         <ShowcaseCard
           image={project.image1}
           label="Main Experience"
+          alt={project.title}
         />
 
         <ContentBlock
@@ -131,6 +132,7 @@ export default function Details({ project }) {
           label={project.showcase2Label}
           withButton
           liveLink={project.liveLink}
+          alt={project.title}
         />
 
         <ContentBlock
@@ -143,7 +145,7 @@ export default function Details({ project }) {
   );
 }
 
-function ShowcaseCard({ image, withButton = false, label, liveLink }) {
+function ShowcaseCard({ image, withButton = false, label, liveLink, alt }) {
   return (
     <motion.div
       variants={fadeUp}
@@ -173,7 +175,7 @@ function ShowcaseCard({ image, withButton = false, label, liveLink }) {
               <div className="relative overflow-hidden rounded-[18px] border border-[#22345b] bg-[#0b1224] md:rounded-[22px]">
                 <Image
                   src={image}
-                  alt="Project showcase"
+                  alt={alt ? `${alt} showcase` : "Project showcase"}
                   width={800}
                   height={600}
                   className="w-full object-cover"

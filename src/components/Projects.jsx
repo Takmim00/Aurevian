@@ -37,7 +37,7 @@ export default function Projects() {
               style={{ top: `${100 + index * 28}px` }}
             >
               <Link
-                href={`/details/${project.id}`}
+                href={`/projects/${project.id}`}
                 className="grid gap-3 md:grid-cols-[1.1fr_0.95fr] lg:grid-cols-[1.1fr_0.95fr_0.95fr]"
                 data-cursor="View Now"
               >
