@@ -159,7 +159,7 @@ const projects = [
     image1:
       "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783235869/CleftInject01_dxic3q.png",
     image2:
-      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783235869/CleftInject02_y9jxpg.png",
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783240593/CleftInject04_skvzpk.png",
 
     badge: "Healthcare Platform",
 
@@ -199,7 +199,7 @@ const projects = [
     ],
 
     showcase2:
-      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783235869/CleftInject02_y9jxpg.png",
+      "https://res.cloudinary.com/dfwuvcawd/image/upload/v1783240593/CleftInject04_skvzpk.png",
 
     showcase2Label: "Patient Appointment Experience",
 
