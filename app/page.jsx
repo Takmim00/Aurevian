@@ -2,11 +2,11 @@ import Home from "../src/sections/Home";
 import ClientShell from "./ClientShell";
 
 export const metadata = {
-  title: "Aurevian — Intelligent Product Engineering",
+  title: "Aurevian",
   description:
     "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
   openGraph: {
-    title: "Aurevian — Intelligent Product Engineering",
+    title: "Aurevian",
     description:
       "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
     url: "https://aurevian.agency",

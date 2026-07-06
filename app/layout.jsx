@@ -5,7 +5,7 @@ const SITE_URL = "https://aurevian.agency";
 
 export const metadata = {
   title: {
-    default: "Aurevian — Intelligent Product Engineering",
+    default: "Aurevian",
     template: "%s — Aurevian",
   },
   description:
@@ -22,7 +22,7 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Aurevian",
-    title: "Aurevian — Intelligent Product Engineering",
+    title: "Aurevian",
     description:
       "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
     url: SITE_URL,
@@ -30,7 +30,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aurevian — Intelligent Product Engineering",
+    title: "Aurevian",
     description:
       "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
     images: ["/og-image.jpg"],
