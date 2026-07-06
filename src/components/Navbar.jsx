@@ -3,7 +3,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const navItems = ["HOME", "SERVICES", "ABOUT", "PROCESS", "CONTACT"];
+const navItems = ["HOME", "SERVICES", "ABOUT", "PROJECTS", "PROCESS", "CONTACT"];
 
 function RollingText({ text, active, darkMode }) {
   const [play, setPlay] = useState(false);
@@ -110,7 +110,7 @@ export default function Navbar() {
               : "border-[#29406f]/80 bg-[#0b1224]/52 backdrop-blur-md"
           }`}
         >
-          <ul className="flex items-center gap-12 xl:gap-16">
+          <ul className="flex items-center gap-8 xl:gap-12">
             {navItems.map((item) => {
               const isActive = active === item;
 

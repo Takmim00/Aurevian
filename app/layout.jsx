@@ -63,7 +63,9 @@ export default function RootLayout({ children }) {
               description:
                 "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
               sameAs: [
-                // Social links add korte paro ekhane
+                "https://www.facebook.com/aurevian.agency",
+                "https://www.instagram.com/aurevian_00/",
+                "https://www.linkedin.com/company/aurevian-agency",
               ],
             }),
           }}
