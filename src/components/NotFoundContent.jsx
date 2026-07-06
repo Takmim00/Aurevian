@@ -215,20 +215,20 @@ export default function NotFoundContent() {
         >
           <motion.span
             animate={{ opacity: [1, 0.2, 0.8, 0.3, 1] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "stepEnd", delay: 2 }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 2 }}
           >
             ERROR 404
           </motion.span>
           <motion.span
             animate={{ opacity: [1, 0.1, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "stepEnd", delay: 0.5 }}
+            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 0.5 }}
             className="mx-2"
           >
             —
           </motion.span>
           <motion.span
             animate={{ opacity: [1, 0.3, 0.7, 0.1, 1] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "stepEnd", delay: 3 }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear", delay: 3 }}
           >
             SIGNAL NOT FOUND
           </motion.span>
