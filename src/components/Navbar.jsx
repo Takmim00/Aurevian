@@ -93,7 +93,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 z-50 w-full transition-transform duration-[600ms] ease-[cubic-bezier(0.33,1,0.68,1)] ${
+    <header className={`fixed top-0 z-50 w-full transition-transform duration-600ms ease-[cubic-bezier(0.33,1,0.68,1)] ${
           hidden ? "-translate-y-full" : "translate-y-0"
         }`}>
       <div className="mx-auto flex max-w-455 items-center justify-between px-4 py-5 md:px-8 lg:px-10 xl:px-14">

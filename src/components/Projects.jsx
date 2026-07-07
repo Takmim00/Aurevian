@@ -93,6 +93,12 @@ export default function Projects() {
                       <h3 className="text-2xl font-medium text-[#f5f9ff] md:text-3xl">
                         {project.title}
                       </h3>
+
+                      {project.isClient && (
+                        <span className="ml-auto rounded-full border border-[#4B7273] bg-[#041420] px-3 py-1 text-[11px] uppercase tracking-wider text-[#7de2a6] shadow-[inset_0_1px_0_rgba(207,214,214,0.08)]">
+                          Client
+                        </span>
+                      )}
                     </div>
 
                     <div className="mb-6 h-px bg-linear-to-r from-transparent via-[#314a78] to-transparent" />
@@ -150,7 +156,7 @@ export default function Projects() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
-                  <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/[0.06] mix-blend-soft-light" />
+                  <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/6 mix-blend-soft-light" />
 
                   <motion.button
                     onClick={(e) => {
@@ -180,7 +186,7 @@ export default function Projects() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
-                  <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/[0.06] mix-blend-soft-light" />
+                  <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/6 mix-blend-soft-light" />
                 </motion.div>
               </Link>
             </StackingCardItem>

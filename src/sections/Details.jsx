@@ -36,9 +36,17 @@ export default function Details({ project }) {
           className="mb-10 grid gap-8 md:mb-16 md:grid-cols-[1.3fr_0.7fr] md:items-end"
         >
           <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm text-[#c9dbff] backdrop-blur-md">
-              <Sparkles size={15} />
-              {project.badge}
+            <div className="mb-5 flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4 px-4 py-2 text-sm text-[#c9dbff] backdrop-blur-md">
+                <Sparkles size={15} />
+                {project.badge}
+              </span>
+
+              {project.isClient && (
+                <span className="inline-flex items-center gap-2 rounded-full border border-[#5E817C] bg-[#041420] px-4 py-2 text-sm text-[#7de2a6] shadow-[inset_0_1px_0_rgba(207,214,214,0.08)]">
+                  Client Project
+                </span>
+              )}
             </div>
 
             <h1 className="max-w-300 text-[52px] font-light leading-[0.88] tracking-[-0.07em] text-[#f4f8ff] sm:text-[72px] md:text-[96px] lg:text-[124px] xl:text-[148px]">

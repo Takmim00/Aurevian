@@ -219,6 +219,7 @@ const projects = [
     year: "2024",
     title: "PureMotion",
     slug: "puremotion",
+    isClient: true,
     points: [
       "AI Video Generation",
       "Image Animation",
@@ -286,10 +287,11 @@ const projects = [
     ],
   },
   {
-  id: "safe-drive",
+    id: "safe-drive",
   year: "2024",
   title: "SafeDrive AI",
   slug: "safe-drive",
+  isClient: false,
 
   points: [
     "AI Driver Monitoring",
@@ -364,6 +366,7 @@ const projects = [
     year: "2026",
     title: "CleftInject",
     slug: "cleftinject",
+    isClient: true,
     points: [
       "Healthcare Platform",
       "Appointment Booking",
