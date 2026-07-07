@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaLinkedin } from "@/lib/social-icons";
 
 const serviceItems = [
   "AI Product Engineering",
-  "Web Platforms",
+  "Website & Mobile Apps",
   "Automation Systems",
   "Brand Experience",
 ];
@@ -61,7 +61,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-5 bg-[#050816]/42" />
 
       {/* Content */}
-      <section className="relative z-10 overflow-hidden px-4 py-16 pb-16 pt-1 text-white md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
+      <section className="relative z-10 overflow-hidden px-4 py-10 pb-10 pt-1 text-white md:py-16 md:px-8 md:pb-24 lg:px-10 lg:pt-10 xl:px-12 2xl:px-14">
         <div className="relative mx-auto flex max-w-400 flex-col justify-between">
           {/* Heading */}
           <div className=" md:pt-10 lg:pt-8">

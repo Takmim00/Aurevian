@@ -175,10 +175,10 @@ export default function Process() {
     <section
       id="process"
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#050816] px-6 py-20 text-white md:px-10 lg:px-12"
+      className="relative overflow-hidden bg-[#050816] px-6 py-10 md:py-20 text-white md:px-10 lg:px-12"
     >
       <div className="relative mx-auto container">
-        <div className="mb-24 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+        <div className="mb-10 md:mb-24 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div>
             <div className="mb-6 inline-flex items-center rounded-full border border-[#22345b] bg-[#0b1224] px-4 py-2 text-xl text-[#dbe7ff] shadow-[inset_1px_1px_2px_rgba(133,165,255,0.16),0_0_0_1px_rgba(70,110,210,0.08)] backdrop-blur-sm">
               <span className="mr-2 text-[#8fb4ff]">≈</span>

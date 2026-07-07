@@ -51,7 +51,7 @@ const orbitNodes = [
 
 export default function AIFeatures() {
   return (
-    <section className="relative overflow-hidden bg-[#050816] py-24 md:py-32 px-4 md:px-8 lg:px-10 xl:px-14">
+    <section className="relative overflow-hidden bg-[#050816] py-10 md:py-32 px-4 md:px-8 lg:px-10 xl:px-14">
 
       {/* background glows */}
       <div className="pointer-events-none absolute inset-0">
@@ -62,7 +62,62 @@ export default function AIFeatures() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-400">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.02fr_.98fr]">
+        {/* Mobile layout */}
+        <div className="lg:hidden">
+          <div className="mb-5 inline-flex items-center rounded-full border border-[#22345b] bg-[#0b1224] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.22em] text-[#8fb4ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(120,160,255,0.04)]">
+            AI Capabilities
+          </div>
+
+          <h2 className="max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.03em] text-white sm:text-5xl">
+            Not just software —
+            <br />
+            <span className="bg-[linear-gradient(90deg,#edf4ff_0%,#8fb4ff_42%,#6c96ff_100%)] bg-clip-text text-transparent">
+              intelligent systems.
+            </span>
+          </h2>
+
+          <p className="mt-6 max-w-2xl text-[16px] leading-8 text-[#9fb0d1] sm:text-[17px]">
+            We build AI-first platforms that think, adapt, and scale with your
+            business. From intelligent automation to advanced model deployment,
+            every layer is designed to feel seamless, powerful, and
+            future-ready.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {features.map((feature, index) => {
+              const Icon = feature.icon;
+
+              return (
+                <div
+                  key={feature.title}
+                  className="group relative overflow-hidden rounded-2xl border border-[#1b2848] bg-[linear-gradient(180deg,rgba(11,20,38,0.92)_0%,rgba(9,17,31,0.96)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_0_0_1px_rgba(120,160,255,0.02)] transition-all duration-500 hover:-translate-y-1.5 hover:border-[#2f4773] hover:shadow-[0_0_30px_rgba(108,150,255,0.10)]"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-linear-to-b from-[#8fb4ff]/10 to-transparent opacity-80" />
+                  <div className="pointer-events-none absolute -right-8 top-6 h-20 w-20 rounded-full bg-[#8fb4ff]/10 blur-2xl transition-all duration-500 group-hover:bg-[#8fb4ff]/20" />
+
+                  <div className="relative z-10 flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#213153] bg-[#0e1830] text-[#8fb4ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:border-[#36558a] group-hover:bg-[#13203d]">
+                      <Icon className="h-5 w-5" />
+                    </div>
+
+                    <div>
+                      <h3 className="mb-2 text-[17px] font-semibold text-[#f4f8ff]">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm leading-6 text-[#97a8ca]">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Desktop layout */}
+        <div className="hidden lg:grid lg:grid-cols-[1.02fr_.98fr] items-center gap-16">
           {/* left */}
           <div>
             <div className="mb-5 inline-flex items-center rounded-full border border-[#22345b] bg-[#0b1224] px-4 py-2 text-[12px] font-medium uppercase tracking-[0.22em] text-[#8fb4ff] shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(120,160,255,0.04)]">

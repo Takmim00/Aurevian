@@ -60,32 +60,34 @@ export default function Footer() {
               </motion.a>
             </div>
 
-            {Object.entries(links).map(([title, items], groupIndex) => (
-              <div key={title}>
-                <h3 className="mb-4 text-sm uppercase tracking-[0.24em] text-[#8ea4c9]">
-                  {title}
-                </h3>
-                <div className="space-y-3">
-                  {items.map((item, index) => (
-                    <motion.a
-                      key={item}
-                      href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{
-                        duration: 0.35,
-                        delay: groupIndex * 0.06 + index * 0.04,
-                      }}
-                      whileHover={{ x: 4 }}
-                      className="block text-[15px] text-[#b7c6e0] transition hover:text-[#f4f8ff]"
-                    >
-                      {item}
-                    </motion.a>
-                  ))}
+            <div className="grid grid-cols-2 gap-8 lg:col-span-2">
+              {Object.entries(links).map(([title, items], groupIndex) => (
+                <div key={title}>
+                  <h3 className="mb-4 text-sm uppercase tracking-[0.24em] text-[#8ea4c9]">
+                    {title}
+                  </h3>
+                  <div className="space-y-3">
+                    {items.map((item, index) => (
+                      <motion.a
+                        key={item}
+                        href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.35,
+                          delay: groupIndex * 0.06 + index * 0.04,
+                        }}
+                        whileHover={{ x: 4 }}
+                        className="block text-[15px] text-[#b7c6e0] transition hover:text-[#f4f8ff]"
+                      >
+                        {item}
+                      </motion.a>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
 
             <div>
               <h3 className="mb-4 text-sm uppercase tracking-[0.24em] text-[#8ea4c9]">

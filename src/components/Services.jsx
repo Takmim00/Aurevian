@@ -105,7 +105,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-[#050816] px-4 py-20 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14"
+      className="relative overflow-hidden bg-[#050816] px-4 py-10 text-white md:px-8 lg:px-10 xl:px-12 2xl:px-14"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[12%] top-[8%] h-64 w-64 rounded-full bg-[#8fb4ff]/8 blur-[120px]" />
@@ -113,13 +113,7 @@ export default function Services() {
       </div>
 
       <div className="relative mx-auto max-w-400">
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mb-14 text-center"
-        >
+        <div className="mb-14 text-center">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#1f2f57] bg-[#0b1224] px-5 py-2 text-sm uppercase tracking-[0.16em] text-[#8fb4ff]">
             <span className="opacity-80">⌘</span>
             <span>Our Services</span>
@@ -134,14 +128,20 @@ export default function Services() {
             From strategy and aesthetics to engineering and growth, we create
             digital systems that feel premium, intentional, and built to last.
           </p>
-        </motion.div>
+        </div>
+
+        <div className="grid gap-5 lg:hidden">
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
 
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
           transition={{ staggerChildren: 0.12 }}
-          className="grid gap-5 lg:grid-cols-12 lg:grid-rows-[200px_200px_200px]"
+          className="hidden gap-5 lg:grid lg:grid-cols-12 lg:grid-rows-[200px_200px_200px]"
         >
           <ServiceCard service={services[0]} className="order-1 lg:col-span-3 lg:col-start-1 lg:row-start-1" />
           <ServiceCard service={services[1]} glow="right-0 bottom-0" className="order-2 lg:col-span-3 lg:col-start-1 lg:row-start-2" />

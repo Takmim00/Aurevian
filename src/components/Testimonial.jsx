@@ -136,7 +136,7 @@ export default function Testimonial() {
 
       {/* Cards (mobile/tablet) */}
       <div className="relative z-20 mx-auto mt-10 grid max-w-7xl grid-cols-1 gap-6 px-4 sm:px-6 md:grid-cols-2 lg:hidden">
-        {testimonials.map((item) => (
+        {testimonials.slice(0, 2).map((item) => (
           <TestimonialCard key={item.id} {...item} />
         ))}
       </div>

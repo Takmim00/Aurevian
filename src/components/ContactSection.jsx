@@ -100,7 +100,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#050816] px-4 py-16 text-white md:px-8 lg:px-10 xl:px-14"
+      className="relative overflow-hidden bg-[#050816] px-4 py-10 md:py-16 text-white md:px-8 lg:px-10 xl:px-14"
     >
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute left-[18%] top-20 h-64 w-64 rounded-full bg-[#8fb4ff]/10 blur-[100px]" />
