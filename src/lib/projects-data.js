@@ -240,7 +240,7 @@ const projects = [
     tagline:
       "Transform static photos into emotionally engaging AI-generated videos with advanced safety, privacy, and intelligent animation.",
 
-    typeYear: "2024",
+    typeYear: "2025",
     typeProject: "AI SaaS Platform",
     typeService: "Full-Stack Development",
 
@@ -315,7 +315,7 @@ const projects = [
   tagline:
     "AI-powered driver monitoring platform that detects drowsiness in real-time, sends instant alerts, and provides fleet analytics for safer roads.",
 
-  typeYear: "2024",
+  typeYear: "2025",
   typeProject: "AI SaaS (MVP)",
   typeService: "Full-Stack Development",
 
