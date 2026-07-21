@@ -1,5 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { Analytics } from '@vercel/analytics/next';
 
 const SITE_URL = "https://aurevian.agency";
 
@@ -11,8 +11,13 @@ export const metadata = {
   description:
     "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
   keywords: [
-    "Aurevian", "product engineering", "web development", "UI/UX design",
-    "intelligent products", "software development", "modern design",
+    "Aurevian",
+    "product engineering",
+    "web development",
+    "UI/UX design",
+    "intelligent products",
+    "software development",
+    "modern design",
   ],
   authors: [{ name: "Aurevian" }],
   creator: "Aurevian",
@@ -47,10 +52,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark" data-scroll-behavior="smooth">
       <head>
-        <link rel="icon" type="image/svg+xml" href="/aurevian.webp" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link rel="preload" href="/heroBG.mp4" as="video" fetchpriority="high" />
+        <link
+          rel="preload"
+          href="/heroBG.mp4"
+          as="video"
+          fetchpriority="high"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -59,7 +69,7 @@ export default function RootLayout({ children }) {
               "@type": "Organization",
               name: "Aurevian",
               url: SITE_URL,
-              logo: `${SITE_URL}/aurevian.webp`,
+              logo: `${SITE_URL}/favicon.svg`,
               description:
                 "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
               sameAs: [
