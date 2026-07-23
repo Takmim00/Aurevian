@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-[#03060B] pt-28 lg:pt-32"
+      className="relative min-h-150 overflow-hidden bg-[#03060B] pt-28 lg:pt-32"
     >
       {/* Background Video */}
       <video
