@@ -4,11 +4,11 @@ import ClientShell from "./ClientShell";
 export const metadata = {
   title: "Aurevian",
   description:
-    "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+    "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
   openGraph: {
     title: "Aurevian",
     description:
-      "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+      "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
     url: "https://aurevian.agency",
   },
   alternates: {
@@ -28,7 +28,7 @@ export default function HomePage() {
             name: "Aurevian",
             url: "https://aurevian.agency",
             description:
-              "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+              "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
             potentialAction: {
               "@type": "SearchAction",
               target: {

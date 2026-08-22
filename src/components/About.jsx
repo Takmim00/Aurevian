@@ -4,32 +4,30 @@ import { useEffect, useRef, useState } from "react";
 
 const words = [
   "We",
-  "help",
-  "ambitious",
-  "brands",
-  "and",
-  "startups",
   "build",
+  "software",
+  "and",
+  "AI",
+  "solutions",
+  "for",
+  "startups",
+  "and",
+  "businesses.",
+  "Aurevian",
+  "combines",
+  "modern",
+  "engineering",
+  "and",
+  "AI",
+  "to",
+  "turn",
+  "ideas",
+  "into",
+  "practical,",
+  "scalable",
   "digital",
-  "products",
-  "that",
-  "stand",
-  "out",
-  "and",
-  "scale.",
-  "We",
-  "believe",
-  "in",
-  "working",
-  "smart,",
-  "building",
-  "fast,",
-  "and",
-  "designing",
-  "with",
-  "purpose.",
+  "products.",
 ];
-
 const fixedWhiteCount = 16;
 
 const stats = [
@@ -116,7 +114,7 @@ function RevealParagraph() {
   const animatedCount = words.length - fixedWhiteCount;
 
   return (
-    <div ref={containerRef} className="relative mx-auto max-w-150">
+    <div ref={containerRef} className="relative mx-auto max-w-200">
       <p
         aria-label={words.join(" ")}
         className="flex flex-wrap justify-center text-center text-[22px] font-medium leading-[1.45] tracking-[-0.02em] md:text-[24px] md:leading-[1.35] lg:text-[28px]"

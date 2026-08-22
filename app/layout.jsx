@@ -9,7 +9,7 @@ export const metadata = {
     template: "%s — Aurevian",
   },
   description:
-    "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+    "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
   keywords: [
     "Aurevian",
     "product engineering",
@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Aurevian",
     title: "Aurevian",
     description:
-      "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+      "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
     url: SITE_URL,
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
@@ -37,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Aurevian",
     description:
-      "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+      "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -71,7 +71,7 @@ export default function RootLayout({ children }) {
               url: SITE_URL,
               logo: `${SITE_URL}/favicon.svg`,
               description:
-                "Engineering intelligent products with modern design, smooth user experiences, and scalable development for the next era.",
+                "Aurevian builds software and AI solutions that solve real business problems, turning ideas into practical, scalable digital products.",
               sameAs: [
                 "https://www.facebook.com/aurevian.agency",
                 "https://www.instagram.com/aurevian_00/",
