@@ -34,7 +34,7 @@ const fixedWhiteCount = 16;
 
 const stats = [
   { label: "Projects Launched", value: 20, suffix: "+" },
-  { label: "Years Of Experience", value: 1, suffix: "+" },
+  { label: "Years Of Experience", value: 3, suffix: "+" },
   { label: "Happy Clients", value: 15, suffix: "+" },
 ];
 
@@ -69,6 +69,7 @@ function BackgroundWord() {
   return (
     <div
       ref={bgRef}
+      aria-hidden="true"
       className="pointer-events-none absolute left-1/2 top-[40%] -z-10 -translate-x-1/2 -translate-y-1/2"
     >
       <motion.h2
@@ -93,7 +94,9 @@ function RevealWord({ children, progress, range, alwaysWhite = false }) {
   return (
     <span className="relative mr-2 mt-1 inline-block">
       {!alwaysWhite && (
-        <span className="absolute left-0 top-0 text-[#7f92b6]">{children}</span>
+        <span className="absolute left-0 top-0 text-[#7f92b6]" aria-hidden="true">
+          {children}
+        </span>
       )}
       <motion.span style={{ color }} className="relative">
         {children}
@@ -114,7 +117,10 @@ function RevealParagraph() {
 
   return (
     <div ref={containerRef} className="relative mx-auto max-w-150">
-      <p className="flex flex-wrap justify-center text-center text-[22px] font-medium leading-[1.45] tracking-[-0.02em] md:text-[24px] md:leading-[1.35] lg:text-[28px]">
+      <p
+        aria-label={words.join(" ")}
+        className="flex flex-wrap justify-center text-center text-[22px] font-medium leading-[1.45] tracking-[-0.02em] md:text-[24px] md:leading-[1.35] lg:text-[28px]"
+      >
         {words.map((word, i) => {
           const alwaysWhite = i < fixedWhiteCount;
           const animatedIndex = i - fixedWhiteCount;
@@ -122,14 +128,16 @@ function RevealParagraph() {
           const end = (animatedIndex + 1) / animatedCount;
 
           return (
-            <RevealWord
-              key={`${word}-${i}`}
-              progress={scrollYProgress}
-              range={[Math.max(0, start), Math.max(0.001, end)]}
-              alwaysWhite={alwaysWhite}
-            >
-              {word}
-            </RevealWord>
+            <span key={`${word}-${i}`} className="inline-block">
+              <RevealWord
+                progress={scrollYProgress}
+                range={[Math.max(0, start), Math.max(0.001, end)]}
+                alwaysWhite={alwaysWhite}
+              >
+                {word}
+              </RevealWord>
+              {" "}
+            </span>
           );
         })}
       </p>
