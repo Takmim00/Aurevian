@@ -61,19 +61,14 @@ export default function Projects() {
                   <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(7,13,29,0.05)_0%,rgba(7,13,29,0.28)_100%)]" />
                   <div className="pointer-events-none absolute inset-0 bg-[#7ca8ff]/6 mix-blend-soft-light" />
 
-                  <motion.button
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      window.open(project.liveLink, "_blank", "noopener,noreferrer");
-                    }}
+                  <motion.span
                     whileHover={{ y: -2, scale: 1.03 }}
                     whileTap={{ scale: 0.97 }}
                     transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="absolute bottom-3 left-3 z-10 cursor-pointer rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-3.5 py-1.5 text-xs font-medium text-[#08111f] shadow-[0_12px_35px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:bg-white/18 sm:bottom-4 sm:left-4 sm:px-5 sm:py-2 sm:text-sm lg:hidden"
+                    className="pointer-events-none absolute bottom-3 left-3 z-10 inline-flex items-center rounded-full border border-[#89aef7]/20 bg-[linear-gradient(180deg,#e9f2ff_0%,#bfd4ff_100%)] px-3.5 py-1.5 text-xs font-medium text-[#08111f] shadow-[0_12px_35px_rgba(0,0,0,0.28)] backdrop-blur-md sm:bottom-4 sm:left-4 sm:px-5 sm:py-2 sm:text-sm lg:hidden"
                   >
                     View Now
-                  </motion.button>
+                  </motion.span>
                 </motion.div>
 
                 {/* Data: Mobile order-2 (Bottom), Desktop md:order-1 */}
